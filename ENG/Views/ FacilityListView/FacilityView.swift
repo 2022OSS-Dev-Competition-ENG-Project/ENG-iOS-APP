@@ -11,7 +11,8 @@ struct FacilityView: View {
     
     let buttonWidth = UIScreen.main.bounds.width - 80
     
-    @State private var loginState: Bool = false
+    @State private var loginState: Bool = true
+    @EnvironmentObject var facilityVM: FacilityListViewModel
     
     var body: some View {
         VStack {
@@ -30,6 +31,7 @@ struct FacilityView_Previews: PreviewProvider {
         NavigationView {
             FacilityView()
         }
+        .environmentObject(FacilityListViewModel())
     }
 }
 
@@ -40,10 +42,10 @@ extension FacilityView {
                 Image("Logo")
                 Text("아직 로그인 하지 않으셨네요!")
                     .fontWeight(.bold)
-                    .font(.custom("사이즈", size: 24))
+                    .font(.custom("Apple SD Gothic Neo Bold", size: 24))
                     .frame(width: buttonWidth)
                 Text("로그인을 하시면 서비스를 이용할 수 있습니다.")
-                    .font(.custom("사이즈", size: 15))
+                    .font(.custom("Apple SD Gothic Neo Bold", size: 15))
                     .fontWeight(.medium)
                     .foregroundColor(.theme.secondary)
                     .padding(.bottom)
@@ -57,6 +59,7 @@ extension FacilityView {
                         .frame(width: buttonWidth, height: 40)
                         .background(Color.theme.accent)
                         .cornerRadius(8)
+                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                         
                 }
             }
@@ -68,7 +71,13 @@ extension FacilityView {
     
     private var LoginView: some View {
         ZStack {
-            Text("로그인")
+            List {
+                // 모델을 가져와서 수정 필요
+                ForEach(facilityVM.allFacilityList) { item in
+                    FacilityRow(item: item)
+                }
+            }
+            .listStyle(.plain)
         }
         .navigationTitle("시설 리스트")
         .navigationBarTitleDisplayMode(.inline)
@@ -77,6 +86,8 @@ extension FacilityView {
             trailing:
                 NavigationLink("추가", destination: Text("추가 뷰"))
         )
+        
+        
     }
     
 }

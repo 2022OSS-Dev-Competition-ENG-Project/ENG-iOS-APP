@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct ENGApp: App {
+    
+    @StateObject private var facilityVM = FacilityListViewModel()
+    
     var body: some Scene {
         WindowGroup {
             
@@ -17,6 +20,7 @@ struct ENGApp: App {
                 NavigationView {
                     FacilityView()
                 }
+                .environmentObject(facilityVM)
                 .navigationViewStyle(StackNavigationViewStyle())
                 .tabItem {
                     Image(systemName: "building")
