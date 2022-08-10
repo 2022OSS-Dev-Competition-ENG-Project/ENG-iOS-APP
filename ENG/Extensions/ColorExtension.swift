@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 
 extension Color {
+    /// Assets에 추가한 색상 사용하기 편하도록 extenstion 구현
+    /// ```
+    /// Ex)
+    /// Text("Red Color")
+    ///     .foregroundColor(Color.theme.red)
+    /// ```
     static let theme = ColorTheme()
 }
 

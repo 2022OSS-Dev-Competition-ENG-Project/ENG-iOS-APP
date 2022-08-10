@@ -11,12 +11,16 @@ import SwiftUI
 struct ENGApp: App {
     var body: some Scene {
         WindowGroup {
+            
+            // main에서 TabView로 묶어서 표현
             TabView {
                 NavigationView {
                     FacilityView()
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
                 .tabItem {
                     Image(systemName: "building")
+                        .foregroundColor(Color.theme.sub)
                     Text("시설")
                 }
                 NavigationView {
@@ -24,6 +28,7 @@ struct ENGApp: App {
                 }
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
+                        .foregroundColor(Color.theme.sub)
                     Text("마이페이지")
                 }
             }
