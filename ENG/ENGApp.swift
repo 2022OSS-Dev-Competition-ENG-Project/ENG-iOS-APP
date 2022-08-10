@@ -11,7 +11,23 @@ import SwiftUI
 struct ENGApp: App {
     var body: some Scene {
         WindowGroup {
-           
+            TabView {
+                NavigationView {
+                    FacilityView()
+                }
+                .tabItem {
+                    Image(systemName: "building")
+                    Text("시설")
+                }
+                NavigationView {
+                    Text("마이페이지")
+                }
+                .tabItem {
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("마이페이지")
+                }
+            }
+            
         }
     }
 }
