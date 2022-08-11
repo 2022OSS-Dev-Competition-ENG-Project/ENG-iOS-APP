@@ -10,7 +10,7 @@ import SwiftUI
 struct FacilityRow: View {
     
     let item: Facilities.facility
-    @State private var isLiked: Bool = true
+    @State var isLiked: Bool
     
     var body: some View {
         HStack {
@@ -38,7 +38,7 @@ struct FacilityRow: View {
 
 struct FacilityRow_Previews: PreviewProvider {
     static var previews: some View {
-        FacilityRow(item: Facilities.facility(id: "1", facility_name: "메레용시티"))
+        FacilityRow(item: Facilities.facility(id: "1", facility_name: "메레용시티"), isLiked: true)
             .previewLayout(.sizeThatFits)
     }
 }

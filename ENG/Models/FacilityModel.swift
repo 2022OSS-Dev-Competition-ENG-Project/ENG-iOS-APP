@@ -15,12 +15,20 @@ struct Facilities: Codable {
     struct facility: Codable, Identifiable {
         let id: String
         let facility_name: String
-        let isLiked: Bool = false
+        let isLiked: Bool
         
         enum CodingKeys: String, CodingKey {
             case id = "facility_id"
             case facility_name
             case isLiked
         }
+        
+        init(id: String = UUID().uuidString, facility_name: String, isLiked: Bool = false) {
+            self.id = id
+            self.facility_name = facility_name
+            self.isLiked = isLiked
+        }
     }
+    
+
 }

@@ -12,6 +12,7 @@ struct FacilityView: View {
     let buttonWidth = UIScreen.main.bounds.width - 80
     
     @State private var loginState: Bool = true
+    @State private var presentationOnlyLiked: Bool = false
     @EnvironmentObject var facilityVM: FacilityListViewModel
     
     var body: some View {
@@ -71,13 +72,28 @@ extension FacilityView {
     
     private var LoginView: some View {
         ZStack {
-            List {
-                // 모델을 가져와서 수정 필요
-                ForEach(facilityVM.allFacilityList) { item in
-                    FacilityRow(item: item)
+            VStack {
+                // 필터 뷰
+                    FilterView
+                //
+                List {
+                    // 모델을 가져와서 수정 필요
+                    if !presentationOnlyLiked {
+                        ForEach(facilityVM.allFacilityList) { item in
+                            FacilityRow(item: item, isLiked: item.isLiked)
+                        }
+                        .onDelete(perform: facilityVM.deleteFacility)
+                    }
+                    else {
+                        ForEach(facilityVM.likedFacilty) { item in
+                            FacilityRow(item: item, isLiked: item.isLiked)
+                        }
+                        .onDelete(perform: facilityVM.deleteFacility)
+                    }
                 }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
+            
         }
         .navigationTitle("시설 리스트")
         .navigationBarTitleDisplayMode(.inline)
@@ -88,6 +104,23 @@ extension FacilityView {
         )
         
         
+    }
+    
+    private var FilterView: some View {
+        HStack {
+            Spacer()
+            Image(systemName: presentationOnlyLiked ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
+                .foregroundColor(.theme.red)
+
+            Text("즐겨찾기")
+                .fontWeight(.bold)
+                .padding(.trailing)
+                .font(.caption)
+                .foregroundColor(.theme.accent)
+        }
+        .onTapGesture {
+            presentationOnlyLiked = !presentationOnlyLiked
+        }
     }
     
 }
