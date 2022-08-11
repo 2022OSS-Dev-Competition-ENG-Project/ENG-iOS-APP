@@ -15,6 +15,8 @@
 		3DE4844728A37E7F00B6EE4A /* FacilityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */; };
 		3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */; };
 		3DE4844C28A3A41400B6EE4A /* FacilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */; };
+		3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844E28A4C6E800B6EE4A /* LoginView.swift */; };
+		3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityRow.swift; sourceTree = "<group>"; };
 		3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityModel.swift; sourceTree = "<group>"; };
 		3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityViewModel.swift; sourceTree = "<group>"; };
+		3DE4844E28A4C6E800B6EE4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,18 +110,19 @@
 		3DE4843C28A24BB500B6EE4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4843D28A24D0400B6EE4A /*  FacilityListView */,
+				3DE4844D28A4C6CC00B6EE4A /* MyPageViews */,
+				3DE4843D28A24D0400B6EE4A /*  FacilityListViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3DE4843D28A24D0400B6EE4A /*  FacilityListView */ = {
+		3DE4843D28A24D0400B6EE4A /*  FacilityListViews */ = {
 			isa = PBXGroup;
 			children = (
 				3DE4843E28A24D1000B6EE4A /* FacilityView.swift */,
 				3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */,
 			);
-			path = " FacilityListView";
+			path = " FacilityListViews";
 			sourceTree = "<group>";
 		};
 		3DE4844828A3974900B6EE4A /* Font */ = {
@@ -125,6 +130,15 @@
 			children = (
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		3DE4844D28A4C6CC00B6EE4A /* MyPageViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4844E28A4C6E800B6EE4A /* LoginView.swift */,
+				3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */,
+			);
+			path = MyPageViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +212,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE4844128A3544B00B6EE4A /* ColorExtension.swift in Sources */,
+				3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */,
+				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
 				3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */,
 				3DE4844728A37E7F00B6EE4A /* FacilityRow.swift in Sources */,
