@@ -45,7 +45,7 @@ extension LoginView {
                 TextField("아이디를 입력하세요.", text: $idTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
-                    .font(.custom("Apple SD Gothic Neo", size: 15))
+                    .font(.custom(Font.theme.mainFont, size: 15))
                 HStack {
                     Spacer()
 
@@ -64,7 +64,7 @@ extension LoginView {
                 SecureField("비밀번호를 입력하세요.", text: $pwdTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
-                    .font(.custom("Apple SD Gothic Neo", size: 15))
+                    .font(.custom(Font.theme.mainFont, size: 15))
                 HStack {
                     Spacer()
 
@@ -93,7 +93,7 @@ extension LoginView {
                 FindAccountView()
             }
             .foregroundColor(.theme.sub)
-            .font(.custom("Apple SD Gothic Neo Bold", size: 12))
+            .font(.custom(Font.theme.mainFontBold, size: 12))
             .frame(width: 288, alignment: .leading)
 
         }
@@ -107,7 +107,7 @@ extension LoginView {
                 .foregroundColor(.theme.sub)
             NavigationLink("", destination: SignUpView(), isActive: $isSignUpTabbed)
         }
-        .font(.custom("Apple SD Gothic Neo Bold", size: 12))
+        .font(.custom(Font.theme.mainFontBold, size: 12))
         .onTapGesture {
             isSignUpTabbed.toggle()
         }

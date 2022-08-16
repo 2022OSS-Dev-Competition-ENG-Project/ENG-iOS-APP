@@ -28,7 +28,7 @@ struct ENGApp: App {
                     Text("시설")
                 }
                 NavigationView {
-                    LoginView()
+                    MyPageView()
                 }
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")

@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct MyPageView: View {
+    
+    @State private var loginState: Bool = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if loginState {
+            SignedMyPageView()
+        } else {
+            LoginView()
+        }
     }
 }
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageView()
+        NavigationView {
+            MyPageView()
+        }
     }
 }

@@ -18,11 +18,11 @@ struct SignUpView: View {
         VStack {
             Image("Logo")
             Text("새로운 계정을 생성합니다.")
-                .font(.custom("Apple SD Gothic Neo Bold", size: 15))
+                .font(.custom(Font.theme.mainFontBold, size: 15))
                 .foregroundColor(.theme.accent)
                 .padding(.bottom, 33)
             Text("계정 정보 입력")
-                .font(.custom("Apple SD Gothic Neo Bold", size: 15))
+                .font(.custom(Font.theme.mainFontBold, size: 15))
                 .frame(width: 290, alignment: .leading)
                 .padding(.bottom, 12)
             
@@ -42,7 +42,7 @@ struct SignUpView: View {
                 .padding(.bottom, 23)
             
             Text("이메일 인증")
-                .font(.custom("Apple SD Gothic Neo Bold", size: 15))
+                .font(.custom(Font.theme.mainFontBold, size: 15))
                 .frame(width: 290, alignment: .leading)
                 .padding(.bottom, 12)
             
