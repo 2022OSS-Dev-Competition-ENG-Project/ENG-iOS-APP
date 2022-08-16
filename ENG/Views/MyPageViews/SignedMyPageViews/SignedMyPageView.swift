@@ -72,8 +72,8 @@ extension SignedMyPageView {
                 
                 Spacer()
                 
-                Button {
-                    
+                NavigationLink {
+                    ReportListView()
                 } label: {
                     Text("더보기")
                         .font(.custom(Font.theme.mainFont, size: 14))
@@ -106,8 +106,8 @@ extension SignedMyPageView {
                 
                 Spacer()
                 
-                Button {
-                    
+                NavigationLink {
+                    PostingListView()
                 } label: {
                     Text("더보기")
                         .font(.custom(Font.theme.mainFont, size: 14))
