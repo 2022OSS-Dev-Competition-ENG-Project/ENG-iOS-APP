@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State var idTextField: String = ""
     @State var pwdTextField: String = ""
+    @State var isSignUpTabbed: Bool = false
     
     var body: some View {
         VStack {
@@ -20,6 +21,7 @@ struct LoginView: View {
             Spacer()
             
             SignUpButtonView
+                .padding(.bottom, 15)
 
         }
         .navigationTitle("로그인")
@@ -32,6 +34,7 @@ struct LoginView_Previews: PreviewProvider {
         NavigationView {
             LoginView()
         }
+        
     }
 }
 
@@ -40,8 +43,8 @@ extension LoginView {
         VStack(spacing: 16) {
             ZStack {
                 TextField("아이디를 입력하세요.", text: $idTextField)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 288, height: 40, alignment: .center)
+                    .customTextField(padding: 13)
+                    .frame(width: 288, alignment: .center)
                     .font(.custom("Apple SD Gothic Neo", size: 15))
                 HStack {
                     Spacer()
@@ -59,8 +62,8 @@ extension LoginView {
             
             ZStack {
                 SecureField("비밀번호를 입력하세요.", text: $pwdTextField)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 288, height: 40, alignment: .center)
+                    .customTextField(padding: 13)
+                    .frame(width: 288, alignment: .center)
                     .font(.custom("Apple SD Gothic Neo", size: 15))
                 HStack {
                     Spacer()
@@ -85,15 +88,14 @@ extension LoginView {
                     .cornerRadius(8)
                     .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             }
-
-            Button {
-                // 아이디 찾기 페이지로 이동
-            } label: {
-                Text("계정 정보를 잊으셨나요?")
-                    .foregroundColor(.theme.sub)
-                    .font(.custom("Apple SD Gothic Neo Bold", size: 12))
-                    .frame(width: 288, alignment: .leading)
+            
+            NavigationLink("계정 정보를 잊으셨나요?") {
+                FindAccountView()
             }
+            .foregroundColor(.theme.sub)
+            .font(.custom("Apple SD Gothic Neo Bold", size: 12))
+            .frame(width: 288, alignment: .leading)
+
         }
         .frame(height: UIScreen.main.bounds.height * 0.7)
     }
@@ -103,10 +105,11 @@ extension LoginView {
                 .foregroundColor(.theme.secondary)
             Text("SignUp")
                 .foregroundColor(.theme.sub)
+            NavigationLink("", destination: SignUpView(), isActive: $isSignUpTabbed)
         }
         .font(.custom("Apple SD Gothic Neo Bold", size: 12))
         .onTapGesture {
-            // SignUp 페이지로 이동
+            isSignUpTabbed.toggle()
         }
     }
     
