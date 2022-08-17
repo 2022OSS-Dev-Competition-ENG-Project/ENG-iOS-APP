@@ -107,7 +107,7 @@ extension SignedMyPageView {
                 Spacer()
                 
                 NavigationLink {
-                    PostingListView()
+                    PostListView()
                 } label: {
                     Text("더보기")
                         .font(.custom(Font.theme.mainFont, size: 14))

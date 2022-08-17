@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostingListView: View {
+struct PostListView: View {
     var body: some View {
             List(0..<100) { row in
                 ReportListDetailRowView()
@@ -17,8 +17,8 @@ struct PostingListView: View {
     }
 }
 
-struct PostingListView_Previews: PreviewProvider {
+struct PostListView_Previews: PreviewProvider {
     static var previews: some View {
-        PostingListView()
+        PostListView()
     }
 }

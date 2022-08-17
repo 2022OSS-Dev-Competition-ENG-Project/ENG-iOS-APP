@@ -80,13 +80,21 @@ extension FacilityView {
                     // 모델을 가져와서 수정 필요
                     if !presentationOnlyLiked {
                         ForEach(facilityVM.allFacilityList) { item in
-                            FacilityRow(item: item, isLiked: item.isLiked)
+                            NavigationLink {
+                                FacilityDetailMainView(facilityName: item.facility_name)
+                            } label: {
+                                FacilityRow(item: item, isLiked: item.isLiked)
+                            }
                         }
                         .onDelete(perform: facilityVM.deleteFacility)
                     }
                     else {
                         ForEach(facilityVM.likedFacilty) { item in
-                            FacilityRow(item: item, isLiked: item.isLiked)
+                            NavigationLink {
+                                FacilityDetailMainView(facilityName: item.facility_name)
+                            } label: {
+                                FacilityRow(item: item, isLiked: item.isLiked)
+                            }
                         }
                         .onDelete(perform: facilityVM.deleteFacility)
                     }
