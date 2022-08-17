@@ -10,7 +10,9 @@ import SwiftUI
 struct SafetyListView: View {
     var body: some View {
         List(0..<100) { row in
-            ReportListDetailRowView()
+            NavigationLink(destination: PostDetailView()) {
+                ReportListDetailRowView()
+            }
         }
         .navigationTitle("안전소통게시판")
         .navigationBarTitleDisplayMode(.inline)

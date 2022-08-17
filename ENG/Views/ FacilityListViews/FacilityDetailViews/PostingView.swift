@@ -48,6 +48,7 @@ struct PostingView: View {
     }
     
     private func post() {
+        // 등록 기능 구현
         print("등록 완")
     }
 }

@@ -92,6 +92,7 @@ extension FacilityDetailMainView {
                 .padding(.horizontal, 16)
                 .padding(.top, 13)
                 
+                // 리스트 불러오기
                 RoundedRectangle(cornerRadius: 8)
                     .padding(.horizontal, 16)
             }
