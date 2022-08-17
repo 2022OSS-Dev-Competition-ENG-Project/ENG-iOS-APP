@@ -83,7 +83,7 @@ extension FacilityDetailMainView {
                     Spacer()
                     
                     NavigationLink {
-                        
+                        SafetyListView()
                     } label: {
                         Text("더보기>")
                             .font(.custom(Font.theme.mainFontBold, size: 13))
@@ -96,7 +96,8 @@ extension FacilityDetailMainView {
                     .padding(.horizontal, 16)
             }
         }
-        .frame(width: 360, height: .infinity, alignment: .center)
+        .frame(width: 360, alignment: .center)
+        .frame(minHeight: 0, maxHeight: .infinity)
         .padding(.bottom, 15)
     }
 }

@@ -34,6 +34,9 @@ struct TextfieldModifier: ViewModifier {
         content
             .padding(padding)
             .overlay(RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(color, lineWidth: lineWidth))
+                .stroke(color, lineWidth: lineWidth)
+            )
+
+            
     }
 }
