@@ -180,14 +180,22 @@
 		3DE4845928AB390300B6EE4A /* SignedMyPageViews */ = {
 			isa = PBXGroup;
 			children = (
+				3DE4846A28AB72E700B6EE4A /* Rows */,
 				3DE4845A28AB39AB00B6EE4A /* SignedMyPageView.swift */,
-				3DE4845C28AB407700B6EE4A /* ReportListRowView.swift */,
-				3DE4846228AB56B300B6EE4A /* PostingListRowView.swift */,
 				3DE4846428AB675100B6EE4A /* ReportListView.swift */,
-				3DE4846628AB681000B6EE4A /* ReportListDetailRowView.swift */,
 				3DE4846828AB6CD300B6EE4A /* PostingListView.swift */,
 			);
 			path = SignedMyPageViews;
+			sourceTree = "<group>";
+		};
+		3DE4846A28AB72E700B6EE4A /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4845C28AB407700B6EE4A /* ReportListRowView.swift */,
+				3DE4846628AB681000B6EE4A /* ReportListDetailRowView.swift */,
+				3DE4846228AB56B300B6EE4A /* PostingListRowView.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
