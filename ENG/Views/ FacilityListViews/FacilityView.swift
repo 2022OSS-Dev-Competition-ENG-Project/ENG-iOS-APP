@@ -11,7 +11,7 @@ struct FacilityView: View {
     
     let buttonWidth = UIScreen.main.bounds.width - 80
     
-    @State private var loginState: Bool = true
+    @State private var loginState: Bool = false
     @State private var presentationOnlyLiked: Bool = false
     @EnvironmentObject var facilityVM: FacilityListViewModel
     
@@ -43,10 +43,10 @@ extension FacilityView {
                 Image("Logo")
                 Text("아직 로그인 하지 않으셨네요!")
                     .fontWeight(.bold)
-                    .font(.custom("Apple SD Gothic Neo Bold", size: 24))
+                    .font(.custom(Font.theme.mainFontBold, size: 24))
                     .frame(width: buttonWidth)
                 Text("로그인을 하시면 서비스를 이용할 수 있습니다.")
-                    .font(.custom("Apple SD Gothic Neo Bold", size: 15))
+                    .font(.custom(Font.theme.mainFontBold, size: 15))
                     .fontWeight(.medium)
                     .foregroundColor(.theme.secondary)
                     .padding(.bottom)

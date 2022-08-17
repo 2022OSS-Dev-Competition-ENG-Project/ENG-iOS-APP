@@ -27,7 +27,7 @@ struct FacilityRow: View {
                 
         
             Text(item.facility_name)
-                .font(.custom("Apple SD Gothic Neo Bold", size: 24))
+                .font(.custom(Font.theme.mainFontBold, size: 24))
                 .fontWeight(.bold)
             Spacer()
         }
