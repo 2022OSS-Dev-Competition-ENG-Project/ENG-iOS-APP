@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
+		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
+		3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */; };
+		3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */; };
+		3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD428ADF5CA00B06C67 /* VC.swift */; };
 		3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4842B28A248AD00B6EE4A /* ENGApp.swift */; };
 		3DE4843028A248AE00B6EE4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE4842F28A248AE00B6EE4A /* Assets.xcassets */; };
 		3DE4843328A248AE00B6EE4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE4843228A248AE00B6EE4A /* Preview Assets.xcassets */; };
@@ -39,6 +43,11 @@
 /* Begin PBXFileReference section */
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
+		3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraCell.swift; sourceTree = "<group>"; };
+		3DAC2CD428ADF5CA00B06C67 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
+		3DAC2CD628ADF70F00B06C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3DE4842828A248AD00B6EE4A /* ENG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ENG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE4842B28A248AD00B6EE4A /* ENGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENGApp.swift; sourceTree = "<group>"; };
 		3DE4842F28A248AE00B6EE4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +87,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DAC2CD328ADF59000B06C67 /* QRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */,
+				3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */,
+				3DAC2CD428ADF5CA00B06C67 /* VC.swift */,
+			);
+			path = QRScanner;
+			sourceTree = "<group>";
+		};
+		3DAC2CD728ADF7B000B06C67 /* Posting */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4846E28AC9F1F00B6EE4A /* SafetyListView.swift */,
+				3DE4847028ACA00300B6EE4A /* PostingView.swift */,
+				3DE4847228ACC47800B6EE4A /* PostDetailView.swift */,
+				3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */,
+			);
+			path = Posting;
+			sourceTree = "<group>";
+		};
+		3DAC2CD828ADF7C200B06C67 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		3DE4841F28A248AD00B6EE4A = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +135,7 @@
 		3DE4842A28A248AD00B6EE4A /* ENG */ = {
 			isa = PBXGroup;
 			children = (
+				3DAC2CD628ADF70F00B06C67 /* Info.plist */,
 				3DE4842B28A248AD00B6EE4A /* ENGApp.swift */,
 				3DE4844828A3974900B6EE4A /* Font */,
 				3DE4843928A24B8F00B6EE4A /* Extensions */,
@@ -105,6 +144,7 @@
 				3DE4843B28A24BA700B6EE4A /* ViewModels */,
 				3DE4842F28A248AE00B6EE4A /* Assets.xcassets */,
 				3DE4843128A248AE00B6EE4A /* Preview Content */,
+				3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */,
 			);
 			path = ENG;
 			sourceTree = "<group>";
@@ -214,12 +254,10 @@
 		3DE4846B28AC862900B6EE4A /* FacilityDetailViews */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4846E28AC9F1F00B6EE4A /* SafetyListView.swift */,
+				3DAC2CD828ADF7C200B06C67 /* Report */,
+				3DAC2CD728ADF7B000B06C67 /* Posting */,
+				3DAC2CD328ADF59000B06C67 /* QRScanner */,
 				3DE4846C28AC864700B6EE4A /* FacilityDetailMainView.swift */,
-				3DE4847028ACA00300B6EE4A /* PostingView.swift */,
-				3DE4847228ACC47800B6EE4A /* PostDetailView.swift */,
-				3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */,
-				3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */,
 			);
 			path = FacilityDetailViews;
 			sourceTree = "<group>";
@@ -282,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */,
 				3DE4843328A248AE00B6EE4A /* Preview Assets.xcassets in Resources */,
 				3DE4843028A248AE00B6EE4A /* Assets.xcassets in Resources */,
 			);
@@ -304,6 +343,7 @@
 				3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PostingListRowView.swift in Sources */,
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
+				3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */,
 				3DE4847328ACC47800B6EE4A /* PostDetailView.swift in Sources */,
 				3DE4844728A37E7F00B6EE4A /* FacilityRow.swift in Sources */,
 				3DE4845828AB278C00B6EE4A /* ViewExtension.swift in Sources */,
@@ -313,6 +353,8 @@
 				3DE4847128ACA00300B6EE4A /* PostingView.swift in Sources */,
 				3DE4843F28A24D1000B6EE4A /* FacilityView.swift in Sources */,
 				3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */,
+				3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */,
+				3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */,
 				3DE4846D28AC864700B6EE4A /* FacilityDetailMainView.swift in Sources */,
 				3DE4845628A4D9A500B6EE4A /* FindAccountView.swift in Sources */,
 				3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */,
@@ -450,12 +492,15 @@
 				DEVELOPMENT_TEAM = G7X65ZSJ3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ENG/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR 스캔을 위해 카메라 접근을 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +510,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -480,12 +525,15 @@
 				DEVELOPMENT_TEAM = G7X65ZSJ3J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ENG/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR 스캔을 위해 카메라 접근을 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,7 +543,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

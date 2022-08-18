@@ -65,12 +65,19 @@ struct SignUpView: View {
             Spacer()
             
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
     }
     
     private func signUp() {
         print("회원가입 완료")
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

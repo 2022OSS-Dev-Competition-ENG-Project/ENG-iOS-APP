@@ -37,8 +37,15 @@ struct LoginView: View {
                 .padding(.bottom, 15)
 
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
         .navigationTitle("로그인")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
