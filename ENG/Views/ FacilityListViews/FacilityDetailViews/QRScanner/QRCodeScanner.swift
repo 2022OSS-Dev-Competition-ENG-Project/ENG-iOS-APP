@@ -8,32 +8,27 @@
 import SwiftUI
 
 struct QRCodeScanner: View {
-    
-    @State private var cardNumber: String = ""
-    
+
+    @State private var cardNumber: String = "/"
+    @State private var isCardNumberChange: Bool = false
+    private var qrComponents: [String] {
+        return cardNumber.components(separatedBy: "/")
+    }
     var body: some View {
         VStack {
-                   Spacer().frame(height: 70)
-                   
-                   // QR Scanner
-                   QRCameraCell(cardNumber: $cardNumber)
-                   
-                   Spacer()
-                   
-                   // Scan 한 값을 보여주는 Text
-                   Text(cardNumber)
-                       .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-                       .minimumScaleFactor(0.1)
-                       .frame(width: UIScreen.main.bounds.width - 48, height: 48, alignment: .leading)
-                       .border(Color.gray, width: 1)
-                       
-                   Spacer().frame(height: 70)
-               }
+                Spacer().frame(height: 70)
+                Text("시설 QR 스캐너")
+                    .font(.headline)
+                    .padding(.bottom, 30)
+                // QR Scanner
+                QRCameraCell(cardNumber: $cardNumber, isCardNumberChange: $isCardNumberChange)
+            }
+            .alert("스캔 완료", isPresented: $isCardNumberChange) {
+                Button("OK") { }
+                Button("취소") { cardNumber = "/" }
+            } message: {
+                Text("\(qrComponents[0]) (\(qrComponents[1]))가 맞나요?")
+            }
     }
 }
 
-//struct QRCodeScanner_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QRCodeScanner()
-//    }
-//}
