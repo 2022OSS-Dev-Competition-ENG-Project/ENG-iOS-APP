@@ -12,19 +12,22 @@ struct SignedMyPageView: View {
     @State private var email: String = "mmmfieife@naver.com"
     
     var body: some View {
-        VStack {
-            BasicInformation
-                .padding(.vertical, 38)
-            
-            ReportList
-                .padding(.bottom, 20)
-            
-            MyPostingList
-            
-            Spacer()
+        
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                BasicInformation
+                    .padding(.vertical, 38)
+                
+                ReportList
+                    .padding(.bottom, 20)
+                
+                MyPostingList
+                
+                Spacer()
+            }
+            .navigationTitle("마이페이지")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("마이페이지")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

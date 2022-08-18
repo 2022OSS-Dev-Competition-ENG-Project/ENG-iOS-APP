@@ -12,18 +12,20 @@ struct FacilityDetailMainView: View {
     var facilityName: String
     
     var body: some View {
-        VStack(spacing: 38) {
-            Notice
-                .padding(.top, 38)
-            
-            MainButtons
-            
-            SafetyCommunicationList
-            
-            Spacer()
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 38) {
+                Notice
+                    .padding(.top, 38)
+                
+                MainButtons
+                
+                SafetyCommunicationList
+                
+                Spacer()
+            }
+            .navigationTitle(facilityName)
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(facilityName)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -99,6 +101,25 @@ extension FacilityDetailMainView {
                 
                 // 리스트 불러오기
                 RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
+                    .padding(.horizontal, 16)
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(height: 30)
                     .padding(.horizontal, 16)
             }
         }
