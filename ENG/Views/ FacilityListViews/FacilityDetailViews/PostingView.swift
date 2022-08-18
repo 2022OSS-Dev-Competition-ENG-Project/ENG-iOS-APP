@@ -38,7 +38,7 @@ struct PostingView: View {
                     .frame(width: UIScreen.main.bounds.width - 32, alignment: .center)
                     .frame(minHeight: 0, maxHeight: .infinity, alignment: .center)
                     .customTextField(padding: 0)
-                    .opacity(contentTextFieldIsFocused ? 1 : 0.1)
+                    .opacity(contentTextFieldIsFocused || !postContentTextField.isEmpty ? 1 : 0.1)
                     .focused($contentTextFieldIsFocused)
             }
         }
