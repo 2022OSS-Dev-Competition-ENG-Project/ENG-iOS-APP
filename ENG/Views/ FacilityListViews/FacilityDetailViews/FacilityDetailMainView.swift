@@ -43,6 +43,7 @@ extension FacilityDetailMainView {
             .frame(width: 360, height: 120, alignment: .center)
             .background(Color.theme.green)
             .clipShape(RoundedRectangle(cornerRadius: 8))
+            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
     }
     
     private var MainButtons: some View {
@@ -51,20 +52,24 @@ extension FacilityDetailMainView {
                 
             } label: {
                 Text("위험 분석")
+                    .font(.custom(Font.theme.mainFontBold, size: 16))
                     .foregroundColor(.black)
                     .frame(width: 166, height: 120, alignment: .center)
                     .background(Color.theme.orange)
                     .cornerRadius(8)
+                    .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
             }
             
-            Button {
-                
+            NavigationLink {
+                ReportView()
             } label: {
                 Text("신고하기")
+                    .font(.custom(Font.theme.mainFontBold, size: 16))
                     .foregroundColor(.black)
                     .frame(width: 166, height: 120, alignment: .center)
                     .background(Color.theme.orange)
                     .cornerRadius(8)
+                    .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
             }
         }
     }
