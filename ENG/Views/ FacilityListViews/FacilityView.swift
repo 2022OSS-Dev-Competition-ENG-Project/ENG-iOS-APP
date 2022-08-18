@@ -108,7 +108,7 @@ extension FacilityView {
         .navigationBarItems(
             leading: EditButton(),
             trailing:
-                NavigationLink("추가", destination: Text("추가 뷰"))
+                NavigationLink("추가", destination: QRCodeScanner())
         )
         
         

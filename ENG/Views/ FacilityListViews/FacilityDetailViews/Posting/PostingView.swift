@@ -42,6 +42,9 @@ struct PostingView: View {
                     .focused($contentTextFieldIsFocused)
             }
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
         .navigationTitle("글쓰기")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button("등록", action: post))
@@ -50,6 +53,10 @@ struct PostingView: View {
     private func post() {
         // 등록 기능 구현
         print("등록 완")
+    }
+    // 백그라운드 터치 시 키보드 내림
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

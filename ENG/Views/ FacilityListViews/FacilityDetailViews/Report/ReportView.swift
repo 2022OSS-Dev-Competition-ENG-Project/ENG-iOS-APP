@@ -78,6 +78,9 @@ struct ReportView: View {
                     .focused($reportContentTextFieldFocused)
             }
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
         .navigationTitle("신고하기")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
@@ -86,6 +89,10 @@ struct ReportView: View {
             Text("등록")
                 .font(.custom(Font.theme.mainFontBold, size: 16))
         }))
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
