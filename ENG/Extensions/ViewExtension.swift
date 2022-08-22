@@ -36,6 +36,7 @@ struct TextfieldModifier: ViewModifier {
             .overlay(RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(color, lineWidth: lineWidth)
             )
+            .disableAutocorrection(true) // 자동 수정 방지 수정자
 
             
     }
