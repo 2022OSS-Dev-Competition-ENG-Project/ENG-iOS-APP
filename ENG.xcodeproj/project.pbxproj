@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B19428B34CA500EE9D00 /* FindIDView.swift */; };
+		3D22B19728B34CB200EE9D00 /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D22B19428B34CA500EE9D00 /* FindIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIDView.swift; sourceTree = "<group>"; };
+		3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				3DE4844E28A4C6E800B6EE4A /* LoginView.swift */,
 				3DE4845328A4D97E00B6EE4A /* SignUpView.swift */,
 				3DE4845528A4D9A500B6EE4A /* FindAccountView.swift */,
+				3D22B19428B34CA500EE9D00 /* FindIDView.swift */,
+				3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */,
 			);
 			path = AccountViews;
 			sourceTree = "<group>";
@@ -333,10 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D22B19728B34CB200EE9D00 /* FindPasswordView.swift in Sources */,
 				3DE4844128A3544B00B6EE4A /* ColorExtension.swift in Sources */,
 				3DE4846F28AC9F1F00B6EE4A /* SafetyListView.swift in Sources */,
 				3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */,
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
+				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
