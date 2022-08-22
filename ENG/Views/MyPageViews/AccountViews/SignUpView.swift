@@ -22,7 +22,7 @@ struct SignUpView: View {
     @State var birthTextField: String = ""
     
     // 인증 여부에 따른 UI 제어
-    @State var isAuthenticated: Bool = false
+    @State var isAuthenticated: Bool = true
     
     var body: some View {
         
@@ -160,16 +160,25 @@ extension SignUpView {
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
+                .onChange(of: nicknameTextField) { newValue in
+                    nicknameCheck()
+                }
             
             TextField("휴대폰 번호를 입력하세요.", text: $phonenumberTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
+
             
             TextField("생일을 입력하세요.", text: $phonenumberTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 48)
         }
+    }
+    
+    private func nicknameCheck() {
+        // 백그라운드로 작업해야함
+        print("닉네임 중복 체크")
     }
 }
