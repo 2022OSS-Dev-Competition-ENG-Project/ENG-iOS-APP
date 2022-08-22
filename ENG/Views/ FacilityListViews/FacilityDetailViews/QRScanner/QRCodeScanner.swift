@@ -9,8 +9,9 @@ import SwiftUI
 
 struct QRCodeScanner: View {
 
-    @State private var cardNumber: String = "/"
+    @State private var cardNumber: String = "//"
     @State private var isCardNumberChange: Bool = false
+    
     private var qrComponents: [String] {
         return cardNumber.components(separatedBy: "/")
     }
@@ -27,7 +28,7 @@ struct QRCodeScanner: View {
                 Button("OK") { }
                 Button("취소") { cardNumber = "/" }
             } message: {
-                Text("\(qrComponents[0]) (\(qrComponents[1]))가 맞나요?")
+                Text("\(qrComponents[1]) (\(qrComponents[2]))가 맞나요?")
             }
     }
 }
