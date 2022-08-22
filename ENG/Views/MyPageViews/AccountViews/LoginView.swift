@@ -42,6 +42,11 @@ struct LoginView: View {
         }
         .navigationTitle("로그인")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("입력 오류", isPresented: $isError) {
+            Button("OK") {isError = false}
+        } message: {
+            Text("아이디/비밀번호를 입력하세요.")
+        }
     }
     
     private func hideKeyboard() {
@@ -121,11 +126,7 @@ extension LoginView {
                     .cornerRadius(8)
                     .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             }
-            .alert("입력 오류", isPresented: $isError) {
-                Button("OK") {isError = false}
-            } message: {
-                Text("아이디/비밀번호를 입력하세요.")
-            }
+
             
             NavigationLink("계정 정보를 잊으셨나요?") {
                 FindAccountView()
