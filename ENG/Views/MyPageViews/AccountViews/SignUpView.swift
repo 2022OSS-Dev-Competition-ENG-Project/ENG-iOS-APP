@@ -9,6 +9,12 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    // NetworkManager
+    @StateObject var VM = SignUpViewModel.shared
+    
     // 계정 정보 TextField
     @State var eMailTextField: String = ""
     @State var passWordTextField: String = ""
@@ -19,13 +25,15 @@ struct SignUpView: View {
     @State var nameTextField: String = ""
     @State var nicknameTextField: String = ""
     @State var phonenumberTextField: String = ""
-    @State var birthTextField: String = ""
+    
+    // 비밀 번호 같은지 확인
+    @State var isDisablePassword: Bool = true
     
     // 인증 여부에 따른 UI 제어
-    @State var isAuthenticated: Bool = true
+    @State var isEMailSend: Bool = false
+    @State var isAuthenticated: Bool = false
     
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 HeaderView
@@ -48,38 +56,67 @@ struct SignUpView: View {
                 }
                 else {
                     Button {
-                        emailAuthenticate()
+                        if isEMailSend {
+                            emailAuthenticate()
+                        } else {
+                            emailSend()
+                        }
                     } label: {
-                        Text("이메일 인증")
+                        Text(isEMailSend ? "이메일 인증": "인증 코드 보내기")
                             .frame(width: 288, height: 40, alignment: .center)
-                            .background(Color.theme.accent)
+                            .background(isDisablePassword ? Color.theme.secondary: Color.theme.accent)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                     }
+                    .disabled(isDisablePassword)
                 }
-                
-                
-                
-
                 Spacer()
-                
             }
         }
         .onTapGesture {
             hideKeyboard()
         }
+        .alert("이메일 보내기 성공!", isPresented: $VM.isSuccess) {
+            Button("확인", action: { isEMailSend = true})
+        }
+        .alert("이메일 보내기 실패", isPresented: $VM.isDuplicate) {
+            Button("확인", action: { })
+        } message: {
+            Text("이미 존재하는 이메일입니다.")
+        }
+        .alert("이메일 보내기 실패", isPresented: $VM.isFail) {
+            Button("확인", action: { })
+        } message: {
+            Text("네트워크 상의 문제로 이메일 전송에 실패하였습니다.")
+        }
+        .alert("이메일 인증 성공!", isPresented: $VM.isAvailableAuthCode) {
+            Button("확인", action: { isAuthenticated = true })
+        }
+        .alert("이메일 인증 실패", isPresented: $VM.isDisableAuthCode) {
+            Button("확인", action: { })
+        }
+        .alert("회원가입 성공!", isPresented: $VM.isSuccessSignUp) {
+            Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
+        }
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
         
     }
+    
     private func signUp() {
-        print("회원가입 완료")
+        print("사인업")
+        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNum: phonenumberTextField)
+        VM.signUp(data: signUpModel)
     }
     
+    private func emailSend() {
+        print("인증 코드 전송")
+        VM.emailAuthenticateStart(email: eMailTextField)
+    }
     private func emailAuthenticate() {
-        print("이메일 인증 완료")
-        isAuthenticated = true
+        print("인증 코드 확인")
+        VM.emailAuthenticate(email: eMailTextField, code: eMailCodeTextField)
     }
     
     private func hideKeyboard() {
@@ -118,16 +155,25 @@ extension SignUpView {
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
+                .disabled(isEMailSend)
             
-            TextField("비밀번호를 입력하세요.", text: $passWordTextField)
+            SecureField("비밀번호를 입력하세요.", text: $passWordTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
+                .disabled(isAuthenticated)
+                .onChange(of: passWordTextField) { newValue in
+                    checkPW()
+                }
             
-            TextField("비밀번호를 다시 입력하세요.", text: $PWAgainTextField)
+            SecureField("비밀번호를 다시 입력하세요.", text: $PWAgainTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 23)
+                .disabled(isAuthenticated)
+                .onChange(of: PWAgainTextField) { newValue in
+                    checkPW()
+                }
             
             Text("이메일 인증")
                 .font(.custom(Font.theme.mainFontBold, size: 15))
@@ -144,6 +190,16 @@ extension SignUpView {
         }
     }
     
+    private func checkPW() {
+        print("passwordField == \(passWordTextField), PWAgain == \(PWAgainTextField)")
+        if passWordTextField == PWAgainTextField {
+            isDisablePassword = false
+        }
+        else {
+            isDisablePassword = true
+        }
+    }
+    
     private var UserInfoInputView: some View {
         VStack {
             Text("회원 정보 입력")
@@ -156,6 +212,10 @@ extension SignUpView {
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
             
+            Text(VM.isAvailableNickName ? "사용 가능한 닉네임입니다.": "사용 불가능한 닉네임입니다.")
+                .font(.caption)
+                .foregroundColor(VM.isAvailableNickName ? Color.theme.green : Color.theme.red)
+                .frame(width: 290, alignment: .trailing)
             TextField("닉네임을 입력하세요.", text: $nicknameTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
@@ -163,22 +223,16 @@ extension SignUpView {
                 .onChange(of: nicknameTextField) { newValue in
                     nicknameCheck()
                 }
-            
+
             TextField("휴대폰 번호를 입력하세요.", text: $phonenumberTextField)
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
-
-            
-            TextField("생일을 입력하세요.", text: $phonenumberTextField)
-                .customTextField(padding: 10)
-                .frame(width: 290, height: 40, alignment: .center)
-                .padding(.bottom, 48)
         }
     }
     
     private func nicknameCheck() {
-        // 백그라운드로 작업해야함
-        print("닉네임 중복 체크")
+        print("닉네임 체크 ㄱ")
+        VM.checkNickName(email: eMailTextField, nickName: nicknameTextField)
     }
 }
