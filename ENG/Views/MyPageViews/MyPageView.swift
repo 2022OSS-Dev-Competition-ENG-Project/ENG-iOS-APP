@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyPageView: View {
     
-    @State private var loginState: Bool = true
+    @State private var loginState: Bool = false
     
     var body: some View {
         if loginState {
