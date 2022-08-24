@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-let ip: String = "http://203.250.32.29:2201"
+let userIp: String = "http://203.250.32.29:2201"
 
 class SignUpViewModel: ObservableObject {
     
@@ -38,7 +38,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 이메일 인증 시작
     func emailAuthenticateStart(email: String) {
-        guard let url = URL(string: ip + "/api/user-service/register/check/email/" + email) else { return }
+        guard let url = URL(string: userIp + "/api/user-service/register/check/email/" + email) else { return }
 
         var statusCode: Int = 0
         URLSession.shared.dataTaskPublisher(for: url)
@@ -68,7 +68,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 이메일 인증 코드 검증
     func emailAuthenticate(email: String, code: String) {
-        guard let url = URL(string: ip + "/api/user-service/register/check/email/" + email + "/" + code) else { return }
+        guard let url = URL(string: userIp + "/api/user-service/register/check/email/" + email + "/" + code) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -91,7 +91,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 닉네임 중복 검사
     func checkNickName(email: String, nickName: String) {
-        guard let url = URL(string: ip + "/api/user-service/register/check/nickname/" + nickName + "/" + email) else { return }
+        guard let url = URL(string: userIp + "/api/user-service/register/check/nickname/" + nickName + "/" + email) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -146,7 +146,7 @@ class SignUpViewModel: ObservableObject {
     }
     
     func makePostRequest(api: String, data: Data = Data()) throws -> URLRequest {
-        guard let url = URL(string: ip + api) else {
+        guard let url = URL(string: userIp + api) else {
             throw URLError(.badURL)
         }
         

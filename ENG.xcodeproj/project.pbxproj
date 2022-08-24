@@ -11,6 +11,9 @@
 		3D22B19728B34CB200EE9D00 /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */; };
 		3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */; };
 		3D22B1C228B4E40800EE9D00 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */; };
+		3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */; };
+		3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */; };
+		3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -49,6 +52,9 @@
 		3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityModel.swift; sourceTree = "<group>"; };
+		3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityViewModel.swift; sourceTree = "<group>"; };
+		3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 			children = (
 				3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */,
 				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
+				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
+				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 			children = (
 				3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */,
 				3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */,
+				3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -353,11 +362,14 @@
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
+				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
+				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
 				3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PostingListRowView.swift in Sources */,
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
+				3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */,
 				3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */,
 				3DE4847328ACC47800B6EE4A /* PostDetailView.swift in Sources */,
 				3DE4844728A37E7F00B6EE4A /* FacilityRow.swift in Sources */,

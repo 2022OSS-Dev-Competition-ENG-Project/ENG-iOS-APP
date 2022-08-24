@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FacilityRow: View {
     
-    let item: Facilities.facility
+    let item: MyFacilityModel
     @State var isLiked: Bool
     
     var body: some View {
@@ -26,7 +26,7 @@ struct FacilityRow: View {
                 }
                 
         
-            Text(item.facility_name)
+            Text(item.facilityName)
                 .font(.custom(Font.theme.mainFontBold, size: 24))
                 .fontWeight(.bold)
             Spacer()
@@ -38,7 +38,7 @@ struct FacilityRow: View {
 
 struct FacilityRow_Previews: PreviewProvider {
     static var previews: some View {
-        FacilityRow(item: Facilities.facility(id: "1", facility_name: "메레용시티"), isLiked: true)
+        FacilityRow(item: MyFacilityModel(userUuid: "asdf", facilityAddress: "어디어디 하양", id: "facility num", facilityName: "대가대"), isLiked: true)
             .previewLayout(.sizeThatFits)
     }
 }

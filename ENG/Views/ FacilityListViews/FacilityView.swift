@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FacilityView: View {
     
+    @StateObject var VM = MyFaciltyViewModel()
+    
     let buttonWidth = UIScreen.main.bounds.width - 80
     
     @State private var loginState: Bool = false
@@ -18,7 +20,7 @@ struct FacilityView: View {
     var body: some View {
         VStack {
             if loginState {
-                LoginView
+                LoggedInView
             }
             else {
                 notLoginView
@@ -70,7 +72,7 @@ extension FacilityView {
         
     }
     
-    private var LoginView: some View {
+    private var LoggedInView: some View {
         ZStack {
             VStack {
                 // 필터 뷰
@@ -78,26 +80,15 @@ extension FacilityView {
                 //
                 List {
                     // 모델을 가져와서 수정 필요
-                    if !presentationOnlyLiked {
-                        ForEach(facilityVM.allFacilityList) { item in
-                            NavigationLink {
-                                FacilityDetailMainView(facilityName: item.facility_name)
-                            } label: {
-                                FacilityRow(item: item, isLiked: item.isLiked)
-                            }
+                    ForEach(VM.MyFacilities) { item in
+                        NavigationLink {
+                            FacilityDetailMainView(facilityName: item.facilityName)
+                        } label: {
+                            FacilityRow(item: item, isLiked: false)
                         }
-                        .onDelete(perform: facilityVM.deleteFacility)
+                        
                     }
-                    else {
-                        ForEach(facilityVM.likedFacilty) { item in
-                            NavigationLink {
-                                FacilityDetailMainView(facilityName: item.facility_name)
-                            } label: {
-                                FacilityRow(item: item, isLiked: item.isLiked)
-                            }
-                        }
-                        .onDelete(perform: facilityVM.deleteFacility)
-                    }
+                    .onDelete(perform: facilityVM.deleteFacility)
                 }
                 .listStyle(.plain)
             }
