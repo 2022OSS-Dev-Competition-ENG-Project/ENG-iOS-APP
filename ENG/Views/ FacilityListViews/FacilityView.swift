@@ -9,22 +9,28 @@ import SwiftUI
 
 struct FacilityView: View {
     
+    @Binding var tabSelection: Int
+    
     @StateObject var VM = MyFaciltyViewModel()
+    @StateObject var loginVM = LoginViewModel.shared
     
     let buttonWidth = UIScreen.main.bounds.width - 80
-    
-    @State private var loginState: Bool = false
+
     @State private var presentationOnlyLiked: Bool = false
-    @EnvironmentObject var facilityVM: FacilityListViewModel
     
     var body: some View {
         VStack {
-            if loginState {
+            if loginVM.isLoggedIn {
                 LoggedInView
             }
             else {
                 notLoginView
             }
+        }
+        .refreshable {
+            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+            VM.getFacilities(userUUID: UUID)
+                    
         }
     }
 }
@@ -32,9 +38,8 @@ struct FacilityView: View {
 struct FacilityView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FacilityView()
+            FacilityView(tabSelection: .constant(1))
         }
-        .environmentObject(FacilityListViewModel())
     }
 }
 
@@ -54,7 +59,7 @@ extension FacilityView {
                     .padding(.bottom)
                 Button {
                     // 로그인 뷰로 이동
-                    loginState = !loginState
+                    self.tabSelection = 1
                 } label: {
                     Text("로그인 하러가기")
                         .foregroundColor(.white)
@@ -88,7 +93,7 @@ extension FacilityView {
                         }
                         
                     }
-                    .onDelete(perform: facilityVM.deleteFacility)
+                    .onDelete(perform: VM.deleteFacility)
                 }
                 .listStyle(.plain)
             }

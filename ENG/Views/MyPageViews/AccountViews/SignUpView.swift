@@ -156,6 +156,7 @@ extension SignUpView {
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
                 .disabled(isEMailSend)
+                .keyboardType(.emailAddress)
             
             SecureField("비밀번호를 입력하세요.", text: $passWordTextField)
                 .customTextField(padding: 10)
@@ -228,6 +229,7 @@ extension SignUpView {
                 .customTextField(padding: 10)
                 .frame(width: 290, height: 40, alignment: .center)
                 .padding(.bottom, 12)
+                .keyboardType(.numberPad)
         }
     }
     

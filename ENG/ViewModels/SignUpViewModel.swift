@@ -8,9 +8,8 @@
 import Foundation
 import Combine
 
-let userIp: String = "http://203.250.32.29:2201"
-
 class SignUpViewModel: ObservableObject {
+    let NM = NetworkManager.shared
     
     var cancellables = Set<AnyCancellable>()
     
@@ -38,7 +37,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 이메일 인증 시작
     func emailAuthenticateStart(email: String) {
-        guard let url = URL(string: userIp + "/api/user-service/register/check/email/" + email) else { return }
+        guard let url = URL(string: NM.userIp + "/api/user-service/register/check/email/" + email) else { return }
 
         var statusCode: Int = 0
         URLSession.shared.dataTaskPublisher(for: url)
@@ -68,7 +67,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 이메일 인증 코드 검증
     func emailAuthenticate(email: String, code: String) {
-        guard let url = URL(string: userIp + "/api/user-service/register/check/email/" + email + "/" + code) else { return }
+        guard let url = URL(string: NM.userIp + "/api/user-service/register/check/email/" + email + "/" + code) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -91,7 +90,7 @@ class SignUpViewModel: ObservableObject {
     
     /// 닉네임 중복 검사
     func checkNickName(email: String, nickName: String) {
-        guard let url = URL(string: userIp + "/api/user-service/register/check/nickname/" + nickName + "/" + email) else { return }
+        guard let url = URL(string: NM.userIp + "/api/user-service/register/check/nickname/" + nickName + "/" + email) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -119,7 +118,7 @@ class SignUpViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try makePostRequest(api: "/api/user-service/signup", data: upLoadData)
+            request = try NM.makePostRequest(api: "/api/user-service/signup", data: upLoadData, ip: NM.userIp)
         } catch(let error) {
             print("error: \(error)")
             return
@@ -143,18 +142,5 @@ class SignUpViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-    }
-    
-    func makePostRequest(api: String, data: Data = Data()) throws -> URLRequest {
-        guard let url = URL(string: userIp + api) else {
-            throw URLError(.badURL)
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = data
-        
-        return urlRequest
     }
 }

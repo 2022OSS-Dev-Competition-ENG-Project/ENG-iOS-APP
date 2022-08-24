@@ -14,6 +14,8 @@
 		3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */; };
 		3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */; };
 		3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */; };
+		3D22B1CC28B5E18400EE9D00 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */; };
+		3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1CE28B5E1ED00EE9D00 /* NetworkResources.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -26,8 +28,6 @@
 		3DE4843F28A24D1000B6EE4A /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4843E28A24D1000B6EE4A /* FacilityView.swift */; };
 		3DE4844128A3544B00B6EE4A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844028A3544B00B6EE4A /* ColorExtension.swift */; };
 		3DE4844728A37E7F00B6EE4A /* FacilityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */; };
-		3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */; };
-		3DE4844C28A3A41400B6EE4A /* FacilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */; };
 		3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4844E28A4C6E800B6EE4A /* LoginView.swift */; };
 		3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */; };
 		3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4845328A4D97E00B6EE4A /* SignUpView.swift */; };
@@ -55,6 +55,8 @@
 		3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityModel.swift; sourceTree = "<group>"; };
 		3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityViewModel.swift; sourceTree = "<group>"; };
 		3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3D22B1CE28B5E1ED00EE9D00 /* NetworkResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResources.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		3DE4843E28A24D1000B6EE4A /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
 		3DE4844028A3544B00B6EE4A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityRow.swift; sourceTree = "<group>"; };
-		3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityModel.swift; sourceTree = "<group>"; };
-		3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityViewModel.swift; sourceTree = "<group>"; };
 		3DE4844E28A4C6E800B6EE4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		3DE4845328A4D97E00B6EE4A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -101,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D22B1CD28B5E1BB00EE9D00 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1CE28B5E1ED00EE9D00 /* NetworkResources.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		3DAC2CD328ADF59000B06C67 /* QRScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +159,7 @@
 			children = (
 				3DAC2CD628ADF70F00B06C67 /* Info.plist */,
 				3DE4842B28A248AD00B6EE4A /* ENGApp.swift */,
+				3D22B1CD28B5E1BB00EE9D00 /* Network */,
 				3DE4844828A3974900B6EE4A /* Font */,
 				3DE4843928A24B8F00B6EE4A /* Extensions */,
 				3DE4843B28A24BA700B6EE4A /* ViewModels */,
@@ -184,7 +193,6 @@
 		3DE4843A28A24B9B00B6EE4A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */,
 				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
 				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
 				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
@@ -195,9 +203,9 @@
 		3DE4843B28A24BA700B6EE4A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4844B28A3A41400B6EE4A /* FacilityViewModel.swift */,
 				3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */,
 				3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */,
+				3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -359,14 +367,15 @@
 				3DE4846F28AC9F1F00B6EE4A /* SafetyListView.swift in Sources */,
 				3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */,
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
+				3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */,
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
+				3D22B1CC28B5E18400EE9D00 /* LoginViewModel.swift in Sources */,
 				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
-				3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PostingListRowView.swift in Sources */,
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
 				3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */,
@@ -388,7 +397,6 @@
 				3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */,
 				3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */,
 				3DE4846728AB681000B6EE4A /* ReportListDetailRowView.swift in Sources */,
-				3DE4844C28A3A41400B6EE4A /* FacilityViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

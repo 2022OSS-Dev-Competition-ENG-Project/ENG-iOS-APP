@@ -20,6 +20,8 @@ struct LoginView: View {
         case pwdTextField
     }
     
+    @EnvironmentObject var loginVM: LoginViewModel
+    
     @State var idTextField: String = ""
     @State var pwdTextField: String = ""
     @State var isSignUpTabbed: Bool = false
@@ -47,6 +49,12 @@ struct LoginView: View {
         } message: {
             Text("아이디/비밀번호를 입력하세요.")
         }
+        .alert("로그인 실패", isPresented: $loginVM.isLoginFail) {
+            Button("확인") { }
+        } message: {
+            Text("아이디나 비밀번호가 일치하지 않습니다.")
+            Text("다시 한 번 확인해 주세요.")
+        }
     }
     
     private func hideKeyboard() {
@@ -59,7 +67,7 @@ struct LoginView_Previews: PreviewProvider {
         NavigationView {
             LoginView()
         }
-        
+        .environmentObject(LoginViewModel())
     }
 }
 
@@ -74,6 +82,7 @@ extension LoginView {
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
                     .font(.custom(Font.theme.mainFont, size: 15))
+                    .keyboardType(.emailAddress)
                 HStack {
                     Spacer()
 
@@ -155,6 +164,7 @@ extension LoginView {
     }
     
     private func Login() {
-        print("로그인 완")
+        print("로그인 시도")
+        loginVM.doLogin(data: LoginRequest(userEmail: idTextField, userPassword: pwdTextField))
     }
 }
