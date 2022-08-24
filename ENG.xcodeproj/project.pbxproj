@@ -11,6 +11,7 @@
 		3D22B19728B34CB200EE9D00 /* FindPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */; };
 		3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */; };
 		3D22B1C228B4E40800EE9D00 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */; };
+		3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -49,6 +50,7 @@
 		3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordView.swift; sourceTree = "<group>"; };
 		3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFacilityModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				3DE4844928A3A1D100B6EE4A /* FacilityModel.swift */,
 				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
+				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
+				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
 				3DE4844A28A3A1D100B6EE4A /* FacilityModel.swift in Sources */,
