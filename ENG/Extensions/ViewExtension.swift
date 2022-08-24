@@ -37,6 +37,7 @@ struct TextfieldModifier: ViewModifier {
                 .stroke(color, lineWidth: lineWidth)
             )
             .disableAutocorrection(true) // 자동 수정 방지 수정자
+            .textCase(.lowercase)
 
             
     }
