@@ -18,11 +18,14 @@ class MyFaciltyViewModel: ObservableObject {
     @Published var MyFacilities: [MyFacilityModel] = []
 
     init() {
-        getFacilities(userUUID: "343890ca-4bab-4424-9a8d-5f8f90533b77")
+        guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        print(userUUID)
+        getFacilities(userUUID: userUUID)
+        print(MyFacilities)
     }
     
     // get facilities
-    private func getFacilities(userUUID: String) {
+    func getFacilities(userUUID: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/" + userUUID + "/list") else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
@@ -37,7 +40,6 @@ class MyFaciltyViewModel: ObservableObject {
                 self?.MyFacilities = returnedValue
             }
             .store(in: &cancellables)
-        
     }
     
     func getFacilitiesHandleOutput(output: Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>.Output) throws -> Data {

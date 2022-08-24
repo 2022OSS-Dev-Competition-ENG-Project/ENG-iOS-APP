@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignedMyPageView: View {
     
+    @StateObject var loginVM = LoginViewModel.shared
     @State private var email: String = "mmmfieife@naver.com"
     
     var body: some View {
@@ -27,7 +28,16 @@ struct SignedMyPageView: View {
             }
             .navigationTitle("마이페이지")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                trailing:
+                    Button("로그아웃", action: logOut)
+                        .foregroundColor(Color.theme.red)
+            )
         }
+    }
+    
+    private func logOut() {
+        loginVM.doLogOut()
     }
 }
 

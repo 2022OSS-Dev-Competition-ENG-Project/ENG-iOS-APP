@@ -9,13 +9,15 @@ import SwiftUI
 
 struct MyPageView: View {
     
-    @State private var loginState: Bool = false
+    @StateObject var LoginVM = LoginViewModel.shared
     
     var body: some View {
-        if loginState {
+        if LoginVM.isLoggedIn {
             SignedMyPageView()
+                .environmentObject(LoginVM)
         } else {
             LoginView()
+                .environmentObject(LoginVM)
         }
     }
 }

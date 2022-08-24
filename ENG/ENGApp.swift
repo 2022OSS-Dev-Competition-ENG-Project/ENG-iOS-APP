@@ -10,23 +10,22 @@ import SwiftUI
 @main
 struct ENGApp: App {
     
-    @StateObject private var facilityVM = FacilityListViewModel()
+    @State private var tabSelection: Int = 0
     
     var body: some Scene {
         WindowGroup {
-            
             // main에서 TabView로 묶어서 표현
-            TabView {
+            TabView(selection: $tabSelection) {
                 NavigationView {
-                    FacilityView()
+                    FacilityView(tabSelection: $tabSelection)
                 }
-                .environmentObject(facilityVM)
                 .navigationViewStyle(StackNavigationViewStyle())
                 .tabItem {
                     Image(systemName: "building")
                         .foregroundColor(Color.theme.sub)
                     Text("시설")
                 }
+                .tag(0)
                 NavigationView {
                     MyPageView()
                 }
@@ -35,6 +34,7 @@ struct ENGApp: App {
                         .foregroundColor(Color.theme.sub)
                     Text("마이페이지")
                 }
+                .tag(1)
             }
             
         }
