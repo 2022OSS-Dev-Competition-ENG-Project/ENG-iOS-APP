@@ -93,7 +93,9 @@ extension FacilityView {
                         }
                         
                     }
-                    .onDelete(perform: VM.deleteFacility)
+                    .onDelete { IndexSet in
+                        VM.deleteFacility(indexSet: IndexSet, userUUID: UserDefaults.standard.string(forKey: "loginToken") ?? "")
+                    }
                 }
                 .listStyle(.plain)
             }
