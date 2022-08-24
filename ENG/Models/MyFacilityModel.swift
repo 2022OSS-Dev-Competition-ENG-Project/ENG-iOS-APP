@@ -24,9 +24,14 @@ import Foundation
  ]
 */
 
-struct MyFacilityModel: Codable {
-    let userUuid: String
+struct MyFacilityModel: Codable, Identifiable {
+    let id: String
     let facilityAddress: String
     let userFacility: String
     let facilityName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "userUuid"
+        case facilityAddress, userFacility, facilityName
+    }
 }
