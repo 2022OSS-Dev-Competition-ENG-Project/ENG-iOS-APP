@@ -16,6 +16,7 @@
 		3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */; };
 		3D22B1CC28B5E18400EE9D00 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */; };
 		3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1CE28B5E1ED00EE9D00 /* NetworkResources.swift */; };
+		3D22B1D428B644B100EE9D00 /* FacilityResgistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -57,6 +58,7 @@
 		3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3D22B1CE28B5E1ED00EE9D00 /* NetworkResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResources.swift; sourceTree = "<group>"; };
+		3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityResgistrationModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
 				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
 				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
+				3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				3DE4846928AB6CD300B6EE4A /* PostListView.swift in Sources */,
 				3DE4845F28AB4B6400B6EE4A /* IntExtension.swift in Sources */,
 				3DE4847128ACA00300B6EE4A /* PostingView.swift in Sources */,
+				3D22B1D428B644B100EE9D00 /* FacilityResgistrationModel.swift in Sources */,
 				3DE4843F28A24D1000B6EE4A /* FacilityView.swift in Sources */,
 				3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */,
 				3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */,
