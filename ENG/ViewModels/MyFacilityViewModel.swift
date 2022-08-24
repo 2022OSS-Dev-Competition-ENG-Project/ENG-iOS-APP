@@ -53,9 +53,36 @@ class MyFaciltyViewModel: ObservableObject {
         return output.data
     }
     
-    func deleteFacility(indexSet: IndexSet) {
+    func deleteFacility(indexSet: IndexSet, userUUID: String) {
         print("지우기")
         print("--=---> \(indexSet)")
+        guard let indexToRemove = indexSet.first else { return }
+        let facilityIdToRemove = MyFacilities[indexToRemove].id
         MyFacilities.remove(atOffsets: indexSet)
+        
+        guard let url = URL(string: NM.facilityIp + "/api/facility/my/delete/" + userUUID + "/" + facilityIdToRemove) else { return }
+
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap({ (data, response) in
+                print(String(decoding: data, as: UTF8.self))
+                guard let httpResponse = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+                if httpResponse.statusCode == 200 {
+                    print("시설물 삭제 200ok")
+                } else {
+                    print("시설물 삭제 실패 \(httpResponse)")
+                }
+                print(String(decoding: data, as: UTF8.self))
+                
+                return data
+            })
+            .decode(type: [MyFacilityModel].self, decoder: JSONDecoder())
+            .sink { completion in
+                print(completion)
+            } receiveValue: { returnedValue in
+
+            }
+            .store(in: &cancellables)
     }
 }
