@@ -25,13 +25,13 @@ import Foundation
 */
 
 struct MyFacilityModel: Codable, Identifiable {
-    let id: String
+    let userUuid: String
     let facilityAddress: String
-    let userFacility: String
+    let id: String
     let facilityName: String
-    
+
     enum CodingKeys: String, CodingKey {
-        case id = "userUuid"
-        case facilityAddress, userFacility, facilityName
+        case id = "userFacility"
+        case facilityAddress, userUuid, facilityName
     }
 }
