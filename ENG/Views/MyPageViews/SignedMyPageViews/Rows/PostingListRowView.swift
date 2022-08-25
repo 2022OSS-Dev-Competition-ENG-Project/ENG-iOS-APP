@@ -15,6 +15,8 @@ struct PostingListRowView: View {
     var body: some View {
         HStack {
             Text(postingNumber.asListNumberString())
+                .frame(width: 50)
+                .padding(.trailing, 10)
             Text(postingTitle)
             
             Spacer()
