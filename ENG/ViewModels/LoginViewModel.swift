@@ -39,7 +39,7 @@ class LoginViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/user-service/login", data: upLoadData, ip: "http://192.168.0.53:2201")
+            request = try NM.makePostRequest(api: "/api/user-service/login", data: upLoadData, ip: NM.userIp)
         } catch(let error) {
             print("error: \(error)")
             return
