@@ -11,6 +11,7 @@ struct FacilityRow: View {
     
     let item: MyFacilityModel
     @State var isLiked: Bool
+    @EnvironmentObject var VM: MyFaciltyViewModel
     
     var body: some View {
         HStack {
@@ -22,6 +23,7 @@ struct FacilityRow: View {
                 .frame(width: 35, height: 32)
                 .onTapGesture {
                     // Model의 값 수정 필요
+                    VM.likeFaiclity(userUUID: UserDefaults.standard.string(forKey: "loginToken") ?? "", faclityUUID: item.id)
                     isLiked = !isLiked
                 }
                 
@@ -40,5 +42,6 @@ struct FacilityRow_Previews: PreviewProvider {
     static var previews: some View {
         FacilityRow(item: MyFacilityModel(userUuid: "asdf", facilityAddress: "어디어디 하양", id: "facility num", facilityName: "이정훈 시설물", isLiked: 0), isLiked: true)
             .previewLayout(.sizeThatFits)
+            .environmentObject(MyFaciltyViewModel())
     }
 }

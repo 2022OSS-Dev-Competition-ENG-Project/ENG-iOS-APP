@@ -31,7 +31,7 @@ struct MyFacilityModel: Codable, Identifiable {
     let facilityAddress: String
     let id: String
     let facilityName: String
-    let isLiked: Int
+    var isLiked: Int
     
     var isLikedBool: Bool {
         if self.isLiked == 0 {
