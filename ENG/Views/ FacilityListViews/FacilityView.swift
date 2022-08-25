@@ -87,7 +87,7 @@ extension FacilityView {
                     // 모델을 가져와서 수정 필요
                     ForEach(listModel) { item in
                         NavigationLink {
-                            FacilityDetailMainView(facilityName: item.facilityName)
+                            FacilityDetailMainView(facilityName: item.facilityName, facilityId: item.id)
                         } label: {
                             FacilityRow(item: item, isLiked: item.isLikedBool)
                                 .environmentObject(VM)

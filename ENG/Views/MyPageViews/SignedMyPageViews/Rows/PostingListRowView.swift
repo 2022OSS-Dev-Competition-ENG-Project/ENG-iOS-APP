@@ -10,11 +10,12 @@ import SwiftUI
 struct PostingListRowView: View {
     
     var postingNumber = 1
+    var postingTitle: String = ""
     
     var body: some View {
         HStack {
             Text(postingNumber.asListNumberString())
-            Text("글 제목 1")
+            Text(postingTitle)
             
             Spacer()
         }
