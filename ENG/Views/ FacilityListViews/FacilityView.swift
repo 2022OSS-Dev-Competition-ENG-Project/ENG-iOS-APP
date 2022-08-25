@@ -90,6 +90,7 @@ extension FacilityView {
                             FacilityDetailMainView(facilityName: item.facilityName)
                         } label: {
                             FacilityRow(item: item, isLiked: item.isLikedBool)
+                                .environmentObject(VM)
                         }
                     }
                     .onDelete { IndexSet in

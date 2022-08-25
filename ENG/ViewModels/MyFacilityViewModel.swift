@@ -86,4 +86,36 @@ class MyFaciltyViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    // 시설물 좋아요
+    func likeFaiclity(userUUID: String, faclityUUID: String) {
+        guard let url = URL(string: NM.facilityIp + "/api/facility/like/" + userUUID + "/" + faclityUUID) else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .map() {
+                $0
+            }
+            .sink { completion in
+                print(completion)
+            } receiveValue: { returnedValue in
+                guard let response = returnedValue.response as? HTTPURLResponse else { return }
+                print(response.statusCode)
+                if response.statusCode == 200 {
+                    var seletedFacility = self.MyFacilities.first { item in
+                        return item.id == faclityUUID
+                    }!
+                    if seletedFacility.isLikedBool {
+                        seletedFacility.isLiked = 0
+                    } else {
+                        seletedFacility.isLiked = 1
+                    }
+                    
+                }
+                
+                
+            }
+            .store(in: &cancellables)
+    }
 }
