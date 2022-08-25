@@ -53,6 +53,7 @@ class MyFaciltyViewModel: ObservableObject {
         return output.data
     }
     
+    // 시설물 삭제
     func deleteFacility(indexSet: IndexSet, userUUID: String) {
         print("지우기")
         print("--=---> \(indexSet)")

@@ -10,7 +10,6 @@ import SwiftUI
 
 extension Int {
     
-    
     /// 정수를 4자리 String으로 변환
     /// ```
     /// Convert 1 -> "0001"
@@ -29,5 +28,7 @@ extension Int {
     func asListNumberString() -> String {
         return "#" + asNumber4String()
     }
+    
+    
 }
 

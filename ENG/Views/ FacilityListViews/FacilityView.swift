@@ -85,13 +85,12 @@ extension FacilityView {
                 //
                 List {
                     // 모델을 가져와서 수정 필요
-                    ForEach(VM.MyFacilities) { item in
+                    ForEach(listModel) { item in
                         NavigationLink {
                             FacilityDetailMainView(facilityName: item.facilityName)
                         } label: {
-                            FacilityRow(item: item, isLiked: false)
+                            FacilityRow(item: item, isLiked: item.isLikedBool)
                         }
-                        
                     }
                     .onDelete { IndexSet in
                         VM.deleteFacility(indexSet: IndexSet, userUUID: UserDefaults.standard.string(forKey: "loginToken") ?? "")
@@ -108,8 +107,17 @@ extension FacilityView {
             trailing:
                 NavigationLink("추가", destination: QRCodeScanner())
         )
-        
-        
+    }
+    
+    // 좋아요 필터링 기능
+    var listModel: [MyFacilityModel] {
+        if presentationOnlyLiked {
+            return VM.MyFacilities.filter { facility in
+                return facility.isLikedBool
+            }
+        } else {
+            return VM.MyFacilities
+        }
     }
     
     private var FilterView: some View {
