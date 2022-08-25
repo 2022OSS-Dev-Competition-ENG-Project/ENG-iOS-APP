@@ -9,12 +9,14 @@ import SwiftUI
 
 struct FindIDView: View {
     
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @StateObject var VM = FindIdViewModel()
+    
     @State var nameTextField: String = ""
     @State var phoneNumberTextField: String = ""
-    
-    @State var foundedId: String = ""
-    @State var isFoundId: Bool = false
-    @State var isCanNotFindId: Bool = false
+
     
     var body: some View {
         VStack {
@@ -27,13 +29,13 @@ struct FindIDView: View {
         }
         .navigationTitle("ID 찾기")
         .navigationBarTitleDisplayMode(.inline)
-        .alert("아이디 찾기", isPresented: $isFoundId) {
-            Button("확인", action: { })
+        .alert("아이디 찾기", isPresented: $VM.isFoundId) {
+            Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         } message: {
-            Text("회원님의 아이디는 \(foundedId)입니다.")
+            Text("회원님의 아이디는 \(VM.userEmail)입니다.")
         }
-        .alert("아이디 찾기 실패", isPresented: $isCanNotFindId) {
-            Button("확인", action: { })
+        .alert("아이디 찾기 실패", isPresented: $VM.isCanNotFindId) {
+            Button("확인", action: {  })
         } message: {
             Text("아이디 찾기에 실패하였습니다. 다시 한 번 확인해주세요.")
         }
@@ -86,10 +88,11 @@ extension FindIDView {
             }
             
             ZStack {
-                SecureField("전화번호를 입력하세요. ('-' 제외)", text: $phoneNumberTextField)
+                TextField("전화번호를 입력하세요. ('-' 제외)", text: $phoneNumberTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
                     .font(.custom(Font.theme.mainFont, size: 15))
+                    .keyboardType(.numberPad)
                 HStack {
                     Spacer()
 
@@ -118,9 +121,8 @@ extension FindIDView {
     }
     
     private func findID() {
-        isFoundId = true
-        foundedId = "nefniei@icslab.com"
-        print("아이디 찾기 성공")
+        print("아이디 찾기 시도")
+        VM.doFindId(data: FindIdModel(userName: nameTextField, userPhoneNumber: phoneNumberTextField))
     }
     
 }
