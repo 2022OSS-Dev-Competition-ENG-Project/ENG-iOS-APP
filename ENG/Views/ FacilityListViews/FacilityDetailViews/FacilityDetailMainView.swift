@@ -10,6 +10,8 @@ import SwiftUI
 struct FacilityDetailMainView: View {
     
     var facilityName: String
+    var facilityId: String
+    @StateObject var VM = FacilityDetailMainViewModel()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -26,13 +28,20 @@ struct FacilityDetailMainView: View {
             .navigationTitle(facilityName)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear {
+            loadPosters(facilityId: facilityId)
+        }
+    }
+    
+    private func loadPosters(facilityId: String) {
+        VM.get5Posters(faciliityId: facilityId)
     }
 }
 
 struct FacilityDetailMainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FacilityDetailMainView(facilityName: "그래용 시티")
+            FacilityDetailMainView(facilityName: "그래용 시티", facilityId: "asdf")
         }
     }
 }
@@ -100,27 +109,10 @@ extension FacilityDetailMainView {
                 .padding(.top, 13)
                 
                 // 리스트 불러오기
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 30)
-                    .padding(.horizontal, 16)
+                ForEach(VM.posters) { item in
+                    PostingListRowView(postingNumber: item.id, postingTitle: item.facilityContentTitle)
+                        .padding(.horizontal, 16)
+                }
             }
         }
         .frame(width: 360, alignment: .center)
