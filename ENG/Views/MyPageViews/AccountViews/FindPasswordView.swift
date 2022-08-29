@@ -9,11 +9,13 @@ import SwiftUI
 
 struct FindPasswordView: View {
     
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @StateObject var VM = ResetPassWordViewModel()
+    
     @State var emailTextField: String = ""
     @State var nameTextField: String = ""
-    
-    @State var isAvaliable: Bool = false
-    @State var isError: Bool = false
     
     var body: some View {
         VStack {
@@ -23,12 +25,12 @@ struct FindPasswordView: View {
         }
         .navigationTitle("비밀번호 찾기")
         .navigationBarTitleDisplayMode(.inline)
-        .alert("비밀번호 초기화 성공", isPresented: $isAvaliable) {
-            Button("확인", action: { })
+        .alert("비밀번호 초기화 성공", isPresented: $VM.isAvaliable) {
+            Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         } message: {
             Text("입력하신 \(emailTextField)로 초기화된 비밀번호를 전송하였습니다.")
         }
-        .alert("입력 오류", isPresented: $isError) {
+        .alert("입력 오류", isPresented: $VM.isError) {
             Button("확인", action: { })
         } message: {
             Text("입력하신 정보가 없거나, 일치하지 않습니다.\n 다시 한 번 확인해주세요.")
@@ -78,7 +80,7 @@ extension FindPasswordView {
             }
             
             ZStack {
-                SecureField("이름을 입력하세요.", text: $nameTextField)
+                TextField("이름을 입력하세요.", text: $nameTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
                     .font(.custom(Font.theme.mainFont, size: 15))
@@ -110,8 +112,7 @@ extension FindPasswordView {
     }
     
     private func findPW() {
-        isAvaliable = true
-//        isError = true
+        VM.doResetPW(data: ResetPWRequestModel(userEmail: emailTextField, userName: nameTextField))
         print("비밀번호 찾기 완료")
     }
     

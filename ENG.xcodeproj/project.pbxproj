@@ -21,6 +21,8 @@
 		3D22B1D828B7378E00EE9D00 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */; };
 		3D22B1DA28B747D600EE9D00 /* FacilityPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */; };
 		3D22B1DC28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */; };
+		3D22B1DE28B89DBC00EE9D00 /* ResetPWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */; };
+		3D22B1E028B89E2600EE9D00 /* ResetPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -67,6 +69,8 @@
 		3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityPosterModel.swift; sourceTree = "<group>"; };
 		3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailMainViewModel.swift; sourceTree = "<group>"; };
+		3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWModel.swift; sourceTree = "<group>"; };
+		3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */,
 				3D22B1D528B7367500EE9D00 /* FindIdModel.swift */,
 				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
+				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */,
 				3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */,
 				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
+				3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 				3D22B19728B34CB200EE9D00 /* FindPasswordView.swift in Sources */,
 				3DE4844128A3544B00B6EE4A /* ColorExtension.swift in Sources */,
 				3DE4846F28AC9F1F00B6EE4A /* SafetyListView.swift in Sources */,
+				3D22B1E028B89E2600EE9D00 /* ResetPWViewModel.swift in Sources */,
 				3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */,
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
 				3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */,
@@ -393,6 +400,7 @@
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PostingListRowView.swift in Sources */,
+				3D22B1DE28B89DBC00EE9D00 /* ResetPWModel.swift in Sources */,
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
 				3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */,
 				3D22B1D628B7367500EE9D00 /* FindIdModel.swift in Sources */,
