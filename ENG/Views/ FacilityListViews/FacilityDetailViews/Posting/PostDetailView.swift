@@ -11,39 +11,47 @@ struct PostDetailView: View {
     var body: some View {
         ZStack {
             Color(hex: "EBEBEB")
-            VStack {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .padding(.horizontal, 16)
-                        .padding(.top, 28)
-                        .foregroundColor(Color.white)
-                        .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
-                    
-                    VStack(alignment: .leading) {
-                        ContentView
-                            .padding(.top, 28)
-                            .padding(.bottom, 51)
+
+            ScrollView {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 28)
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
+                    LazyVStack(alignment: .leading, pinnedViews: [.sectionFooters]) {
+                        Section(footer: CommentTextfieldView()) {
+                            VStack(alignment: .leading) {
+                                ContentView
+                                    .padding(.top, 28)
+                                    .padding(.bottom, 51)
+                                
+                                authorInfoView
+                                    .padding(.bottom, 25)
+                                
+                                Divider()
+                            }
+                            .padding(.horizontal, 28)
+
+                                CommentListView
+                                    .listStyle(.plain)
+                                    .padding(.horizontal, 28)
+                                
+                                Spacer()
+
+                        }
                         
-                        authorInfoView
-                            .padding(.bottom, 25)
-                        
-                        Divider()
-                        
-                        CommentListView
-                            .listStyle(.plain)
-                        
-                        Spacer()
                     }
-                    .padding(.horizontal, 44)
+                    .padding(.horizontal, 16)
                     .padding(.top, 28)
                 }
-
             }
         }
         .navigationTitle("글 제목")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
 
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
@@ -97,15 +105,10 @@ extension PostDetailView {
     
     private var CommentListView: some View {
         // 리스트 x
-        List {
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
-            CommentRowView()
+        VStack {
+            ForEach(0..<100) { num in
+                CommentRowView()
+            }
         }
     }
 }
