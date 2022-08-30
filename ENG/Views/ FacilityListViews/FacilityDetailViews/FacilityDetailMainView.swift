@@ -41,7 +41,7 @@ struct FacilityDetailMainView: View {
 struct FacilityDetailMainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FacilityDetailMainView(facilityName: "그래용 시티", facilityId: "asdf")
+            FacilityDetailMainView(facilityName: "그래용 시티", facilityId: "82d6e478-ef46-481e-abf4-a2425028030e")
         }
     }
 }
@@ -110,7 +110,7 @@ extension FacilityDetailMainView {
                 
                 // 리스트 불러오기
                 ForEach(VM.posters) { item in
-                    PostingListRowView(postingNumber: item.id, postingTitle: item.facilityContentTitle)
+                    PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
                         .padding(.horizontal, 16)
                 }
             }

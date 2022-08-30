@@ -71,6 +71,16 @@ import Foundation
 
 struct FacilityPosterModel: Codable, Identifiable {
     let id: Int
+    let contentTitle: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "contentNum"
+        case contentTitle
+    }
+}
+
+struct FacilityNoticeModel: Codable, Identifiable {
+    let id: Int
     let facilityContentTitle: String
     
     enum CodingKeys: String, CodingKey {

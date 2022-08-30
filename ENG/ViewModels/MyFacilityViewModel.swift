@@ -26,7 +26,7 @@ class MyFaciltyViewModel: ObservableObject {
     
     // get facilities
     func getFacilities(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/" + userUUID + "/list") else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/join/" + userUUID + "/us/list") else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -48,7 +48,7 @@ class MyFaciltyViewModel: ObservableObject {
             response.statusCode == 200 || response.statusCode == 409
         else { throw URLError(.badServerResponse) }
 
-        print("response.StatusCode == \(response.statusCode), data == \(output.data)")
+        print("response.StatusCode == \(response.statusCode), data == \(String(decoding: output.data, as: UTF8.self))")
         
         return output.data
     }
@@ -61,7 +61,7 @@ class MyFaciltyViewModel: ObservableObject {
         let facilityIdToRemove = MyFacilities[indexToRemove].id
         MyFacilities.remove(atOffsets: indexSet)
         
-        guard let url = URL(string: NM.facilityIp + "/api/facility/my/delete/" + userUUID + "/" + facilityIdToRemove) else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/my/delete/us/" + userUUID + "/" + facilityIdToRemove) else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))

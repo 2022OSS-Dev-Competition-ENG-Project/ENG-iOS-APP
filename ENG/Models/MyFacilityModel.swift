@@ -43,7 +43,7 @@ struct MyFacilityModel: Codable, Identifiable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id = "userFacility"
+        case id = "useFacility"
         case facilityAddress, userUuid, facilityName, isLiked
     }
 }
