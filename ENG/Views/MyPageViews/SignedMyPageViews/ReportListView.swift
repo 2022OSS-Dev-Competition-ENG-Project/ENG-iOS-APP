@@ -10,7 +10,7 @@ import SwiftUI
 struct ReportListView: View {
     var body: some View {
         List(0..<100) { row in
-            ReportListDetailRowView()
+            ReportListDetailRowView(contentTitle: "dd", contentText: "ff")
         }
         .navigationTitle("신고 내역")
         .navigationBarTitleDisplayMode(.inline)

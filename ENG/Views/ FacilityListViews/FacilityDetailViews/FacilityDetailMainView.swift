@@ -99,7 +99,7 @@ extension FacilityDetailMainView {
                     Spacer()
                     
                     NavigationLink {
-                        SafetyListView()
+                        SafetyListView(facilityId: facilityId)
                     } label: {
                         Text("더보기>")
                             .font(.custom(Font.theme.mainFontBold, size: 13))
