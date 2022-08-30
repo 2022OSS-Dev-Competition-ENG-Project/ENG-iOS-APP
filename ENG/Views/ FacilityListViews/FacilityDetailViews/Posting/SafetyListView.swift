@@ -15,7 +15,7 @@ struct SafetyListView: View {
     
     var body: some View {
         List(VM.posters) { row in
-            NavigationLink(destination: PostDetailView()) {
+            NavigationLink(destination: PostDetailView(contentNum: row.id)) {
                 ReportListDetailRowView(contentTitle: row.contentTitle, contentText: row.contentText)
             }
         }

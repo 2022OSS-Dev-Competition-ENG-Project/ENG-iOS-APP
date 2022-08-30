@@ -26,6 +26,8 @@
 		3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */; };
 		3D22B1E428BE3A2C00EE9D00 /* SaftyPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */; };
 		3D22B1E628BE3B0000EE9D00 /* SaftyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */; };
+		3D22B1E828BE4A7900EE9D00 /* ContentDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */; };
+		3D22B1EA28BE4C9C00EE9D00 /* ContentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -77,6 +79,8 @@
 		3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextfieldView.swift; sourceTree = "<group>"; };
 		3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaftyPosterModel.swift; sourceTree = "<group>"; };
 		3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaftyListViewModel.swift; sourceTree = "<group>"; };
+		3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailModel.swift; sourceTree = "<group>"; };
+		3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
 				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
 				3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */,
+				3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
 				3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */,
 				3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */,
+				3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,10 +406,12 @@
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
 				3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */,
 				3D22B1DC28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift in Sources */,
+				3D22B1EA28BE4C9C00EE9D00 /* ContentDetailViewModel.swift in Sources */,
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
 				3D22B1CC28B5E18400EE9D00 /* LoginViewModel.swift in Sources */,
+				3D22B1E828BE4A7900EE9D00 /* ContentDetailModel.swift in Sources */,
 				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,

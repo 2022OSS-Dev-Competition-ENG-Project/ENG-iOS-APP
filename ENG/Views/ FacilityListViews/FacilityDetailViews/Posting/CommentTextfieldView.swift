@@ -39,8 +39,7 @@ struct CommentTextfieldView: View {
 
 struct CommentTextfieldView_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailView()
-//        CommentTextfieldView()
-//            .previewLayout(.sizeThatFits)
+        CommentTextfieldView()
+            .previewLayout(.sizeThatFits)
     }
 }

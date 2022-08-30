@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct PostDetailView: View {
+    
+    let contentNum: Int
+    
+    @StateObject var VM = ContentDetailViewModel()
+    
     var body: some View {
         ZStack {
             Color(hex: "EBEBEB")
@@ -47,8 +52,12 @@ struct PostDetailView: View {
                 }
             }
         }
-        .navigationTitle("글 제목")
+        .navigationTitle(VM.content.contentTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+            VM.getContent(userUUID: UUID, contentId: self.contentNum)
+        }
     }
 }
 
@@ -56,14 +65,14 @@ struct PostDetailView: View {
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostDetailView()
+            PostDetailView(contentNum: 37)
         }
     }
 }
 
 extension PostDetailView {
     private var ContentView: some View {
-        Text("이런이런 일이 있는데 어떻게 생각하세요?")
+        Text(VM.content.contentText)
     }
     
     private var authorInfoView: some View {
@@ -74,9 +83,9 @@ extension PostDetailView {
                 .frame(width: 48, height: 48, alignment: .center)
             
             VStack(alignment: .leading) {
-                Text("작성자")
+                Text(VM.content.userNickName)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
-                Text("08/01 00:00")
+                Text(VM.content.contentDate)
                     .font(.custom(Font.theme.mainFont, size: 16))
                     .foregroundColor(.theme.secondary)
             }
