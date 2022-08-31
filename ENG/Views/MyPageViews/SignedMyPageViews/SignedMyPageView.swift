@@ -68,7 +68,7 @@ extension SignedMyPageView {
                 
                 HStack {
                     Text("가입일")
-                    Text(VM.userInfo.userJoinDate)
+                    Text(VM.userInfo.userJoinViewDate)
                 }
                 .font(.custom(Font.theme.mainFont, size: 16))
                 .foregroundColor(.theme.secondary)

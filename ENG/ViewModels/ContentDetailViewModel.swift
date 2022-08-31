@@ -14,6 +14,7 @@ class ContentDetailViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "")
+    @Published var comments: [CommentModel] = []
     
     func getContent(userUUID: String, contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + String(contentId)) else { return }
@@ -29,6 +30,60 @@ class ContentDetailViewModel: ObservableObject {
             } receiveValue: { [weak self] returnedValue in
                 print("-----> 리턴 벨류\(returnedValue)")
                 self?.content = returnedValue
+            }
+            .store(in: &cancellables)
+    }
+    
+    // get Comment
+    func getComment(contentId: Int) {
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/comment/" + String(contentId)) else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap(getFacilitiesHandleOutput)
+            .decode(type: [CommentModel].self, decoder: JSONDecoder())
+            .replaceError(with: [])
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] returnedValue in
+                print("-----> 댓글 값\(returnedValue)")
+                self?.comments = returnedValue
+            }
+            .store(in: &cancellables)
+    }
+    
+    // create Comment
+    func createComment(contentId: Int, data: CommentRegisterModel) {
+        guard let upLoadData = try? JSONEncoder().encode(data) else { return }
+        
+        let request: URLRequest
+        
+        do {
+            request = try NM.makePostRequest(api: "/api/facility/content/comment", data: upLoadData, ip: NM.facilityIp)
+        } catch(let error) {
+            print("error: \(error)")
+            return
+        }
+        
+        
+        URLSession.shared.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .map() {
+                $0
+            }
+            .sink { completion in
+                print(completion)
+            } receiveValue: {(data, response) in
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+                print("댓글 등록 statusCode == \(statusCode)")
+                if statusCode == 200 {
+                    print("댓글 등록 성공")
+                    self.getComment(contentId: contentId)
+                } else {
+                    print("댓글 등록 실패")
+                }
             }
             .store(in: &cancellables)
     }

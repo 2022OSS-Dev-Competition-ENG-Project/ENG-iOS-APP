@@ -12,6 +12,8 @@ struct PostDetailView: View {
     let contentNum: Int
     
     @StateObject var VM = ContentDetailViewModel()
+    @State var commentTextField: String = ""
+    @State var isSend: Bool = false
     
     var body: some View {
         ZStack {
@@ -25,7 +27,7 @@ struct PostDetailView: View {
                     .foregroundColor(Color.white)
                     .shadow(color: Color.black.opacity(0.25), radius: 8, x: 0, y: 4)
                     LazyVStack(alignment: .leading, pinnedViews: [.sectionFooters]) {
-                        Section(footer: CommentTextfieldView()) {
+                        Section(footer: CommentTextfieldView(commentTextField: $commentTextField, isSend: $isSend)) {
                             VStack(alignment: .leading) {
                                 ContentView
                                     .padding(.top, 28)
@@ -54,9 +56,15 @@ struct PostDetailView: View {
         }
         .navigationTitle(VM.content.contentTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: self.isSend, perform: { newValue in
+            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+            VM.createComment(contentId: self.contentNum, data: CommentRegisterModel(commentText: self.commentTextField, contentNum: String(self.contentNum), userUuid: UUID))
+            self.commentTextField = ""
+        })
         .onAppear {
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.getContent(userUUID: UUID, contentId: self.contentNum)
+            VM.getComment(contentId: self.contentNum)
         }
     }
 }
@@ -65,14 +73,21 @@ struct PostDetailView: View {
 struct PostDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostDetailView(contentNum: 37)
+            PostDetailView(contentNum: 57)
         }
     }
 }
 
 extension PostDetailView {
     private var ContentView: some View {
-        Text(VM.content.contentText)
+        VStack(alignment: .leading) {
+            Text(VM.content.contentTitle)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 10)
+            Text(VM.content.contentText)
+        }
+        
     }
     
     private var authorInfoView: some View {
@@ -113,10 +128,9 @@ extension PostDetailView {
     }
     
     private var CommentListView: some View {
-        // 리스트 x
         VStack {
-            ForEach(0..<100) { num in
-                CommentRowView()
+            ForEach(VM.comments) { comment in
+                CommentRowView(nickName: comment.userNickName, commentText: comment.commentText, commentDate: comment.commentViewDate, userUUID: comment.userUuid)
             }
         }
     }

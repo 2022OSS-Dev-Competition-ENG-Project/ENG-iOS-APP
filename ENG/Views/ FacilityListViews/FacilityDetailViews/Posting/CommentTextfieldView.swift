@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CommentTextfieldView: View {
-    @State var commentTextField = ""
+    @Binding var commentTextField: String
+    @Binding var isSend: Bool
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
@@ -23,7 +25,7 @@ struct CommentTextfieldView: View {
                     .textInputAutocapitalization(.never)
 
                 Button {
-                    print("hello")
+                    isSend = true
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .resizable()
@@ -39,7 +41,7 @@ struct CommentTextfieldView: View {
 
 struct CommentTextfieldView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentTextfieldView()
+        CommentTextfieldView(commentTextField: .constant(""), isSend: .constant(false))
             .previewLayout(.sizeThatFits)
     }
 }
