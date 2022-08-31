@@ -85,7 +85,7 @@ extension PostDetailView {
             VStack(alignment: .leading) {
                 Text(VM.content.userNickName)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
-                Text(VM.content.contentDate)
+                Text(VM.content.contentViewDate)
                     .font(.custom(Font.theme.mainFont, size: 16))
                     .foregroundColor(.theme.secondary)
             }

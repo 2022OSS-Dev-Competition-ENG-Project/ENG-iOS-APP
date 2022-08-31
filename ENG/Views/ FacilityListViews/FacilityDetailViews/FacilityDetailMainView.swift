@@ -110,8 +110,15 @@ extension FacilityDetailMainView {
                 
                 // 리스트 불러오기
                 ForEach(VM.posters) { item in
-                    PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
-                        .padding(.horizontal, 16)
+                    NavigationLink {
+                        PostDetailView(contentNum: item.id)
+                    } label: {
+                        PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
+                            .padding(.horizontal, 16)
+                            .foregroundColor(.black)
+                    }
+
+                    
                 }
             }
         }

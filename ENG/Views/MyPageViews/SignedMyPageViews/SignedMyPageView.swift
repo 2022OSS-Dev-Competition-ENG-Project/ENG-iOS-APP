@@ -10,7 +10,7 @@ import SwiftUI
 struct SignedMyPageView: View {
     
     @StateObject var loginVM = LoginViewModel.shared
-    @State private var email: String = "mmmfieife@naver.com"
+    @StateObject var VM = MyPageViewModel()
     
     var body: some View {
         
@@ -60,15 +60,15 @@ extension SignedMyPageView {
                 .overlay(Circle()
                     .stroke(Color.theme.secondary, lineWidth: 1))
             VStack(alignment: .leading) {
-                Text("닉네임")
+                Text(VM.userInfo.userNickname)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
-                Text(email)
+                Text(VM.userInfo.userEmail)
                     .font(.custom(Font.theme.mainFont, size: 16))
                     .foregroundColor(.theme.secondary)
                 
                 HStack {
                     Text("가입일")
-                    Text("20xx.00.00")
+                    Text(VM.userInfo.userJoinDate)
                 }
                 .font(.custom(Font.theme.mainFont, size: 16))
                 .foregroundColor(.theme.secondary)

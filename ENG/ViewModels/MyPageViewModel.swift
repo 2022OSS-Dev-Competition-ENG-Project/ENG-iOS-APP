@@ -1,34 +1,39 @@
 //
-//  ContentDetailViewModel.swift
+//  MyPageViewModel.swift
 //  ENG
 //
-//  Created by 정승균 on 2022/08/30.
+//  Created by 정승균 on 2022/08/31.
 //
 
 import Foundation
 import Combine
 
-class ContentDetailViewModel: ObservableObject {
-    
+class MyPageViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "")
+    @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "")
     
-    func getContent(userUUID: String, contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + String(contentId)) else { return }
+    init() {
+        guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        getUserInfo(userUUID: userUUID)
+    }
+    
+    // get UserInfo
+    func getUserInfo(userUUID: String) {
+        guard let url = URL(string: NM.userIp + "/api/user-service/myPage/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
-            .decode(type: ContentDetailModel.self, decoder: JSONDecoder())
-            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: ""))
+            .decode(type: MyPageUserInfoModel.self, decoder: JSONDecoder())
+            .replaceError(with: MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: ""))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
                 print("-----> 리턴 벨류\(returnedValue)")
-                self?.content = returnedValue
+                self?.userInfo = returnedValue
             }
             .store(in: &cancellables)
     }
@@ -43,5 +48,4 @@ class ContentDetailViewModel: ObservableObject {
         
         return output.data
     }
-    
 }
