@@ -65,6 +65,7 @@ struct PostDetailView: View {
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.getContent(userUUID: UUID, contentId: self.contentNum)
             VM.getComment(contentId: self.contentNum)
+            VM.getLike(contentId: self.contentNum)
         }
     }
 }
@@ -91,7 +92,7 @@ extension PostDetailView {
     }
     
     private var authorInfoView: some View {
-        HStack(spacing: 15) {
+        HStack(alignment: .center, spacing: 15) {
             Image(systemName: "person.fill")
                 .resizable()
                 .scaledToFit()
@@ -105,25 +106,31 @@ extension PostDetailView {
                     .foregroundColor(.theme.secondary)
             }
             
+            Spacer()
+            
             VStack(spacing: 0) {
-                Image(systemName: "hand.thumbsup.fill")
+                Image(systemName: "star.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25, alignment: .center)
                     .foregroundColor(.theme.red)
-                Text("24")
+                    .onTapGesture {
+                        guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+                        VM.likeContent(data: ContentLikeModel(userUuid: userUUID, contentNum: self.contentNum), contentNum: self.contentNum)
+                    }
+                Text(VM.likeCount)
                     .font(.custom(Font.theme.mainFontBold, size: 20))
             }
             
-            VStack(spacing: 0) {
-                Image(systemName: "hand.thumbsdown.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 25, height: 25, alignment: .center)
-                    .foregroundColor(Color(hex: "3282B8"))
-                Text("3")
-                    .font(.custom(Font.theme.mainFontBold, size: 20))
-            }
+//            VStack(spacing: 0) {
+//                Image(systemName: "hand.thumbsdown.fill")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 25, height: 25, alignment: .center)
+//                    .foregroundColor(Color(hex: "3282B8"))
+//                Text("3")
+//                    .font(.custom(Font.theme.mainFontBold, size: 20))
+//            }
         }
     }
     

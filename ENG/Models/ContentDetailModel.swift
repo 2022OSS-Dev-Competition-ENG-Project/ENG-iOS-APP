@@ -32,6 +32,19 @@ struct ContentDetailModel: Codable {
     }
 }
 
+// 게시물 좋아요 모델
+/*
+    {
+         "userUuid" : "0f797583-f9dd-4ec3-bb59-39d4cf862ed1",
+         "contentNum" : 37
+    }
+*/
+struct ContentLikeModel: Codable {
+    let userUuid: String
+    let contentNum: Int
+}
+
+
 // 댓글 모델
 /*
  [

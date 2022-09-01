@@ -16,7 +16,7 @@ class SaftyListViewModel: ObservableObject {
     @Published var posters: [SaftyPosterModel] = []
     
     func getPosters(faciliityId: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/" + faciliityId + "/content/0/main") else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + faciliityId + "/0/0/list") else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
