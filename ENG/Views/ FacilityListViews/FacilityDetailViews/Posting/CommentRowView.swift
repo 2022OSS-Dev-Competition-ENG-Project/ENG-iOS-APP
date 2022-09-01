@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CommentRowView: View {
+    @EnvironmentObject var VM: ContentDetailViewModel
+    
+    let commentNum: Int
     let nickName: String
     let commentText: String
     let commentDate: String
@@ -26,9 +30,9 @@ struct CommentRowView: View {
                 Spacer()
                 
                 Button {
-                    
+                    VM.deleteComment(commentNum: self.commentNum, userUUID: self.userUUID)
                 } label: {
-                    Text("수정")
+                    Text("삭제")
                         .font(.custom(Font.theme.mainFont, size: 16))
                         .opacity(userUUID == UserDefaults.standard.string(forKey: "loginToken")! ? 1 : 0)
                 }
@@ -39,11 +43,13 @@ struct CommentRowView: View {
         }
         .frame(minHeight: 50, maxHeight: 100)
     }
+    
 }
 
 struct CommentRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentRowView(nickName: "18최보현", commentText: "fasdfasfasfadsfasfasf", commentDate: "YYYY-MM-DDT10:24:30", userUUID: "fasdfasfasf")
+        CommentRowView(commentNum: 5, nickName: "김철수", commentText: "바보", commentDate: "2018-12-29 10:24:30", userUUID: "ㄹ")
             .previewLayout(.sizeThatFits)
+            .environmentObject(ContentDetailViewModel())
     }
 }

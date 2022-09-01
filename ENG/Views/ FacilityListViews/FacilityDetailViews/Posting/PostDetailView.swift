@@ -137,7 +137,8 @@ extension PostDetailView {
     private var CommentListView: some View {
         VStack {
             ForEach(VM.comments) { comment in
-                CommentRowView(nickName: comment.userNickName, commentText: comment.commentText, commentDate: comment.commentViewDate, userUUID: comment.userUuid)
+                CommentRowView(commentNum: comment.id, nickName: comment.userNickName, commentText: comment.commentText, commentDate: comment.commentViewDate, userUUID: comment.userUuid)
+                    .environmentObject(VM)
             }
         }
     }

@@ -25,7 +25,7 @@ struct CommentTextfieldView: View {
                     .textInputAutocapitalization(.never)
 
                 Button {
-                    isSend = true
+                    isSend = !isSend
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .resizable()
