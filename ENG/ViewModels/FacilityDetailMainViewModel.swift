@@ -47,6 +47,7 @@ class FacilityDetailMainViewModel: ObservableObject {
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
+                print("노티스 불러오기 완료 ---->> \(returnedValue)")
                 self?.notices = returnedValue
             }
             .store(in: &cancellables)

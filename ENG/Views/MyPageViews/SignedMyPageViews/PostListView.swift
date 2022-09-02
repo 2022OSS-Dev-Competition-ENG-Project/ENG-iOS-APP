@@ -10,7 +10,7 @@ import SwiftUI
 struct PostListView: View {
     var body: some View {
             List(0..<100) { row in
-                ReportListDetailRowView()
+                ReportListDetailRowView(contentTitle: "dd", contentText: "ff")
             }
             .navigationTitle("내가 쓴 글")
             .navigationBarTitleDisplayMode(.inline)

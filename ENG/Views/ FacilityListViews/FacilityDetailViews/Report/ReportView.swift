@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ReportView: View {
     
+    @State var showImagePicker: Bool = false
+    @State var image: [Image?] = [nil, nil, nil]
+    
     @State var reportTitleTextField: String = ""
     @State var reportType: String = ""
     @State var reportContentTextField: String = ""
@@ -45,17 +48,55 @@ struct ReportView: View {
                 .frame(width: UIScreen.main.bounds.width - 32, alignment: .trailing)
                 .padding(.trailing, 30)
             }
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.showImagePicker.toggle()
+                }) {
+                    Text("이미지 업로드")
+                }
+                .padding(.trailing)
+            }
+            
             
             HStack(spacing: 44) {
                 // 갤러리 및 카메라에 접근하여 업로드 가능하도록.
-                Rectangle()
+                image[0]?
+                    .resizable()
                     .frame(width: 90, alignment: .center)
-                Rectangle()
+                    .onTapGesture {
+                        image[0] = nil
+                    }
+                
+                image[1]?
+                    .resizable()
                     .frame(width: 90, alignment: .center)
-                Rectangle()
+                    .onTapGesture {
+                        image[1] = nil
+                    }
+                
+                image[2]?
+                    .resizable()
                     .frame(width: 90, alignment: .center)
+                    .onTapGesture {
+                        image[2] = nil
+                    }
             }
             .frame(width: UIScreen.main.bounds.width - 32, height: 90, alignment: .center)
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(sourceType: .photoLibrary) { image in
+                    if self.image[0] == nil {
+                        self.image[0] = Image(uiImage: image)
+                    }
+                    else if self.image[1] == nil {
+                        self.image[1] = Image(uiImage: image)
+                    }
+                    else {
+                        self.image[2] = Image(uiImage: image)
+                    }
+                    
+                }
+            }
             
             ZStack {
                 if reportContentTextField.isEmpty {

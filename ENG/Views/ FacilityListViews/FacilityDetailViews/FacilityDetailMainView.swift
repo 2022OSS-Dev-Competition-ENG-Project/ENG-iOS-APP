@@ -30,11 +30,15 @@ struct FacilityDetailMainView: View {
         }
         .onAppear {
             loadPosters(facilityId: facilityId)
+            loadNotices(facilityId: facilityId)
         }
     }
     
     private func loadPosters(facilityId: String) {
         VM.get5Posters(faciliityId: facilityId)
+    }
+    private func loadNotices(facilityId: String) {
+        VM.get5Notices(facilityId: facilityId)
     }
 }
 
@@ -48,13 +52,28 @@ struct FacilityDetailMainView_Previews: PreviewProvider {
 
 extension FacilityDetailMainView {
     private var Notice: some View {
-        Image(systemName: "mic.fill.badge.plus")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 360, height: 120, alignment: .center)
-            .background(Color.theme.green)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+//        Image(systemName: "mic.fill.badge.plus")
+//            .resizable()
+//            .scaledToFit()
+//            .frame(width: 360, height: 120, alignment: .center)
+//            .background(Color.theme.green)
+//            .clipShape(RoundedRectangle(cornerRadius: 8))
+//            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(VM.notices) { notice in
+                    AsyncImage(url: URL(string: notice.contentImg)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 360, height: 120, alignment: .center)
+                    } placeholder: {
+                        Image(systemName: "paperplane.circle.fill")
+                            .frame(width: 360, height: 120, alignment: .center)
+                    }
+                }
+            }
+        }
     }
     
     private var MainButtons: some View {
@@ -99,7 +118,7 @@ extension FacilityDetailMainView {
                     Spacer()
                     
                     NavigationLink {
-                        SafetyListView()
+                        SafetyListView(facilityId: facilityId)
                     } label: {
                         Text("더보기>")
                             .font(.custom(Font.theme.mainFontBold, size: 13))
@@ -110,8 +129,15 @@ extension FacilityDetailMainView {
                 
                 // 리스트 불러오기
                 ForEach(VM.posters) { item in
-                    PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
-                        .padding(.horizontal, 16)
+                    NavigationLink {
+                        PostDetailView(contentNum: item.id)
+                    } label: {
+                        PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
+                            .padding(.horizontal, 16)
+                            .foregroundColor(.black)
+                    }
+
+                    
                 }
             }
         }

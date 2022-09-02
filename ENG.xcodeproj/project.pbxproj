@@ -24,9 +24,18 @@
 		3D22B1DE28B89DBC00EE9D00 /* ResetPWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */; };
 		3D22B1E028B89E2600EE9D00 /* ResetPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */; };
 		3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */; };
+		3D22B1E428BE3A2C00EE9D00 /* SaftyPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */; };
+		3D22B1E628BE3B0000EE9D00 /* SaftyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */; };
+		3D22B1E828BE4A7900EE9D00 /* ContentDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */; };
+		3D22B1EA28BE4C9C00EE9D00 /* ContentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */; };
+		3D22B1EC28BF3D4800EE9D00 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1EB28BF3D4800EE9D00 /* StringExtension.swift */; };
+		3D22B1F028BF4D4200EE9D00 /* MyPageUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1EF28BF4D4200EE9D00 /* MyPageUserInfoModel.swift */; };
+		3D22B1F228BF4E2200EE9D00 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
+		3D991C4F28BF789D00F7426D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C4E28BF789D00F7426D /* ImagePicker.swift */; };
+		3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */; };
 		3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */; };
 		3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */; };
 		3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD428ADF5CA00B06C67 /* VC.swift */; };
@@ -73,9 +82,18 @@
 		3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWModel.swift; sourceTree = "<group>"; };
 		3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewModel.swift; sourceTree = "<group>"; };
 		3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextfieldView.swift; sourceTree = "<group>"; };
+		3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaftyPosterModel.swift; sourceTree = "<group>"; };
+		3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaftyListViewModel.swift; sourceTree = "<group>"; };
+		3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailModel.swift; sourceTree = "<group>"; };
+		3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewModel.swift; sourceTree = "<group>"; };
+		3D22B1EB28BF3D4800EE9D00 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3D22B1EF28BF4D4200EE9D00 /* MyPageUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageUserInfoModel.swift; sourceTree = "<group>"; };
+		3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3D991C4E28BF789D00F7426D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRegisterModel.swift; sourceTree = "<group>"; };
 		3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraCell.swift; sourceTree = "<group>"; };
 		3DAC2CD428ADF5CA00B06C67 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
@@ -151,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */,
+				3D991C4E28BF789D00F7426D /* ImagePicker.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -203,6 +222,7 @@
 				3DE4844028A3544B00B6EE4A /* ColorExtension.swift */,
 				3DE4845728AB278C00B6EE4A /* ViewExtension.swift */,
 				3DE4845E28AB4B6400B6EE4A /* IntExtension.swift */,
+				3D22B1EB28BF3D4800EE9D00 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +237,10 @@
 				3D22B1D528B7367500EE9D00 /* FindIdModel.swift */,
 				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
 				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
+				3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */,
+				3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */,
+				3D22B1EF28BF4D4200EE9D00 /* MyPageUserInfoModel.swift */,
+				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +254,9 @@
 				3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */,
 				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
 				3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */,
+				3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */,
+				3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */,
+				3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -394,16 +421,22 @@
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
 				3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */,
 				3D22B1DC28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift in Sources */,
+				3D22B1EA28BE4C9C00EE9D00 /* ContentDetailViewModel.swift in Sources */,
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
 				3DE4844F28A4C6E800B6EE4A /* LoginView.swift in Sources */,
+				3D991C4F28BF789D00F7426D /* ImagePicker.swift in Sources */,
 				3D22B1CC28B5E18400EE9D00 /* LoginViewModel.swift in Sources */,
+				3D22B1E828BE4A7900EE9D00 /* ContentDetailModel.swift in Sources */,
 				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
+				3D22B1F228BF4E2200EE9D00 /* MyPageViewModel.swift in Sources */,
 				3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PostingListRowView.swift in Sources */,
+				3D22B1EC28BF3D4800EE9D00 /* StringExtension.swift in Sources */,
+				3D22B1E428BE3A2C00EE9D00 /* SaftyPosterModel.swift in Sources */,
 				3D22B1DE28B89DBC00EE9D00 /* ResetPWModel.swift in Sources */,
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
 				3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */,
@@ -418,6 +451,7 @@
 				3DE4845F28AB4B6400B6EE4A /* IntExtension.swift in Sources */,
 				3DE4847128ACA00300B6EE4A /* PostingView.swift in Sources */,
 				3D22B1D828B7378E00EE9D00 /* FindIdViewModel.swift in Sources */,
+				3D22B1E628BE3B0000EE9D00 /* SaftyListViewModel.swift in Sources */,
 				3D22B1D428B644B100EE9D00 /* FacilityResgistrationModel.swift in Sources */,
 				3DE4843F28A24D1000B6EE4A /* FacilityView.swift in Sources */,
 				3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */,
@@ -425,8 +459,10 @@
 				3D22B1C228B4E40800EE9D00 /* SignUpViewModel.swift in Sources */,
 				3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */,
 				3DE4846D28AC864700B6EE4A /* FacilityDetailMainView.swift in Sources */,
+				3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */,
 				3DE4845628A4D9A500B6EE4A /* FindAccountView.swift in Sources */,
 				3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */,
+				3D22B1F028BF4D4200EE9D00 /* MyPageUserInfoModel.swift in Sources */,
 				3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */,
 				3DE4846728AB681000B6EE4A /* ReportListDetailRowView.swift in Sources */,
 			);

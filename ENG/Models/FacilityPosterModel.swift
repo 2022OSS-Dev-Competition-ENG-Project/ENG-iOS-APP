@@ -79,12 +79,21 @@ struct FacilityPosterModel: Codable, Identifiable {
     }
 }
 
+/*
+ {
+    "contentNum": 139,
+    "contentTitle": "나는 승2균이야 ",
+    "contentText": " ㄴㄴ ",
+    "contentImg": null
+ }
+*/
 struct FacilityNoticeModel: Codable, Identifiable {
     let id: Int
-    let facilityContentTitle: String
+    let contentTitle: String
+    let contentImg: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "facilityContentNum"
-        case facilityContentTitle
+        case id = "contentNum"
+        case contentTitle, contentImg
     }
 }

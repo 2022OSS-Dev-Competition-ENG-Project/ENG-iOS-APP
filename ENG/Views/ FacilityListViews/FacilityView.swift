@@ -107,6 +107,7 @@ extension FacilityView {
             leading: EditButton(),
             trailing:
                 NavigationLink("추가", destination: QRCodeScanner())
+                    .foregroundColor(Color.theme.red)
         )
     }
     
