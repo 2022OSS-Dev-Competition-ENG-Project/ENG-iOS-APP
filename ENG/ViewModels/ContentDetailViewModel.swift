@@ -13,20 +13,20 @@ class ContentDetailViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "")
+    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "", userLikeBool: 0)
     @Published var comments: [CommentModel] = []
     @Published var likeCount: String = ""
     
     // get content
     func getContent(userUUID: String, contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + String(contentId)) else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + userUUID + "/" + String(contentId)) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
             .decode(type: ContentDetailModel.self, decoder: JSONDecoder())
-            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: ""))
+            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "", userLikeBool: 0))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
@@ -86,11 +86,20 @@ class ContentDetailViewModel: ObservableObject {
                 if statusCode == 200 {
                     print("게시물 좋아요 성공")
                     self.getLike(contentId: contentNum)
+                    self.changeLikeStatus()
                 } else {
                     print("게시물 좋아요 실패")
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func changeLikeStatus() {
+        if content.userLikeBool == 1 {
+            content.userLikeBool = 0
+        } else {
+            content.userLikeBool = 1
+        }
     }
     
     // get Comment

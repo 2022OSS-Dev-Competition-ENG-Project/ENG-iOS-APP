@@ -109,7 +109,7 @@ extension PostDetailView {
             Spacer()
             
             VStack(spacing: 0) {
-                Image(systemName: "star.fill")
+                Image(systemName: VM.content.userLike ? "star.fill" : "star")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25, alignment: .center)
@@ -117,7 +117,7 @@ extension PostDetailView {
                     .onTapGesture {
                         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
                         VM.likeContent(data: ContentLikeModel(userUuid: userUUID, contentNum: self.contentNum), contentNum: self.contentNum)
-                    }
+                 }
                 Text(VM.likeCount)
                     .font(.custom(Font.theme.mainFontBold, size: 20))
             }

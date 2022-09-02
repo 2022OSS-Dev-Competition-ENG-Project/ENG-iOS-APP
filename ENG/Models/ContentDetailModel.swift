@@ -7,8 +7,19 @@
 
 import Foundation
 
-
-
+/*
+ {
+     "contentNum": 57,
+     "contentTitle": "0831일 ",
+     "contentText": "잠들다 나는 젭알 그만",
+     "contentImg": null,
+     "contentDate": "2022-08-31T16:34:41",
+     "contentLook": "100",
+     "userUuid": "0f797583-f9dd-4ec3-bb59-39d4cf862ed1",
+     "userNickName": "CheolSuJjang",
+     "userLikeBool": 1
+ }
+*/
 struct ContentDetailModel: Codable {
     let contentNum: Int
     let contentTitle: String
@@ -16,6 +27,16 @@ struct ContentDetailModel: Codable {
     let contentDate: String
     let contentLook: String
     let userNickName: String
+    var userLikeBool: Int
+    
+    var userLike: Bool {
+        if self.userLikeBool == 0 {
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
     var contentViewDate: String {
         var date: String = self.contentDate

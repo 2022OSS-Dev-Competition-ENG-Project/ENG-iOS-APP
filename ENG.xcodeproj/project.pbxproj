@@ -35,6 +35,7 @@
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
 		3D991C4F28BF789D00F7426D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C4E28BF789D00F7426D /* ImagePicker.swift */; };
+		3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */; };
 		3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */; };
 		3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */; };
 		3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD428ADF5CA00B06C67 /* VC.swift */; };
@@ -92,6 +93,7 @@
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3D991C4E28BF789D00F7426D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRegisterModel.swift; sourceTree = "<group>"; };
 		3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraCell.swift; sourceTree = "<group>"; };
 		3DAC2CD428ADF5CA00B06C67 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */,
 				3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */,
 				3D22B1EF28BF4D4200EE9D00 /* MyPageUserInfoModel.swift */,
+				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				3D22B1C228B4E40800EE9D00 /* SignUpViewModel.swift in Sources */,
 				3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */,
 				3DE4846D28AC864700B6EE4A /* FacilityDetailMainView.swift in Sources */,
+				3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */,
 				3DE4845628A4D9A500B6EE4A /* FindAccountView.swift in Sources */,
 				3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */,
 				3D22B1F028BF4D4200EE9D00 /* MyPageUserInfoModel.swift in Sources */,
