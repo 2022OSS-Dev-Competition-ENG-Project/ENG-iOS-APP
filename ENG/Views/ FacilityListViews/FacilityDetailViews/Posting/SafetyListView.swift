@@ -21,7 +21,9 @@ struct SafetyListView: View {
         }
         .navigationTitle("안전소통게시판")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: NavigationLink("글쓰기", destination: PostingView()))
+        .navigationBarItems(trailing: NavigationLink("글쓰기", destination: PostingView())
+            .foregroundColor(.theme.red)
+        )
         .onAppear() {
             VM.getPosters(faciliityId: self.facilityId)
         }

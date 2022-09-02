@@ -17,6 +17,8 @@ class ContentDetailViewModel: ObservableObject {
     @Published var comments: [CommentModel] = []
     @Published var likeCount: String = ""
     
+    @Published var isDelete: Bool = false
+    
     // get content
     func getContent(userUUID: String, contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + userUUID + "/" + String(contentId)) else { return }
@@ -32,6 +34,31 @@ class ContentDetailViewModel: ObservableObject {
             } receiveValue: { [weak self] returnedValue in
                 print("-----> 리턴 벨류\(returnedValue)")
                 self?.content = returnedValue
+            }
+            .store(in: &cancellables)
+    }
+    
+    // delete content
+    func deleteContent(userUUID: String, contentId: Int) {
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/delete/" + userUUID + "/" + String(contentId)) else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .map() {
+                $0.response
+            }
+            .sink { completion in
+                print(completion)
+            } receiveValue: {[weak self] response in
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+                if statusCode == 200 {
+                    print("-----> 게시물 삭제 성공!\n스테이터스 코드 : \(statusCode)")
+                    self?.isDelete = true
+                } else {
+                    print("-----> 게시물 삭제 실패 ㅠ\n스테이터스 코드 : \(statusCode)")
+                }
+
             }
             .store(in: &cancellables)
     }

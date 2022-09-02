@@ -15,6 +15,9 @@ struct PostDetailView: View {
     @State var commentTextField: String = ""
     @State var isSend: Bool = false
     
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         ZStack {
             Color(hex: "EBEBEB")
@@ -56,6 +59,15 @@ struct PostDetailView: View {
         }
         .navigationTitle(VM.content.contentTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: Button("삭제", action: {
+            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+            VM.deleteContent(userUUID: UUID, contentId: self.contentNum)
+        })
+            .foregroundColor(.theme.red)
+        )
+        .alert("삭제 성공", isPresented: $VM.isDelete, actions: {
+            Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
+        })
         .onChange(of: self.isSend, perform: { newValue in
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.createComment(contentId: self.contentNum, data: CommentRegisterModel(commentText: self.commentTextField, contentNum: String(self.contentNum), userUuid: UUID))
