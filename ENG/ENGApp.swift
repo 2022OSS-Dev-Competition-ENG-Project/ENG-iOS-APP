@@ -18,6 +18,7 @@ struct ENGApp: App {
             TabView(selection: $tabSelection) {
                 NavigationView {
                     FacilityView(tabSelection: $tabSelection)
+
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
                 .tabItem {
