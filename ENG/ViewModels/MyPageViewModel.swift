@@ -12,7 +12,7 @@ class MyPageViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "")
+    @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: "")
     
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
@@ -28,7 +28,7 @@ class MyPageViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
             .decode(type: MyPageUserInfoModel.self, decoder: JSONDecoder())
-            .replaceError(with: MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: ""))
+            .replaceError(with: MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: ""))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in

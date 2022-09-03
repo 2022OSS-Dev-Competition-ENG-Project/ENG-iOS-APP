@@ -52,13 +52,28 @@ struct SignedMyPageView_Previews: PreviewProvider {
 extension SignedMyPageView {
     private var BasicInformation: some View {
         HStack(spacing: 30) {
-            Image(systemName: "person")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 115, height: 115, alignment: .center)
-                .clipShape(Circle())
-                .overlay(Circle()
-                    .stroke(Color.theme.secondary, lineWidth: 1))
+            AsyncImage(url: URL(string: VM.userInfo.userImg)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 115, height: 115, alignment: .center)
+                    .clipShape(Circle())
+                    .overlay(Circle()
+                        .stroke(Color.theme.secondary, lineWidth: 1)
+                    )
+                
+            } placeholder: {
+                Image(systemName: "person")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 115, height: 115, alignment: .center)
+                    .clipShape(Circle())
+                    .overlay(Circle()
+                        .stroke(Color.theme.secondary, lineWidth: 1)
+                    )
+            }
+            
+            
             VStack(alignment: .leading) {
                 Text(VM.userInfo.userNickname)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
