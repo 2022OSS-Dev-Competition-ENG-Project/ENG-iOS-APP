@@ -52,27 +52,31 @@ struct FacilityDetailMainView_Previews: PreviewProvider {
 
 extension FacilityDetailMainView {
     private var Notice: some View {
-//        Image(systemName: "mic.fill.badge.plus")
-//            .resizable()
-//            .scaledToFit()
-//            .frame(width: 360, height: 120, alignment: .center)
-//            .background(Color.theme.green)
-//            .clipShape(RoundedRectangle(cornerRadius: 8))
-//            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
-        ScrollView(.horizontal) {
-            HStack {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
                 ForEach(VM.notices) { notice in
                     AsyncImage(url: URL(string: notice.contentImg)) { image in
-                        image
+                        ZStack {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 360, height: 120, alignment: .center)
+                        }
+                        .frame(width: UIScreen.main.bounds.width)
+                    } placeholder: {
+                        Image(systemName: "mic.fill.badge.plus")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 360, height: 120, alignment: .center)
-                    } placeholder: {
-                        Image(systemName: "paperplane.circle.fill")
-                            .frame(width: 360, height: 120, alignment: .center)
+                            .background(Color.theme.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
                     }
                 }
             }
+        }
+        .onAppear() {
+            UIScrollView.appearance().isPagingEnabled = true
         }
     }
     

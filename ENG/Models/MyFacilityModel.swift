@@ -27,7 +27,7 @@ import Foundation
 */
 
 struct MyFacilityModel: Codable, Identifiable {
-    let userUuid: String
+    let uuid: String
     let facilityAddress: String
     let id: String
     let facilityName: String
@@ -44,6 +44,6 @@ struct MyFacilityModel: Codable, Identifiable {
 
     enum CodingKeys: String, CodingKey {
         case id = "useFacility"
-        case facilityAddress, userUuid, facilityName, isLiked
+        case facilityAddress, uuid, facilityName, isLiked
     }
 }
