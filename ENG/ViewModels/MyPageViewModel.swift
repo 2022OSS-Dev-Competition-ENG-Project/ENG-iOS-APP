@@ -14,11 +14,15 @@ class MyPageViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: "")
+    @Published var myContents: [MainMyContent] = []
+    @Published var myReports: [MainMyReport] = []
     @Published var isUploadSucess: Bool = false
     
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         getUserInfo(userUUID: userUUID)
+        get5MyContents(userUUID: userUUID)
+        get5MyReports(userUUID: userUUID)
     }
     
     // get UserInfo
@@ -40,6 +44,46 @@ class MyPageViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    // get My 5 Contents
+    // 수정 필요 건물 UUID 제외
+    func get5MyContents(userUUID: String) {
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/main/user/" + userUUID + "/" + "247f9839-53a4-426c-994d-878f1c05d47b") else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap(getFacilitiesHandleOutput)
+            .decode(type: [MainMyContent].self, decoder: JSONDecoder())
+            .replaceError(with: [])
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] returnedValue in
+                print("-----> 내가 등록한 게시물 : \(returnedValue)")
+                self?.myContents = returnedValue
+            }
+            .store(in: &cancellables)
+    }
+    
+    // get My 5 Report
+    // 수정 필요 건물 UUID 제외
+    func get5MyReports(userUUID: String) {
+        guard let url = URL(string: NM.facilityIp + "/api/report/list/main/" + "247f9839-53a4-426c-994d-878f1c05d47b" + "/" + userUUID) else { return }
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap(getFacilitiesHandleOutput)
+            .decode(type: [MainMyReport].self, decoder: JSONDecoder())
+            .replaceError(with: [])
+            .sink { completion in
+                print(completion)
+            } receiveValue: { [weak self] returnedValue in
+                print("-----> 내가 등록한 게시물 : \(returnedValue)")
+                self?.myReports = returnedValue
+            }
+            .store(in: &cancellables)
+    }
+    
     func getFacilitiesHandleOutput(output: Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>.Output) throws -> Data {
         guard
             let response = output.response as? HTTPURLResponse,
@@ -51,6 +95,8 @@ class MyPageViewModel: ObservableObject {
         return output.data
     }
     
+    
+    // 유저 프로필 사진 등록
     func registerUserProfileImage(paramName: String, fileName: String, image: UIImage) {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         let images: [UIImage] = [image]
