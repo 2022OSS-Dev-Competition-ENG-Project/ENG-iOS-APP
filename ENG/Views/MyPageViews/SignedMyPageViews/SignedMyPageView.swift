@@ -12,6 +12,10 @@ struct SignedMyPageView: View {
     @StateObject var loginVM = LoginViewModel.shared
     @StateObject var VM = MyPageViewModel()
     
+    @State var showImagePicker: Bool = false
+    @State var uploadImage: UIImage = UIImage()
+    @State var refreshMe: Bool = false
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -34,6 +38,17 @@ struct SignedMyPageView: View {
                         .foregroundColor(Color.theme.red)
             )
         }
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(sourceType: .photoLibrary) { image in
+                self.uploadImage = image
+                VM.registerUserProfileImage(paramName: "images", fileName: "profile.png", image: uploadImage)
+            }
+        }
+        .alert("전송 성공!", isPresented: $VM.isUploadSucess) {
+            Button("확인") {
+                
+            }
+        }
     }
     
     private func logOut() {
@@ -51,13 +66,14 @@ struct SignedMyPageView_Previews: PreviewProvider {
 
 extension SignedMyPageView {
     private var BasicInformation: some View {
+        
         HStack(spacing: 30) {
             AsyncImage(url: URL(string: VM.userInfo.userImg)) { image in
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 115, height: 115, alignment: .center)
                     .clipShape(Circle())
+                    .frame(width: 115, height: 115, alignment: .center)
                     .overlay(Circle()
                         .stroke(Color.theme.secondary, lineWidth: 1)
                     )
@@ -66,11 +82,15 @@ extension SignedMyPageView {
                 Image(systemName: "person")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 115, height: 115, alignment: .center)
                     .clipShape(Circle())
+                    .frame(width: 115, height: 115, alignment: .center)
                     .overlay(Circle()
                         .stroke(Color.theme.secondary, lineWidth: 1)
                     )
+            }
+            .tint(refreshMe ? .black : .black)
+            .onTapGesture {
+                showImagePicker.toggle()
             }
             
             
@@ -90,6 +110,7 @@ extension SignedMyPageView {
 
             }
         }
+
     }
     
     private var ReportList: some View {
