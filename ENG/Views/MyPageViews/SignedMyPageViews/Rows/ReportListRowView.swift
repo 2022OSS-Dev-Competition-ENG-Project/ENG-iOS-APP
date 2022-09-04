@@ -10,15 +10,16 @@ import SwiftUI
 struct ReportListRowView: View {
     
     @State var reportNumber: Int = 1
-    var isComplete: Bool = false
+    var reportTitle: String
+    var reportStatus: String
     
     var body: some View {
         HStack {
             Text(reportNumber.asListNumberString())
-            Text("글 제목 1")
+            Text(reportTitle)
             Spacer()
-            Text(isComplete ? "완료" : "처리 중")
-                .foregroundColor(isComplete ? .theme.green : .theme.orange)
+            Text(reportStatus)
+                .foregroundColor(reportStatus == "해결" ? .theme.green : .theme.orange)
         }
         .font(.custom(Font.theme.mainFont, size: 14))
         .frame(width: 327, height: 20, alignment: .center)
@@ -29,10 +30,10 @@ struct ReportListRowView: View {
 struct ReportListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ReportListRowView(isComplete: true)
+            ReportListRowView(reportTitle: "신고함", reportStatus: "해결")
                 .previewLayout(.sizeThatFits)
             
-            ReportListRowView(isComplete: false)
+            ReportListRowView(reportTitle: "신고 또 함", reportStatus: "미해결")
                 .previewLayout(.sizeThatFits)
         }
 

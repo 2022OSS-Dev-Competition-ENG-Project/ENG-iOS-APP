@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct PostListView: View {
+    
+    @StateObject var VM = MyContentListViewModel()
+    
     var body: some View {
-            List(0..<100) { row in
-                ReportListDetailRowView(contentTitle: "dd", contentText: "ff")
+        List(VM.contents) { content in
+            NavigationLink {
+                PostDetailView(contentNum: content.id)
+            } label: {
+                ReportListDetailRowView(contentTitle: content.contentTitle, contentText: content.contentText)
             }
-            .navigationTitle("내가 쓴 글")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle("내가 쓴 글")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct PostListView_Previews: PreviewProvider {
     static var previews: some View {
-        PostListView()
+        NavigationView {
+            PostListView()
+        }
     }
 }

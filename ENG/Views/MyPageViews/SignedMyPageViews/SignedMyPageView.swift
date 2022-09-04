@@ -137,11 +137,9 @@ extension SignedMyPageView {
                     .padding(.horizontal)
                     .frame(height: 153)
                 VStack {
-                    ReportListRowView(isComplete: true)
-                    ReportListRowView(isComplete: false)
-                    ReportListRowView(isComplete: true)
-                    ReportListRowView(isComplete: false)
-                    ReportListRowView(isComplete: true)
+                    ForEach(VM.mainMyReports) { report in
+                        ReportListRowView(reportNumber: report.id, reportTitle: report.reportTitle, reportStatus: report.reportStatus)
+                    }
                 }
             }
         }
@@ -170,11 +168,14 @@ extension SignedMyPageView {
                     .padding(.horizontal)
                     .frame(height: 153)
                 VStack {
-                    PostingListRowView(postingNumber: 1)
-                    PostingListRowView(postingNumber: 2)
-                    PostingListRowView(postingNumber: 3)
-                    PostingListRowView(postingNumber: 4)
-                    PostingListRowView(postingNumber: 5)
+                    ForEach(VM.mainMyContents) { content in
+                        NavigationLink {
+                            PostDetailView(contentNum: content.id)
+                        } label: {
+                            PostingListRowView(postingNumber: content.id, postingTitle: content.contentTitle)
+                                .foregroundColor(.black)
+                        }
+                    }
                 }
             }
         }
