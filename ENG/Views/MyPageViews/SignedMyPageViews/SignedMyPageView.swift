@@ -169,7 +169,12 @@ extension SignedMyPageView {
                     .frame(height: 153)
                 VStack {
                     ForEach(VM.myContents) { content in
-                        PostingListRowView(postingNumber: content.id, postingTitle: content.contentTitle)
+                        NavigationLink {
+                            PostDetailView(contentNum: content.id)
+                        } label: {
+                            PostingListRowView(postingNumber: content.id, postingTitle: content.contentTitle)
+                                .foregroundColor(.black)
+                        }
                     }
                 }
             }
