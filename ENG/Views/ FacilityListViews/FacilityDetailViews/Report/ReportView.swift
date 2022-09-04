@@ -135,7 +135,6 @@ struct ReportView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
             // 등록 기능
-            NM.uploadImage(paramName: "multipartFile", fileName: "pic.png", image: uploadImage)
         }, label: {
             Text("등록")
                 .font(.custom(Font.theme.mainFontBold, size: 16))

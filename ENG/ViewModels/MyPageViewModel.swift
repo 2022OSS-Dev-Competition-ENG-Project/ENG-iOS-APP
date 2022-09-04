@@ -7,12 +7,14 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class MyPageViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
     @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: "")
+    @Published var isUploadSucess: Bool = false
     
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
@@ -47,5 +49,17 @@ class MyPageViewModel: ObservableObject {
         print("response.StatusCode == \(response.statusCode), data == \(String(decoding: output.data, as: UTF8.self))")
         
         return output.data
+    }
+    
+    func registerUserProfileImage(paramName: String, fileName: String, image: UIImage) {
+        guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        let images: [UIImage] = [image]
+        NM.uploadImages(ipAddress: NM.userIp, paramName: paramName, fileName: fileName, images: images, userUUID: userUUID) { statusCode in
+            if statusCode == 200 {
+                DispatchQueue.main.async {
+                    self.isUploadSucess = true
+                }
+            }
+        }
     }
 }
