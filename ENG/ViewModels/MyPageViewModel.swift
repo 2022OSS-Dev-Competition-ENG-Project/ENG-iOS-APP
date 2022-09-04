@@ -14,8 +14,8 @@ class MyPageViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: "")
-    @Published var myContents: [MainMyContent] = []
-    @Published var myReports: [MainMyReport] = []
+    @Published var mainMyContents: [MainMyContent] = []
+    @Published var mainMyReports: [MainMyReport] = []
     @Published var isUploadSucess: Bool = false
     
     init() {
@@ -59,7 +59,7 @@ class MyPageViewModel: ObservableObject {
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
                 print("-----> 내가 등록한 게시물 : \(returnedValue)")
-                self?.myContents = returnedValue
+                self?.mainMyContents = returnedValue
             }
             .store(in: &cancellables)
     }
@@ -79,7 +79,7 @@ class MyPageViewModel: ObservableObject {
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
                 print("-----> 내가 등록한 게시물 : \(returnedValue)")
-                self?.myReports = returnedValue
+                self?.mainMyReports = returnedValue
             }
             .store(in: &cancellables)
     }

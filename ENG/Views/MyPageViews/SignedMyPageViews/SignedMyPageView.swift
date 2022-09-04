@@ -137,7 +137,7 @@ extension SignedMyPageView {
                     .padding(.horizontal)
                     .frame(height: 153)
                 VStack {
-                    ForEach(VM.myReports) { report in
+                    ForEach(VM.mainMyReports) { report in
                         ReportListRowView(reportNumber: report.id, reportTitle: report.reportTitle, reportStatus: report.reportStatus)
                     }
                 }
@@ -168,7 +168,7 @@ extension SignedMyPageView {
                     .padding(.horizontal)
                     .frame(height: 153)
                 VStack {
-                    ForEach(VM.myContents) { content in
+                    ForEach(VM.mainMyContents) { content in
                         NavigationLink {
                             PostDetailView(contentNum: content.id)
                         } label: {
