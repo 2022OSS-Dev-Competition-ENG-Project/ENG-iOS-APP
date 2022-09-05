@@ -39,6 +39,8 @@
 		3D991C5528C4C0BF00F7426D /* MyContentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5428C4C0BF00F7426D /* MyContentListModel.swift */; };
 		3D991C5728C4C19E00F7426D /* MyContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */; };
 		3D991C5928C628B700F7426D /* ContentRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5828C628B700F7426D /* ContentRegisterViewModel.swift */; };
+		3D991C5B28C6319900F7426D /* ReportRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5A28C6319900F7426D /* ReportRegisterModel.swift */; };
+		3D991C5D28C631E800F7426D /* ReportRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */; };
 		3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */; };
 		3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */; };
 		3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD428ADF5CA00B06C67 /* VC.swift */; };
@@ -100,6 +102,8 @@
 		3D991C5428C4C0BF00F7426D /* MyContentListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContentListModel.swift; sourceTree = "<group>"; };
 		3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContentListViewModel.swift; sourceTree = "<group>"; };
 		3D991C5828C628B700F7426D /* ContentRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRegisterViewModel.swift; sourceTree = "<group>"; };
+		3D991C5A28C6319900F7426D /* ReportRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRegisterModel.swift; sourceTree = "<group>"; };
+		3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRegisterViewModel.swift; sourceTree = "<group>"; };
 		3DAC2CCF28ADF4DD00B06C67 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraCell.swift; sourceTree = "<group>"; };
 		3DAC2CD428ADF5CA00B06C67 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				3D22B1EF28BF4D4200EE9D00 /* MyPageModel.swift */,
 				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
 				3D991C5428C4C0BF00F7426D /* MyContentListModel.swift */,
+				3D991C5A28C6319900F7426D /* ReportRegisterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */,
 				3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */,
 				3D991C5828C628B700F7426D /* ContentRegisterViewModel.swift */,
+				3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				3DE4845B28AB39AB00B6EE4A /* SignedMyPageView.swift in Sources */,
 				3D22B1CA28B5DFB100EE9D00 /* LoginModel.swift in Sources */,
 				3D22B1D628B7367500EE9D00 /* FindIdModel.swift in Sources */,
+				3D991C5D28C631E800F7426D /* ReportRegisterViewModel.swift in Sources */,
 				3DAC2CD028ADF4DD00B06C67 /* QRCodeScanner.swift in Sources */,
 				3DE4847328ACC47800B6EE4A /* PostDetailView.swift in Sources */,
 				3D22B1DA28B747D600EE9D00 /* FacilityPosterModel.swift in Sources */,
@@ -476,6 +483,7 @@
 				3D22B1F028BF4D4200EE9D00 /* MyPageModel.swift in Sources */,
 				3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */,
 				3D991C5728C4C19E00F7426D /* MyContentListViewModel.swift in Sources */,
+				3D991C5B28C6319900F7426D /* ReportRegisterModel.swift in Sources */,
 				3DE4846728AB681000B6EE4A /* ReportListDetailRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

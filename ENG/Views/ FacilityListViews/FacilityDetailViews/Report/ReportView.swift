@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ReportView: View {
     
+    @StateObject var VM = ReportRegisterViewModel()
+    
+    let facilityId: String
+    
     @State var showImagePicker: Bool = false
     @State var image: [Image?] = [nil, nil, nil]
     
@@ -18,9 +22,10 @@ struct ReportView: View {
     @State var placeHolderTextField: String = "글 내용을 입력하세요. (500자 이내)"
     @FocusState var reportContentTextFieldFocused: Bool
     
-    @State var uploadImage: UIImage = UIImage(systemName: "circle") ?? UIImage()
+    @State var uploadImages: [UIImage] = []
     
-    let NM = NetworkManager.shared
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack(spacing: 19) {
@@ -95,13 +100,15 @@ struct ReportView: View {
                 ImagePicker(sourceType: .photoLibrary) { image in
                     if self.image[0] == nil {
                         self.image[0] = Image(uiImage: image)
-                        self.uploadImage = image
+                        self.uploadImages.append(image)
                     }
                     else if self.image[1] == nil {
                         self.image[1] = Image(uiImage: image)
+                        self.uploadImages.append(image)
                     }
                     else {
                         self.image[2] = Image(uiImage: image)
+                        self.uploadImages.append(image)
                     }
                     
                 }
@@ -131,10 +138,16 @@ struct ReportView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .alert("등록 성공", isPresented: $VM.isReportSuccess, actions: {
+            Button("확인") {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
         .navigationTitle("신고하기")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
-            // 등록 기능
+            guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+            VM.reportRegister(inputData: ReportRegisterModel(reportTitle: self.reportTitleTextField, reportText: self.reportContentTextField, reportType: self.reportType, userUuid: userUUID, facilityNo: self.facilityId), images: self.uploadImages)
         }, label: {
             Text("등록")
                 .font(.custom(Font.theme.mainFontBold, size: 16))
@@ -149,7 +162,7 @@ struct ReportView: View {
 struct ReportView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ReportView()
+            ReportView(facilityId: "")
         }
     }
 }

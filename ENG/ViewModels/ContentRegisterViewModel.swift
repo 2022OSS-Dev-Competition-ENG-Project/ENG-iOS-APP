@@ -10,7 +10,6 @@ import Combine
 
 class ContentRegisterViewModel: ObservableObject {
     let NM = NetworkManager.shared
-    var cancellables = Set<AnyCancellable>()
     
     @Published var isRegisterSuccess: Bool = false
     

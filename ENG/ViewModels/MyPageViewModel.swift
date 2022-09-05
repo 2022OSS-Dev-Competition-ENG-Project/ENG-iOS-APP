@@ -110,7 +110,7 @@ class MyPageViewModel: ObservableObject {
         let session = URLSession.shared
         
         // 이미지 데이터 생성
-        var data = NM.makeImageDataForFormData(paramName: "images", fileName: "image.png", images: images, boundary: boundary)
+        var data = NM.makeImageDataForFormData(paramName: "images", images: images, boundary: boundary)
         
         // Form-Data의 끝을 알리는 바운더리 append
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
