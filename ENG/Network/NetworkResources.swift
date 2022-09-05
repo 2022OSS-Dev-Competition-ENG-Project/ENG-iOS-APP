@@ -67,7 +67,7 @@ class NetworkManager {
     }
     
     // Form-Data용 String 데이터 생성 메서드
-    func makeStringDataForFormData<T: Codable>(boundary: String, paramName: String, fileName: String, inputData: T) -> Data {
+    func makeStringDataForFormData<T: Codable>(boundary: String, paramName: String, inputData: T) -> Data {
         var data = Data()
         
         let jsonData = try! JSONEncoder().encode(inputData)

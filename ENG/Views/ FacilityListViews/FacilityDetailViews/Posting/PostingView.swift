@@ -9,10 +9,17 @@ import SwiftUI
 
 struct PostingView: View {
     
+    let facilityId: String
+    
     @State var postTitleTextField: String = ""
     @State var postContentTextField: String = ""
     @State var placeHolderText: String = "글 내용을 입력하세요. (500자 이내)"
     @FocusState private var contentTextFieldIsFocused: Bool // 포커스 상태 변수
+    
+    @StateObject var VM = ContentRegisterViewModel()
+    
+    // NavigationView Dismiss
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack {
@@ -45,14 +52,20 @@ struct PostingView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .alert("등록 성공!", isPresented: $VM.isRegisterSuccess, actions: {
+            Button("확인") {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        })
         .navigationTitle("글쓰기")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button("등록", action: post))
     }
     
     private func post() {
+        guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         // 등록 기능 구현
-        print("등록 완")
+        VM.registerContent(inputData: ContentRegisterModel(contentTitle: postTitleTextField, contentText: postContentTextField, contentLook: 0, contentType: 0, facilityNo: self.facilityId, userUuid: userUUID))
     }
     // 백그라운드 터치 시 키보드 내림
     private func hideKeyboard() {
@@ -63,7 +76,7 @@ struct PostingView: View {
 struct PostingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostingView()
+            PostingView(facilityId: "")
         }
     }
 }
