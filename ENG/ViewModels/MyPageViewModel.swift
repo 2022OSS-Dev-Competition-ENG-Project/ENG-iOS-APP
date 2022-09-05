@@ -47,7 +47,7 @@ class MyPageViewModel: ObservableObject {
     // get My 5 Contents
     // 수정 필요 건물 UUID 제외
     func get5MyContents(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/main/user/" + userUUID + "/" + "247f9839-53a4-426c-994d-878f1c05d47b") else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/main/user/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -67,7 +67,7 @@ class MyPageViewModel: ObservableObject {
     // get My 5 Report
     // 수정 필요 건물 UUID 제외
     func get5MyReports(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/report/list/main/" + "247f9839-53a4-426c-994d-878f1c05d47b" + "/" + userUUID) else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/report/list/main/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))

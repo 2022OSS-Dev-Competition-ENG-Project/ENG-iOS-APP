@@ -21,7 +21,7 @@ class MyContentListViewModel: ObservableObject {
     }
     
     func getContents(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/user/" + userUUID + "/" + "247f9839-53a4-426c-994d-878f1c05d47b") else { return }
+        guard let url = URL(string: NM.facilityIp + "/api/facility/content/user/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
