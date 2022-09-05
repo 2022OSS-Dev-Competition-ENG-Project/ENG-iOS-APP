@@ -45,7 +45,6 @@ class MyPageViewModel: ObservableObject {
     }
     
     // get My 5 Contents
-    // 수정 필요 건물 UUID 제외
     func get5MyContents(userUUID: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/main/user/" + userUUID) else { return }
         
@@ -65,7 +64,6 @@ class MyPageViewModel: ObservableObject {
     }
     
     // get My 5 Report
-    // 수정 필요 건물 UUID 제외
     func get5MyReports(userUUID: String) {
         guard let url = URL(string: NM.facilityIp + "/api/report/list/main/" + userUUID) else { return }
         
@@ -95,17 +93,41 @@ class MyPageViewModel: ObservableObject {
         return output.data
     }
     
-    
     // 유저 프로필 사진 등록
     func registerUserProfileImage(paramName: String, fileName: String, image: UIImage) {
+        // UUID 호출
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        // 이미지를 UIImage로 저장
         let images: [UIImage] = [image]
-        NM.uploadImages(ipAddress: NM.userIp, paramName: paramName, fileName: fileName, images: images, userUUID: userUUID) { statusCode in
+        
+        // 폼 데이터 통신에 사용할 바운더리 생성
+        let boundary = UUID().uuidString
+        
+        // urlRequest 생성
+        let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.userIp, api: "/api/user-service/SaveProfileImage/" + userUUID, boundary: boundary)
+        
+        // 세션 불러오기
+        let session = URLSession.shared
+        
+        // 이미지 데이터 생성
+        var data = NM.makeImageDataForFormData(paramName: "images", fileName: "image.png", images: images, boundary: boundary)
+        
+        // Form-Data의 끝을 알리는 바운더리 append
+        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        // Send a POST request to the URL, with the data we created earlier
+        session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+            print("이미지 전송 StatusCode = \(statusCode)")
             if statusCode == 200 {
                 DispatchQueue.main.async {
                     self.isUploadSucess = true
                 }
             }
-        }
+            
+            if error != nil {
+                print("이미지 전송 실패 error ---->\(String(describing: error))")
+            }
+        }).resume()
     }
 }
