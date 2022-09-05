@@ -95,7 +95,7 @@ extension FacilityDetailMainView {
             }
             
             NavigationLink {
-                ReportView()
+                ReportView(facilityId: self.facilityId)
             } label: {
                 Text("신고하기")
                     .font(.custom(Font.theme.mainFontBold, size: 16))
