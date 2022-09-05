@@ -41,7 +41,7 @@ struct SignedMyPageView: View {
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(sourceType: .photoLibrary) { image in
                 self.uploadImage = image
-                VM.registerUserProfileImage(paramName: "images", fileName: "profile.png", image: uploadImage)
+                VM.registerUserProfileImage(paramName: "images", fileName: "image.png", image: self.uploadImage)
             }
         }
         .alert("전송 성공!", isPresented: $VM.isUploadSucess) {
