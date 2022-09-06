@@ -20,7 +20,7 @@ class ReportRegisterViewModel: ObservableObject {
         let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.facilityIp, api: "/api/report/register", boundary: boundary)
         
         // JSON 데이터 생성
-        var data = NM.makeStringDataForFormData(boundary: boundary, paramName: "reportDto", inputData: inputData)
+        var data = NM.makeJSONDataForFormData(boundary: boundary, paramName: "reportDto", inputData: inputData)
         
         // 이미지 데이터와 JSON 데이터 결합
         let imageData = NM.makeImageDataForFormData(paramName: "files", images: images, boundary: boundary)

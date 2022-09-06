@@ -17,7 +17,7 @@ class ContentRegisterViewModel: ObservableObject {
         let boundary = UUID().uuidString
         
         let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.facilityIp, api: "/api/facility/content/register", boundary: boundary)
-        var data = NM.makeStringDataForFormData(boundary: boundary, paramName: "facilityContentDto", inputData: inputData)
+        var data = NM.makeJSONDataForFormData(boundary: boundary, paramName: "facilityContentDto", inputData: inputData)
         
         // Form-Data의 끝을 알리는 바운더리 append
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)

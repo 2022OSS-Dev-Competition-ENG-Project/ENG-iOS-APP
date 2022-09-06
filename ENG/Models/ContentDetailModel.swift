@@ -15,8 +15,8 @@ import Foundation
      "contentImg": null,
      "contentDate": "2022-08-31T16:34:41",
      "contentLook": "100",
-     "userUuid": "0f797583-f9dd-4ec3-bb59-39d4cf862ed1",
-     "userNickName": "CheolSuJjang",
+     "writerUuid": "0f797583-f9dd-4ec3-bb59-39d4cf862ed1",
+     "writerNickName": "CheolSuJjang",
      "userLikeBool": 1
  }
 */
@@ -26,7 +26,7 @@ struct ContentDetailModel: Codable {
     let contentText: String
     let contentDate: String
     let contentLook: String
-    let userNickName: String
+    let writerNickname: String
     var userLikeBool: Int
     
     var userLike: Bool {

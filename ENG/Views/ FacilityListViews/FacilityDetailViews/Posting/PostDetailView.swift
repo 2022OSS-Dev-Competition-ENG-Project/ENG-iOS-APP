@@ -111,7 +111,7 @@ extension PostDetailView {
                 .frame(width: 48, height: 48, alignment: .center)
             
             VStack(alignment: .leading) {
-                Text(VM.content.userNickName)
+                Text(VM.content.writerNickname)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
                 Text(VM.content.contentViewDate)
                     .font(.custom(Font.theme.mainFont, size: 16))

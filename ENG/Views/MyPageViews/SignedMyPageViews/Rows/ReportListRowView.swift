@@ -19,7 +19,7 @@ struct ReportListRowView: View {
             Text(reportTitle)
             Spacer()
             Text(reportStatus)
-                .foregroundColor(reportStatus == "해결" ? .theme.green : .theme.orange)
+                .foregroundColor(reportStatus == "처리" ? .theme.green : reportStatus == "반려" ? .theme.red : .theme.orange)
         }
         .font(.custom(Font.theme.mainFont, size: 14))
         .frame(width: 327, height: 20, alignment: .center)

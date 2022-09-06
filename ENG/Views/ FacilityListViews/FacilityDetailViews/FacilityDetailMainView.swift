@@ -82,8 +82,8 @@ extension FacilityDetailMainView {
     
     private var MainButtons: some View {
         HStack(alignment: .center ,spacing: 28) {
-            Button {
-                
+            NavigationLink {
+                RiskAnalysisView()
             } label: {
                 Text("위험 분석")
                     .font(.custom(Font.theme.mainFontBold, size: 16))

@@ -13,7 +13,7 @@ class ContentDetailViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "", userLikeBool: 0)
+    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerNickname: "", userLikeBool: 0)
     @Published var comments: [CommentModel] = []
     @Published var likeCount: String = ""
     
@@ -28,7 +28,7 @@ class ContentDetailViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
             .decode(type: ContentDetailModel.self, decoder: JSONDecoder())
-            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", userNickName: "", userLikeBool: 0))
+            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerNickname: "", userLikeBool: 0))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in

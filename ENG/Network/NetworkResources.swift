@@ -21,6 +21,7 @@ class NetworkManager {
     
     let facilityIp: String = "http://203.250.32.29:2200"
     let userIp: String = "http://203.250.32.29:2201"
+    let AIIp: String = "http://203.250.32.29:2222"
     
     // Post용 URL Request 생성 메서드
     func makePostRequest(api: String, data: Data = Data(), ip: String) throws -> URLRequest {
@@ -66,8 +67,8 @@ class NetworkManager {
         return data
     }
     
-    // Form-Data용 String 데이터 생성 메서드
-    func makeStringDataForFormData<T: Codable>(boundary: String, paramName: String, inputData: T) -> Data {
+    // Form-Data용 JSON 데이터 생성 메서드
+    func makeJSONDataForFormData<T: Codable>(boundary: String, paramName: String, inputData: T) -> Data {
         var data = Data()
         
         let jsonData = try! JSONEncoder().encode(inputData)
@@ -77,8 +78,20 @@ class NetworkManager {
         // Add the image data to the raw http request data
         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
         data.append("Content-Disposition: form-data; name=\"\(paramName)\";\r\n".data(using: .utf8)!)
-        data.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
+        data.append("Content-Type: text/plain\r\n\r\n".data(using: .utf8)!)
         data.append(stringData.data(using: .utf8)!)
+        
+        return data
+    }
+    
+    func makeStringDataForFormData(boundary: String, paramName: String, inputData: String) -> Data {
+        var data = Data()
+        
+        // Add the image data to the raw http request data
+        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        data.append("Content-Disposition: form-data; name=\"\(paramName)\";\r\n".data(using: .utf8)!)
+        data.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
+        data.append(inputData.data(using: .utf8)!)
         
         return data
     }
