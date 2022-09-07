@@ -43,7 +43,10 @@ class RiskAnalysisViewModel: ObservableObject {
                 print("위험 레벨 ----> \(String(decoding: riskLevel, as: UTF8.self))")
                 DispatchQueue.main.async {
                     self.isAnalysisSuccess = true
-                    let riskString = String(decoding: riskLevel, as: UTF8.self)
+                    var riskString = String(decoding: riskLevel, as: UTF8.self)
+                    riskString = String(riskString.filter { !" \n\t\r".contains($0) })
+                    
+                    print("리스크 스트링 -------->\"\(riskString)\"")
                     
                     switch riskString {
                     case "3" :

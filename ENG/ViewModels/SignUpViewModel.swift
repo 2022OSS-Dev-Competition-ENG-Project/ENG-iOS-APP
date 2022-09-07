@@ -79,6 +79,7 @@ class SignUpViewModel: ObservableObject {
                 print(completion)
             } receiveValue: { [weak self]data in
                 guard let statusCode = data?.statusCode else { return }
+                print(statusCode)
                 if statusCode == 200 {
                     self?.isAvailableAuthCode = true
                 } else {
