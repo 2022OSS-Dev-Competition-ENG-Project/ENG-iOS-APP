@@ -106,10 +106,22 @@ extension PostDetailView {
     
     private var authorInfoView: some View {
         HStack(alignment: .center, spacing: 15) {
-            Image(systemName: "person.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 48, height: 48, alignment: .center)
+            AsyncImage(url: URL(string: VM.content.writerViewImage)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60, alignment: .center)
+                    .overlay(Circle()
+                        .stroke(Color.theme.secondary, lineWidth: 1)
+                    )
+                
+            } placeholder: {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 48, height: 48, alignment: .center)
+            }
             
             VStack(alignment: .leading) {
                 Text(VM.content.writerNickname)

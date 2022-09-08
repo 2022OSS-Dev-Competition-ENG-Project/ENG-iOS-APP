@@ -28,6 +28,7 @@ struct ContentDetailModel: Codable {
     let contentLook: String
     let writerUuid: String
     let writerNickname: String
+    let writerImage: String?
     var userLikeBool: Int
     
     var userLike: Bool {
@@ -51,6 +52,12 @@ struct ContentDetailModel: Codable {
             print(error)
         }
         return date
+    }
+    
+    var writerViewImage: String {
+        guard let imageString = self.writerImage else { return "" }
+        
+        return imageString
     }
 }
 
