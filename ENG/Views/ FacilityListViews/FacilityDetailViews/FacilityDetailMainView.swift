@@ -144,6 +144,7 @@ extension FacilityDetailMainView {
                     
                 }
             }
+            .padding(.bottom, 16)
         }
         .frame(width: 360, alignment: .center)
         .frame(minHeight: 0, maxHeight: .infinity)
