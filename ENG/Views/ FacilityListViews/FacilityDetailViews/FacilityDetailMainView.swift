@@ -82,28 +82,44 @@ extension FacilityDetailMainView {
     
     private var MainButtons: some View {
         HStack(alignment: .center ,spacing: 28) {
-            Button {
-                
+            NavigationLink {
+                RiskAnalysisView()
             } label: {
-                Text("위험 분석")
-                    .font(.custom(Font.theme.mainFontBold, size: 16))
-                    .foregroundColor(.black)
-                    .frame(width: 166, height: 120, alignment: .center)
-                    .background(Color.theme.orange)
-                    .cornerRadius(8)
-                    .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                VStack {
+                    Image(systemName: "text.magnifyingglass")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.bottom, 3)
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .foregroundColor(.theme.red)
+                    Text("위험분석")
+                        .font(.custom(Font.theme.mainFontBold, size: 18))
+                }
+                .foregroundColor(.black)
+                .frame(width: 166, height: 120, alignment: .center)
+                .background(Color.theme.sub)
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
             }
             
             NavigationLink {
                 ReportView(facilityId: self.facilityId)
             } label: {
-                Text("신고하기")
-                    .font(.custom(Font.theme.mainFontBold, size: 16))
-                    .foregroundColor(.black)
-                    .frame(width: 166, height: 120, alignment: .center)
-                    .background(Color.theme.orange)
-                    .cornerRadius(8)
-                    .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                VStack {
+                    Image(systemName: "megaphone.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.bottom, 3)
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .foregroundColor(.theme.red)
+                    Text("신고하기")
+                        .font(.custom(Font.theme.mainFontBold, size: 18))
+                }
+                .foregroundColor(.black)
+                .frame(width: 166, height: 120, alignment: .center)
+                .background(Color.theme.sub)
+                .cornerRadius(8)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
             }
         }
     }
@@ -144,6 +160,7 @@ extension FacilityDetailMainView {
                     
                 }
             }
+            .padding(.bottom, 16)
         }
         .frame(width: 360, alignment: .center)
         .frame(minHeight: 0, maxHeight: .infinity)

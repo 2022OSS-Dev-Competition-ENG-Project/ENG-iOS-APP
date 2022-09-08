@@ -14,7 +14,6 @@ struct SignedMyPageView: View {
     
     @State var showImagePicker: Bool = false
     @State var uploadImage: UIImage = UIImage()
-    @State var refreshMe: Bool = false
     
     var body: some View {
         
@@ -88,7 +87,6 @@ extension SignedMyPageView {
                         .stroke(Color.theme.secondary, lineWidth: 1)
                     )
             }
-            .tint(refreshMe ? .black : .black)
             .onTapGesture {
                 showImagePicker.toggle()
             }

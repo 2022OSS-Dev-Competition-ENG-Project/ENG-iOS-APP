@@ -16,6 +16,6 @@ import Foundation
 */
 
 struct FacilityResgistrationModel: Codable {
-    let userUuid: String
-    let userFacility: String
+    let uuid: String
+    let facilityNo: String
 }

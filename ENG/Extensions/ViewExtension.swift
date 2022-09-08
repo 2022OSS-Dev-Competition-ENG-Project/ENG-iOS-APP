@@ -22,6 +22,16 @@ extension View {
     func customTextField(color: Color = Color.theme.secondary, padding: CGFloat = 3, lineWidth: CGFloat = 1, cornerRadius: CGFloat = 8) -> some View {
         self.modifier(TextfieldModifier(color: color, padding: padding, lineWidth: lineWidth, cornerRadius: cornerRadius))
     }
+    
+    /// Bool을 통해 View의 Hidden 속성 제어
+    ///
+    ///  - parameters:
+    ///     - isTrue : Hidden 조건
+    ///
+    ///
+    func hideToBool(_ isTrue: Bool) -> some View {
+        self.modifier(ViewHideModifier(isTrue: isTrue))
+    }
 }
 
 struct TextfieldModifier: ViewModifier {
@@ -39,5 +49,18 @@ struct TextfieldModifier: ViewModifier {
             .disableAutocorrection(true) // 자동 수정 방지 수정자
             .textInputAutocapitalization(.never)
             
+    }
+}
+
+struct ViewHideModifier: ViewModifier {
+    let isTrue: Bool
+    
+    func body(content: Content) -> some View {
+        if isTrue {
+            content
+                .hidden()
+        } else {
+            content
+        }
     }
 }

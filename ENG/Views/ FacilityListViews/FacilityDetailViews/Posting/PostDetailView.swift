@@ -63,6 +63,7 @@ struct PostDetailView: View {
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.deleteContent(userUUID: UUID, contentId: self.contentNum)
         })
+            .hideToBool(VM.content.writerUuid != UserDefaults.standard.string(forKey: "loginToken")!)
             .foregroundColor(.theme.red)
         )
         .alert("삭제 성공", isPresented: $VM.isDelete, actions: {
@@ -105,13 +106,25 @@ extension PostDetailView {
     
     private var authorInfoView: some View {
         HStack(alignment: .center, spacing: 15) {
-            Image(systemName: "person.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 48, height: 48, alignment: .center)
+            AsyncImage(url: URL(string: VM.content.writerViewImage)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(Circle())
+                    .frame(width: 60, height: 60, alignment: .center)
+                    .overlay(Circle()
+                        .stroke(Color.theme.secondary, lineWidth: 1)
+                    )
+                
+            } placeholder: {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 48, height: 48, alignment: .center)
+            }
             
             VStack(alignment: .leading) {
-                Text(VM.content.userNickName)
+                Text(VM.content.writerNickname)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
                 Text(VM.content.contentViewDate)
                     .font(.custom(Font.theme.mainFont, size: 16))
