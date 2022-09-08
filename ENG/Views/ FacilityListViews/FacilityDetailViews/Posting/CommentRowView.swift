@@ -34,7 +34,7 @@ struct CommentRowView: View {
                 } label: {
                     Text("삭제")
                         .font(.custom(Font.theme.mainFont, size: 16))
-                        .opacity(userUUID == UserDefaults.standard.string(forKey: "loginToken")! ? 1 : 0)
+                        .hideToBool(userUUID != UserDefaults.standard.string(forKey: "loginToken")!)
                 }
                 .foregroundColor(.theme.accent)
             }

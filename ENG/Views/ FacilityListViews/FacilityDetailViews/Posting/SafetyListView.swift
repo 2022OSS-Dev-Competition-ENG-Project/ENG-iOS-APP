@@ -26,6 +26,7 @@ struct SafetyListView: View {
         )
         .onAppear() {
             VM.getPosters(faciliityId: self.facilityId)
+            UIScrollView.appearance().isPagingEnabled = false
         }
 
     }

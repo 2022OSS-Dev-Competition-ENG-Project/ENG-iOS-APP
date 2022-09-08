@@ -26,6 +26,7 @@ struct ContentDetailModel: Codable {
     let contentText: String
     let contentDate: String
     let contentLook: String
+    let writerUuid: String
     let writerNickname: String
     var userLikeBool: Int
     

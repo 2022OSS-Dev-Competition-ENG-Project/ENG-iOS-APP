@@ -63,6 +63,7 @@ struct PostDetailView: View {
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.deleteContent(userUUID: UUID, contentId: self.contentNum)
         })
+            .hideToBool(VM.content.writerUuid != UserDefaults.standard.string(forKey: "loginToken")!)
             .foregroundColor(.theme.red)
         )
         .alert("삭제 성공", isPresented: $VM.isDelete, actions: {
