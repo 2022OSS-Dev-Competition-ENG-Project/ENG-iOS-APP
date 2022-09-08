@@ -14,6 +14,7 @@ struct RiskAnalysisView: View {
     @State var showImagePicker: Bool = false
     @State var image: Image? = nil
     @State var uploadImage: [UIImage] = []
+    @State var progress: Double = 0.0
     
     var body: some View {
         VStack {
@@ -45,14 +46,26 @@ struct RiskAnalysisView: View {
                 Button {
                     VM.doRiskAnalysis(images: self.uploadImage)
                 } label: {
-                    Text("이미지 분석하기!")
-                        .frame(width: 288, height: 40, alignment: .center)
-                        .foregroundColor(.white)
-                        .background(Color.theme.accent)
-                        .cornerRadius(8)
-                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
-                        .hideToBool(image == nil)
+                    ZStack {
+                        Text("이미지 분석하기!")
+                            .frame(width: 288, height: 40, alignment: .center)
+                            .foregroundColor(.white)
+                            .background(Color.theme.accent)
+                            .cornerRadius(8)
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .hideToBool(image == nil || VM.isConnecting)
+                        ProgressView(value: progress)
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .frame(width: 288, height: 40, alignment: .center)
+                            .foregroundColor(.white)
+                            .background(Color.theme.accent)
+                            .cornerRadius(8)
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .hideToBool(!VM.isConnecting)
+                    }
                 }
+                .disabled(VM.isConnecting)
+
             }
             .padding(.bottom, 50)
             

@@ -103,15 +103,14 @@ class MyFaciltyViewModel: ObservableObject {
                 guard let response = returnedValue.response as? HTTPURLResponse else { return }
                 print(response.statusCode)
                 if response.statusCode == 200 {
-                    var seletedFacility = self.MyFacilities.first { item in
+                    let seletedFacility = self.MyFacilities.firstIndex { item in
                         return item.id == faclityUUID
                     }!
-                    if seletedFacility.isLikedBool {
-                        seletedFacility.isLiked = 0
+                    if self.MyFacilities[seletedFacility].isLikedBool {
+                        self.MyFacilities[seletedFacility].isLiked = 0
                     } else {
-                        seletedFacility.isLiked = 1
+                        self.MyFacilities[seletedFacility].isLiked = 1
                     }
-                    
                 }
                 
                 

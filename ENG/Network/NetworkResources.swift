@@ -78,7 +78,7 @@ class NetworkManager {
         // Add the image data to the raw http request data
         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
         data.append("Content-Disposition: form-data; name=\"\(paramName)\";\r\n".data(using: .utf8)!)
-        data.append("Content-Type: text/plain\r\n\r\n".data(using: .utf8)!)
+        data.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
         data.append(stringData.data(using: .utf8)!)
         
         return data

@@ -28,7 +28,7 @@ struct QRCodeScanner: View {
                 QRCameraCell(cardNumber: $cardNumber, isCardNumberChange: $isCardNumberChange)
             }
             .alert("스캔 완료", isPresented: $isCardNumberChange) {
-                Button("OK") { RegisterFacility(data: FacilityResgistrationModel(userUuid: UserDefaults.standard.string(forKey: "loginToken") ?? "", userFacility: qrComponents[0]))}
+                Button("OK") { RegisterFacility(data: FacilityResgistrationModel(uuid: UserDefaults.standard.string(forKey: "loginToken") ?? "", facilityNo: qrComponents[0]))}
                 Button("취소") { cardNumber = "/" }
             } message: {
                 Text("\(qrComponents[1]) (\(qrComponents[2]))가 맞나요?")
@@ -43,7 +43,7 @@ struct QRCodeScanner: View {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/facility/join", data: upLoadData, ip: NM.facilityIp)
+            request = try NM.makePostRequest(api: "/api/facility/join/us", data: upLoadData, ip: NM.facilityIp)
         } catch(let error) {
             print("error: \(error)")
             return

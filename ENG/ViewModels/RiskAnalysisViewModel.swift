@@ -12,9 +12,11 @@ class RiskAnalysisViewModel: ObservableObject {
     let NM = NetworkManager.shared
     
     @Published var isAnalysisSuccess: Bool = false
+    @Published var isConnecting: Bool = false
     @Published var riskLevel: riskLevel = .noRisk
     
     func doRiskAnalysis(images: [UIImage]) {
+        self.isConnecting = true
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         let boundary = UUID().uuidString
         
@@ -62,6 +64,9 @@ class RiskAnalysisViewModel: ObservableObject {
                 }
             } else {
                 print("위험 분석 실패 error ---->\(String(describing: error))")
+            }
+            DispatchQueue.main.async {
+                self.isConnecting = false
             }
         }).resume()
     }
