@@ -157,14 +157,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		3D991C5E28C72FD600F7426D /* RiskAnalysis */ = {
-			isa = PBXGroup;
-			children = (
-				3D991C6128C7300200F7426D /* RiskAnalysisView.swift */,
-			);
-			path = RiskAnalysis;
-			sourceTree = "<group>";
-		};
 		3DAC2CD328ADF59000B06C67 /* QRScanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,27 +165,6 @@
 				3DAC2CD428ADF5CA00B06C67 /* VC.swift */,
 			);
 			path = QRScanner;
-			sourceTree = "<group>";
-		};
-		3DAC2CD728ADF7B000B06C67 /* Posting */ = {
-			isa = PBXGroup;
-			children = (
-				3DE4846E28AC9F1F00B6EE4A /* SafetyListView.swift */,
-				3DE4847028ACA00300B6EE4A /* PostingView.swift */,
-				3DE4847228ACC47800B6EE4A /* PostDetailView.swift */,
-				3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */,
-				3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */,
-			);
-			path = Posting;
-			sourceTree = "<group>";
-		};
-		3DAC2CD828ADF7C200B06C67 /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */,
-				3D991C4E28BF789D00F7426D /* ImagePicker.swift */,
-			);
-			path = Report;
 			sourceTree = "<group>";
 		};
 		3DE4841F28A248AD00B6EE4A = {
@@ -252,19 +223,11 @@
 		3DE4843A28A24B9B00B6EE4A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
-				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
-				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
-				3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */,
-				3D22B1D528B7367500EE9D00 /* FindIdModel.swift */,
-				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
-				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
-				3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */,
-				3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */,
-				3D22B1EF28BF4D4200EE9D00 /* MyPageModel.swift */,
-				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
-				3D991C5428C4C0BF00F7426D /* MyContentListModel.swift */,
-				3D991C5A28C6319900F7426D /* ReportRegisterModel.swift */,
+				EE9FEFF828CB29CB001B50B6 /* AccountModels */,
+				EE9FEFF928CB29F2001B50B6 /* FacilityModels */,
+				EE9FEFFB28CB2A2B001B50B6 /* MyProfileModels */,
+				EE9FEFFA28CB2A14001B50B6 /* PostingModels */,
+				EE9FEFFC28CB2A47001B50B6 /* ReportModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,19 +235,12 @@
 		3DE4843B28A24BA700B6EE4A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */,
-				3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */,
-				3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */,
-				3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */,
-				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
-				3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */,
-				3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */,
-				3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */,
-				3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */,
-				3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */,
-				3D991C5828C628B700F7426D /* ContentRegisterViewModel.swift */,
-				3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */,
-				3D991C6328C7379600F7426D /* RiskAnalysisViewModel.swift */,
+				EE9FEFF328CB292B001B50B6 /* AccountViewModels */,
+				EE9FEFF228CB291A001B50B6 /* FacilityViewModels */,
+				EE9FEFF528CB2962001B50B6 /* MyProfileViewModels */,
+				EE9FEFF428CB2948001B50B6 /* PostingViewModels */,
+				EE9FEFF628CB2984001B50B6 /* ReportViewModels */,
+				EE9FEFF728CB2995001B50B6 /* RiskAnalysisViewModels */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -292,20 +248,16 @@
 		3DE4843C28A24BB500B6EE4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4844D28A4C6CC00B6EE4A /* MyPageViews */,
-				3DE4843D28A24D0400B6EE4A /*  FacilityListViews */,
+				3DE4845228A4D92A00B6EE4A /* AccountViews */,
+				EE9FEFEA28CB26B0001B50B6 /* CoreViews */,
+				EE9FEFEE28CB2745001B50B6 /* FacilityViews */,
+				EE9FEFE928CB2667001B50B6 /* MyProfileViews */,
+				EE9FEFEB28CB26E5001B50B6 /* PostingViews */,
+				EE9FEFEC28CB270D001B50B6 /* ReportViews */,
+				EE9FEFEF28CB275C001B50B6 /* RiskAnalysisViews */,
+				EE9FEFF028CB2790001B50B6 /* ViewComponents */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		3DE4843D28A24D0400B6EE4A /*  FacilityListViews */ = {
-			isa = PBXGroup;
-			children = (
-				3DE4846B28AC862900B6EE4A /* FacilityDetailViews */,
-				3DE4843E28A24D1000B6EE4A /* FacilityView.swift */,
-				3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */,
-			);
-			path = " FacilityListViews";
 			sourceTree = "<group>";
 		};
 		3DE4844828A3974900B6EE4A /* Font */ = {
@@ -316,59 +268,211 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		3DE4844D28A4C6CC00B6EE4A /* MyPageViews */ = {
-			isa = PBXGroup;
-			children = (
-				3DE4845228A4D92A00B6EE4A /* AccountViews */,
-				3DE4845928AB390300B6EE4A /* SignedMyPageViews */,
-				3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */,
-			);
-			path = MyPageViews;
-			sourceTree = "<group>";
-		};
 		3DE4845228A4D92A00B6EE4A /* AccountViews */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4844E28A4C6E800B6EE4A /* LoginView.swift */,
-				3DE4845328A4D97E00B6EE4A /* SignUpView.swift */,
 				3DE4845528A4D9A500B6EE4A /* FindAccountView.swift */,
 				3D22B19428B34CA500EE9D00 /* FindIDView.swift */,
 				3D22B19628B34CB200EE9D00 /* FindPasswordView.swift */,
+				3DE4844E28A4C6E800B6EE4A /* LoginView.swift */,
+				3DE4845328A4D97E00B6EE4A /* SignUpView.swift */,
 			);
 			path = AccountViews;
-			sourceTree = "<group>";
-		};
-		3DE4845928AB390300B6EE4A /* SignedMyPageViews */ = {
-			isa = PBXGroup;
-			children = (
-				3DE4846A28AB72E700B6EE4A /* Rows */,
-				3DE4845A28AB39AB00B6EE4A /* SignedMyPageView.swift */,
-				3DE4846428AB675100B6EE4A /* ReportListView.swift */,
-				3DE4846828AB6CD300B6EE4A /* PostListView.swift */,
-			);
-			path = SignedMyPageViews;
 			sourceTree = "<group>";
 		};
 		3DE4846A28AB72E700B6EE4A /* Rows */ = {
 			isa = PBXGroup;
 			children = (
-				3DE4845C28AB407700B6EE4A /* ReportListRowView.swift */,
-				3DE4846628AB681000B6EE4A /* ReportListDetailRowView.swift */,
 				3DE4846228AB56B300B6EE4A /* PostingListRowView.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
 		};
-		3DE4846B28AC862900B6EE4A /* FacilityDetailViews */ = {
+		EE9FEFE928CB2667001B50B6 /* MyProfileViews */ = {
 			isa = PBXGroup;
 			children = (
-				3D991C5E28C72FD600F7426D /* RiskAnalysis */,
-				3DAC2CD828ADF7C200B06C67 /* Report */,
-				3DAC2CD728ADF7B000B06C67 /* Posting */,
+				3DE4845A28AB39AB00B6EE4A /* SignedMyPageView.swift */,
+			);
+			path = MyProfileViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFEA28CB26B0001B50B6 /* CoreViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4843E28A24D1000B6EE4A /* FacilityView.swift */,
+				3DE4845028A4C6FA00B6EE4A /* MyPageView.swift */,
+			);
+			path = CoreViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFEB28CB26E5001B50B6 /* PostingViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4846A28AB72E700B6EE4A /* Rows */,
+				3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */,
+				3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */,
+				3DE4847228ACC47800B6EE4A /* PostDetailView.swift */,
+				3DE4847028ACA00300B6EE4A /* PostingView.swift */,
+				3DE4846828AB6CD300B6EE4A /* PostListView.swift */,
+				3DE4846E28AC9F1F00B6EE4A /* SafetyListView.swift */,
+			);
+			path = PostingViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFEC28CB270D001B50B6 /* ReportViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE9FEFED28CB2720001B50B6 /* Rows */,
+				3DE4846428AB675100B6EE4A /* ReportListView.swift */,
+				3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */,
+			);
+			path = ReportViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFED28CB2720001B50B6 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4845C28AB407700B6EE4A /* ReportListRowView.swift */,
+				3DE4846628AB681000B6EE4A /* ReportListDetailRowView.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		EE9FEFEE28CB2745001B50B6 /* FacilityViews */ = {
+			isa = PBXGroup;
+			children = (
 				3DAC2CD328ADF59000B06C67 /* QRScanner */,
+				EE9FEFF128CB27ED001B50B6 /* Rows */,
 				3DE4846C28AC864700B6EE4A /* FacilityDetailMainView.swift */,
 			);
-			path = FacilityDetailViews;
+			path = FacilityViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFEF28CB275C001B50B6 /* RiskAnalysisViews */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C6128C7300200F7426D /* RiskAnalysisView.swift */,
+			);
+			path = RiskAnalysisViews;
+			sourceTree = "<group>";
+		};
+		EE9FEFF028CB2790001B50B6 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C4E28BF789D00F7426D /* ImagePicker.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		EE9FEFF128CB27ED001B50B6 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4844628A37E7F00B6EE4A /* FacilityRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		EE9FEFF228CB291A001B50B6 /* FacilityViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
+				3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */,
+			);
+			path = FacilityViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF328CB292B001B50B6 /* AccountViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */,
+				3D22B1CB28B5E18400EE9D00 /* LoginViewModel.swift */,
+				3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */,
+				3D22B1C128B4E40800EE9D00 /* SignUpViewModel.swift */,
+			);
+			path = AccountViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF428CB2948001B50B6 /* PostingViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1E928BE4C9C00EE9D00 /* ContentDetailViewModel.swift */,
+				3D991C5828C628B700F7426D /* ContentRegisterViewModel.swift */,
+				3D22B1E528BE3B0000EE9D00 /* SaftyListViewModel.swift */,
+			);
+			path = PostingViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF528CB2962001B50B6 /* MyProfileViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */,
+				3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */,
+			);
+			path = MyProfileViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF628CB2984001B50B6 /* ReportViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */,
+			);
+			path = ReportViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF728CB2995001B50B6 /* RiskAnalysisViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C6328C7379600F7426D /* RiskAnalysisViewModel.swift */,
+			);
+			path = RiskAnalysisViewModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF828CB29CB001B50B6 /* AccountModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
+				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
+				3D22B1D528B7367500EE9D00 /* FindIdModel.swift */,
+				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
+			);
+			path = AccountModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFF928CB29F2001B50B6 /* FacilityModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
+				3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */,
+			);
+			path = FacilityModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFFA28CB2A14001B50B6 /* PostingModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C5428C4C0BF00F7426D /* MyContentListModel.swift */,
+				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
+				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
+				3D22B1E328BE3A2C00EE9D00 /* SaftyPosterModel.swift */,
+				3D22B1E728BE4A7900EE9D00 /* ContentDetailModel.swift */,
+			);
+			path = PostingModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFFB28CB2A2B001B50B6 /* MyProfileModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D22B1EF28BF4D4200EE9D00 /* MyPageModel.swift */,
+			);
+			path = MyProfileModels;
+			sourceTree = "<group>";
+		};
+		EE9FEFFC28CB2A47001B50B6 /* ReportModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D991C5A28C6319900F7426D /* ReportRegisterModel.swift */,
+			);
+			path = ReportModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
