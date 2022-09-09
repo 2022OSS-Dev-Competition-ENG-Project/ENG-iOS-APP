@@ -9,6 +9,7 @@ import Foundation
 
 // REQUEST DATA
 /*
+ JSON:
     {
      "userUuid" : "a9babfe7-c58c-4705-9c87-80d1733b4008",
      "userFacility" : "f11788ce-01af-46d0-9cdd-9aa3e62d2c93"

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct CommentRowView: View {
-    @EnvironmentObject var VM: ContentDetailViewModel
+    @EnvironmentObject var VM: PosterDetailViewModel
     
     let commentNum: Int
     let nickName: String
@@ -50,6 +50,6 @@ struct CommentRowView_Previews: PreviewProvider {
     static var previews: some View {
         CommentRowView(commentNum: 5, nickName: "김철수", commentText: "바보", commentDate: "2018-12-29 10:24:30", userUUID: "ㄹ")
             .previewLayout(.sizeThatFits)
-            .environmentObject(ContentDetailViewModel())
+            .environmentObject(PosterDetailViewModel())
     }
 }

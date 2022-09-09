@@ -1,5 +1,5 @@
 //
-//  SaftyListViewModel.swift
+//  FacilityPosterListViewModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/30.
@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-class SaftyListViewModel: ObservableObject {
+class FacilityPosterListViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var posters: [SaftyPosterModel] = []
+    @Published var posters: [FacilityPosterModel] = []
     
     func getPosters(faciliityId: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + faciliityId + "/0/0/list") else { return }
@@ -22,7 +22,7 @@ class SaftyListViewModel: ObservableObject {
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
-            .decode(type: [SaftyPosterModel].self, decoder: JSONDecoder())
+            .decode(type: [FacilityPosterModel].self, decoder: JSONDecoder())
             .replaceError(with: [])
             .sink { completion in
                 print(completion)

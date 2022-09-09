@@ -13,7 +13,7 @@ class MyContentListViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var contents: [MyContentListModel] = []
+    @Published var contents: [MyPosterListModel] = []
     
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
@@ -27,7 +27,7 @@ class MyContentListViewModel: ObservableObject {
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
-            .decode(type: [MyContentListModel].self, decoder: JSONDecoder())
+            .decode(type: [MyPosterListModel].self, decoder: JSONDecoder())
             .replaceError(with: [])
             .sink { completion in
                 print(completion)

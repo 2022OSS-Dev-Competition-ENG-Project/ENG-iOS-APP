@@ -1,5 +1,5 @@
 //
-//  SaftyPosterModel.swift
+//  FacilityPosterModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/30.
@@ -29,13 +29,13 @@ import Foundation
     ]
  */
 
-struct SaftyPosterModel: Codable, Identifiable {
-    let id: Int
-    let contentTitle: String
-    let contentText: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "contentNum"
-        case contentTitle, contentText
-    }
-}
+//struct FacilityPosterModel: Codable, Identifiable {
+//    let id: Int
+//    let contentTitle: String
+//    let contentText: String
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case id = "contentNum"
+//        case contentTitle, contentText
+//    }
+//}

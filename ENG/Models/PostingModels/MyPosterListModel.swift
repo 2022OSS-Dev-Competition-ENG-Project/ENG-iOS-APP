@@ -1,5 +1,5 @@
 //
-//  MyContentListModel.swift
+//  MyPosterListModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/09/04.
@@ -16,7 +16,7 @@ import Foundation
  }
 */
 
-struct MyContentListModel: Codable, Identifiable {
+struct MyPosterListModel: Codable, Identifiable {
     let id: Int
     let contentTitle: String
     let contentText: String

@@ -87,9 +87,9 @@ extension FacilityView {
                     // 모델을 가져와서 수정 필요
                     ForEach(listModel) { item in
                         NavigationLink {
-                            FacilityDetailMainView(facilityName: item.facilityName, facilityId: item.id)
+                            FacilityMainView(facilityName: item.facilityName, facilityId: item.id)
                         } label: {
-                            FacilityRow(item: item, isLiked: item.isLikedBool)
+                            FacilityListRow(item: item, isLiked: item.isLikedBool)
                                 .environmentObject(VM)
                         }
                     }
@@ -106,7 +106,7 @@ extension FacilityView {
         .navigationBarItems(
             leading: EditButton(),
             trailing:
-                NavigationLink("추가", destination: QRCodeScanner())
+                NavigationLink("추가", destination: FacilityRegistrationViews())
                     .foregroundColor(Color.theme.red)
         )
     }

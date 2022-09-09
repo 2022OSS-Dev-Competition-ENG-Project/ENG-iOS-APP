@@ -1,5 +1,5 @@
 //
-//  FacilityRow.swift
+//  FacilityListRow.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FacilityRow: View {
+struct FacilityListRow: View {
     
     let item: MyFacilityModel
     @State var isLiked: Bool
@@ -40,7 +40,7 @@ struct FacilityRow: View {
 
 struct FacilityRow_Previews: PreviewProvider {
     static var previews: some View {
-        FacilityRow(item: MyFacilityModel(uuid: "asdf", facilityAddress: "어디어디 하양", id: "facility num", facilityName: "이정훈 시설물", isLiked: 0), isLiked: true)
+        FacilityListRow(item: MyFacilityModel(uuid: "asdf", facilityAddress: "어디어디 하양", id: "facility num", facilityName: "이정훈 시설물", isLiked: 0), isLiked: true)
             .previewLayout(.sizeThatFits)
             .environmentObject(MyFaciltyViewModel())
     }

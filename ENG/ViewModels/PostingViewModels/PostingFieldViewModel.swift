@@ -1,5 +1,5 @@
 //
-//  ContentRegisterViewModel.swift
+//  PostingFieldViewModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/09/05.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ContentRegisterViewModel: ObservableObject {
+class PostingFieldViewModel: ObservableObject {
     let NM = NetworkManager.shared
     
     @Published var isRegisterSuccess: Bool = false

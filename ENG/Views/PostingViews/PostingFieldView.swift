@@ -1,5 +1,5 @@
 //
-//  PostingView.swift
+//  PostingFieldView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/17.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostingView: View {
+struct PostingFieldView: View {
     
     let facilityId: String
     
@@ -16,7 +16,7 @@ struct PostingView: View {
     @State var placeHolderText: String = "글 내용을 입력하세요. (500자 이내)"
     @FocusState private var contentTextFieldIsFocused: Bool // 포커스 상태 변수
     
-    @StateObject var VM = ContentRegisterViewModel()
+    @StateObject var VM = PostingFieldViewModel()
     
     // NavigationView Dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -73,10 +73,10 @@ struct PostingView: View {
     }
 }
 
-struct PostingView_Previews: PreviewProvider {
+struct PostingFieldView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostingView(facilityId: "")
+            PostingFieldView(facilityId: "")
         }
     }
 }

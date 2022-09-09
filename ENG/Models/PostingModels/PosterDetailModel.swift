@@ -1,5 +1,5 @@
 //
-//  ContentDetailModel.swift
+//  PosterDetailModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/30.
@@ -20,7 +20,7 @@ import Foundation
      "userLikeBool": 1
  }
 */
-struct ContentDetailModel: Codable {
+struct PosterDetailModel: Codable {
     let contentNum: Int
     let contentTitle: String
     let contentText: String
@@ -68,7 +68,7 @@ struct ContentDetailModel: Codable {
          "contentNum" : 37
     }
 */
-struct ContentLikeModel: Codable {
+struct PosterLikeModel: Codable {
     let userUuid: String
     let contentNum: Int
 }

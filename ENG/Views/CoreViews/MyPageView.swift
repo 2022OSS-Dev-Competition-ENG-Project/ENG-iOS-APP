@@ -13,7 +13,7 @@ struct MyPageView: View {
     
     var body: some View {
         if LoginVM.isLoggedIn {
-            SignedMyPageView()
+            MyProfileView()
                 .environmentObject(LoginVM)
         } else {
             LoginView()

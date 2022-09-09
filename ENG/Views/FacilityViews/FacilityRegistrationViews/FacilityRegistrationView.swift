@@ -1,5 +1,5 @@
 //
-//  QRCodeScanner.swift
+//  FacilityRegistrationView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/18.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct QRCodeScanner: View {
+struct FacilityRegistrationViews: View {
     
     var NM = NetworkManager.shared
 

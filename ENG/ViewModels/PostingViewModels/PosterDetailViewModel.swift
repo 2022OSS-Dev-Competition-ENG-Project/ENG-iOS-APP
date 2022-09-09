@@ -1,5 +1,5 @@
 //
-//  ContentDetailViewModel.swift
+//  PosterDetailViewModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/30.
@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-class ContentDetailViewModel: ObservableObject {
+class PosterDetailViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
-    @Published var content: ContentDetailModel = ContentDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0)
+    @Published var content: PosterDetailModel = PosterDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0)
     @Published var comments: [CommentModel] = []
     @Published var likeCount: String = ""
     
@@ -27,8 +27,8 @@ class ContentDetailViewModel: ObservableObject {
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
-            .decode(type: ContentDetailModel.self, decoder: JSONDecoder())
-            .replaceError(with: ContentDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0))
+            .decode(type: PosterDetailModel.self, decoder: JSONDecoder())
+            .replaceError(with: PosterDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
@@ -86,7 +86,7 @@ class ContentDetailViewModel: ObservableObject {
     }
     
     // like content
-    func likeContent(data: ContentLikeModel, contentNum: Int) {
+    func likeContent(data: PosterLikeModel, contentNum: Int) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         
         let request: URLRequest

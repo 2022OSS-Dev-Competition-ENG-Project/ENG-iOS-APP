@@ -1,5 +1,5 @@
 //
-//  FacilityDetailMainView.swift
+//  FacilityMainView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/17.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FacilityDetailMainView: View {
+struct FacilityMainView: View {
     
     var facilityName: String
     var facilityId: String
@@ -42,15 +42,15 @@ struct FacilityDetailMainView: View {
     }
 }
 
-struct FacilityDetailMainView_Previews: PreviewProvider {
+struct FacilityMainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FacilityDetailMainView(facilityName: "그래용 시티", facilityId: "82d6e478-ef46-481e-abf4-a2425028030e")
+            FacilityMainView(facilityName: "그래용 시티", facilityId: "82d6e478-ef46-481e-abf4-a2425028030e")
         }
     }
 }
 
-extension FacilityDetailMainView {
+extension FacilityMainView {
     private var Notice: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
@@ -138,7 +138,7 @@ extension FacilityDetailMainView {
                     Spacer()
                     
                     NavigationLink {
-                        SafetyListView(facilityId: facilityId)
+                        FacilityPosterListView(facilityId: facilityId)
                     } label: {
                         Text("더보기>")
                             .font(.custom(Font.theme.mainFontBold, size: 13))
@@ -150,9 +150,9 @@ extension FacilityDetailMainView {
                 // 리스트 불러오기
                 ForEach(VM.posters) { item in
                     NavigationLink {
-                        PostDetailView(contentNum: item.id)
+                        PosterDetailView(contentNum: item.id)
                     } label: {
-                        PostingListRowView(postingNumber: item.id, postingTitle: item.contentTitle)
+                        PosterListRowView(posterNumber: item.id, posterTitle: item.contentTitle)
                             .padding(.horizontal, 16)
                             .foregroundColor(.black)
                     }

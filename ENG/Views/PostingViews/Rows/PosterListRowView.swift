@@ -1,5 +1,5 @@
 //
-//  PostingListRowView.swift
+//  PosterListRowView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/16.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct PostingListRowView: View {
+struct PosterListRowView: View {
     
-    var postingNumber = 1
-    var postingTitle: String = ""
+    var posterNumber = 1
+    var posterTitle: String = ""
     
     var body: some View {
         HStack {
-            Text(postingNumber.asListNumberString())
+            Text(posterNumber.asListNumberString())
                 .frame(width: 50)
                 .padding(.trailing, 10)
-            Text(postingTitle)
+            Text(posterTitle)
             
             Spacer()
         }
@@ -29,9 +29,9 @@ struct PostingListRowView: View {
 struct PostingListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PostingListRowView()
+            PosterListRowView()
                 .previewLayout(.sizeThatFits)
-            PostingListRowView(postingNumber: 2)
+            PosterListRowView(posterNumber: 2)
                 .previewLayout(.sizeThatFits)
         }
     }

@@ -1,5 +1,5 @@
 //
-//  SignedMyPageView.swift
+//  MyProfileView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/16.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignedMyPageView: View {
+struct MyProfileView: View {
     
     @StateObject var loginVM = LoginViewModel.shared
     @StateObject var VM = MyPageViewModel()
@@ -55,15 +55,15 @@ struct SignedMyPageView: View {
     }
 }
 
-struct SignedMyPageView_Previews: PreviewProvider {
+struct MyProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SignedMyPageView()
+            MyProfileView()
         }
     }
 }
 
-extension SignedMyPageView {
+extension MyProfileView {
     private var BasicInformation: some View {
         
         HStack(spacing: 30) {
@@ -152,7 +152,7 @@ extension SignedMyPageView {
                 Spacer()
                 
                 NavigationLink {
-                    PostListView()
+                    MyPosterListView()
                 } label: {
                     Text("더보기")
                         .font(.custom(Font.theme.mainFont, size: 14))
@@ -168,9 +168,9 @@ extension SignedMyPageView {
                 VStack {
                     ForEach(VM.mainMyContents) { content in
                         NavigationLink {
-                            PostDetailView(contentNum: content.id)
+                            PosterDetailView(contentNum: content.id)
                         } label: {
-                            PostingListRowView(postingNumber: content.id, postingTitle: content.contentTitle)
+                            PosterListRowView(posterNumber: content.id, posterTitle: content.contentTitle)
                                 .foregroundColor(.black)
                         }
                     }

@@ -1,5 +1,5 @@
 //
-//  PostDetailView.swift
+//  PosterDetailView.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/17.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct PostDetailView: View {
+struct PosterDetailView: View {
     
     let contentNum: Int
     
-    @StateObject var VM = ContentDetailViewModel()
+    @StateObject var VM = PosterDetailViewModel()
     @State var commentTextField: String = ""
     @State var isSend: Bool = false
     
@@ -84,15 +84,15 @@ struct PostDetailView: View {
 }
 
 
-struct PostDetailView_Previews: PreviewProvider {
+struct PosterDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PostDetailView(contentNum: 57)
+            PosterDetailView(contentNum: 57)
         }
     }
 }
 
-extension PostDetailView {
+extension PosterDetailView {
     private var ContentView: some View {
         VStack(alignment: .leading) {
             Text(VM.content.contentTitle)
@@ -141,7 +141,7 @@ extension PostDetailView {
                     .foregroundColor(.theme.red)
                     .onTapGesture {
                         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
-                        VM.likeContent(data: ContentLikeModel(userUuid: userUUID, contentNum: self.contentNum), contentNum: self.contentNum)
+                        VM.likeContent(data: PosterLikeModel(userUuid: userUUID, contentNum: self.contentNum), contentNum: self.contentNum)
                  }
                 Text(VM.likeCount)
                     .font(.custom(Font.theme.mainFontBold, size: 20))
