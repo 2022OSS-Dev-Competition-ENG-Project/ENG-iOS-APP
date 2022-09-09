@@ -14,7 +14,7 @@ class MyPageViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     @Published var userInfo: MyPageUserInfoModel = MyPageUserInfoModel(userEmail: "", userNickname: "", userJoinDate: "", userImg: "")
-    @Published var mainMyContents: [MainMyContent] = []
+    @Published var mainMyContents: [MainMyPoster] = []
     @Published var mainMyReports: [MainMyReport] = []
     @Published var isUploadSucess: Bool = false
     
@@ -52,7 +52,7 @@ class MyPageViewModel: ObservableObject {
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
-            .decode(type: [MainMyContent].self, decoder: JSONDecoder())
+            .decode(type: [MainMyPoster].self, decoder: JSONDecoder())
             .replaceError(with: [])
             .sink { completion in
                 print(completion)

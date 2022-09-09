@@ -34,7 +34,7 @@
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
 		3D991C4F28BF789D00F7426D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C4E28BF789D00F7426D /* ImagePicker.swift */; };
-		3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */; };
+		3D991C5128C0F5DC00F7426D /* PostingFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5028C0F5DC00F7426D /* PostingFieldModel.swift */; };
 		3D991C5528C4C0BF00F7426D /* MyPosterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5428C4C0BF00F7426D /* MyPosterListModel.swift */; };
 		3D991C5728C4C19E00F7426D /* MyContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */; };
 		3D991C5928C628B700F7426D /* PostingFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5828C628B700F7426D /* PostingFieldViewModel.swift */; };
@@ -98,7 +98,7 @@
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3D991C4E28BF789D00F7426D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRegisterModel.swift; sourceTree = "<group>"; };
+		3D991C5028C0F5DC00F7426D /* PostingFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingFieldModel.swift; sourceTree = "<group>"; };
 		3D991C5428C4C0BF00F7426D /* MyPosterListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosterListModel.swift; sourceTree = "<group>"; };
 		3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContentListViewModel.swift; sourceTree = "<group>"; };
 		3D991C5828C628B700F7426D /* PostingFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingFieldViewModel.swift; sourceTree = "<group>"; };
@@ -309,10 +309,10 @@
 			children = (
 				EE9FEFFD28CB329A001B50B6 /* Components */,
 				3DE4846A28AB72E700B6EE4A /* Rows */,
+				3DE4846E28AC9F1F00B6EE4A /* FacilityPosterListView.swift */,
+				3DE4846828AB6CD300B6EE4A /* MyPosterListView.swift */,
 				3DE4847228ACC47800B6EE4A /* PosterDetailView.swift */,
 				3DE4847028ACA00300B6EE4A /* PostingFieldView.swift */,
-				3DE4846828AB6CD300B6EE4A /* MyPosterListView.swift */,
-				3DE4846E28AC9F1F00B6EE4A /* FacilityPosterListView.swift */,
 			);
 			path = PostingViews;
 			sourceTree = "<group>";
@@ -393,9 +393,9 @@
 		EE9FEFF428CB2948001B50B6 /* PostingViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3D22B1E528BE3B0000EE9D00 /* FacilityPosterListViewModel.swift */,
 				3D22B1E928BE4C9C00EE9D00 /* PosterDetailViewModel.swift */,
 				3D991C5828C628B700F7426D /* PostingFieldViewModel.swift */,
-				3D22B1E528BE3B0000EE9D00 /* FacilityPosterListViewModel.swift */,
 			);
 			path = PostingViewModels;
 			sourceTree = "<group>";
@@ -428,10 +428,10 @@
 		EE9FEFF828CB29CB001B50B6 /* AccountModels */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
-				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
 				3D22B1D528B7367500EE9D00 /* FindIdModel.swift */,
+				3D22B1C928B5DFB100EE9D00 /* LoginModel.swift */,
 				3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */,
+				3D22B1BA28B4722600EE9D00 /* SignUpModel.swift */,
 			);
 			path = AccountModels;
 			sourceTree = "<group>";
@@ -439,8 +439,8 @@
 		EE9FEFF928CB29F2001B50B6 /* FacilityModels */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
 				3D22B1D328B644B100EE9D00 /* FacilityResgistrationModel.swift */,
+				3D22B1C528B5B28200EE9D00 /* MyFacilityModel.swift */,
 			);
 			path = FacilityModels;
 			sourceTree = "<group>";
@@ -448,10 +448,10 @@
 		EE9FEFFA28CB2A14001B50B6 /* PostingModels */ = {
 			isa = PBXGroup;
 			children = (
-				3D991C5428C4C0BF00F7426D /* MyPosterListModel.swift */,
-				3D991C5028C0F5DC00F7426D /* ContentRegisterModel.swift */,
 				3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */,
+				3D991C5428C4C0BF00F7426D /* MyPosterListModel.swift */,
 				3D22B1E728BE4A7900EE9D00 /* PosterDetailModel.swift */,
+				3D991C5028C0F5DC00F7426D /* PostingFieldModel.swift */,
 			);
 			path = PostingModels;
 			sourceTree = "<group>";
@@ -600,7 +600,7 @@
 				3D22B1C228B4E40800EE9D00 /* SignUpViewModel.swift in Sources */,
 				3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */,
 				3DE4846D28AC864700B6EE4A /* FacilityMainView.swift in Sources */,
-				3D991C5128C0F5DC00F7426D /* ContentRegisterModel.swift in Sources */,
+				3D991C5128C0F5DC00F7426D /* PostingFieldModel.swift in Sources */,
 				3DE4845628A4D9A500B6EE4A /* FindAccountView.swift in Sources */,
 				3D991C5928C628B700F7426D /* PostingFieldViewModel.swift in Sources */,
 				3DE4845428A4D97E00B6EE4A /* SignUpView.swift in Sources */,

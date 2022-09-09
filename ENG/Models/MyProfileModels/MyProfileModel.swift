@@ -31,7 +31,7 @@ struct MyPageUserInfoModel: Codable {
  }
 */
 
-struct MainMyContent: Codable, Identifiable {
+struct MainMyPoster: Codable, Identifiable {
     let id: Int
     let contentTitle: String
     

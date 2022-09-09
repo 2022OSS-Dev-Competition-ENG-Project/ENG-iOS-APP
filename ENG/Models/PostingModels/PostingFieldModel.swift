@@ -1,5 +1,5 @@
 //
-//  ContentRegisterModel.swift
+//  PostingFieldModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/09/01.
@@ -20,7 +20,7 @@ import Foundation
      "userUuid" : "0f797583-f9dd-4ec3-bb59-39d4cf862ed1"
  }
 */
-struct ContentRegisterModel: Codable {
+struct PostingFieldModel: Codable {
     let contentTitle: String
     let contentText: String
     let contentLook: Int

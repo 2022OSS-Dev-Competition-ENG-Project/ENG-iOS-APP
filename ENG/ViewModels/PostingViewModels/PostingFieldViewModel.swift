@@ -13,7 +13,7 @@ class PostingFieldViewModel: ObservableObject {
     
     @Published var isRegisterSuccess: Bool = false
     
-    func registerContent(inputData: ContentRegisterModel) {
+    func registerContent(inputData: PostingFieldModel) {
         let boundary = UUID().uuidString
         
         let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.facilityIp, api: "/api/facility/content/register", boundary: boundary)
