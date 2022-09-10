@@ -8,8 +8,11 @@
 import Foundation
 import Combine
 
+/// 로그인 뷰에서 사용되는 뷰 모델
+/// - Note: Related with `LoginView`, `MyPageView`, `FacilityView`
 class LoginViewModel: ObservableObject {
     
+    /// 로그인 모델을 각기 다른 뷰에서 사용할 수 있도록 싱글톤 패턴 활용
     static let shared = {
         return LoginViewModel()
     }()
@@ -17,10 +20,14 @@ class LoginViewModel: ObservableObject {
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
+    /// 로그인 성공 시 alert 제어 변수
     @Published var isLoginSuccess: Bool = false
+    /// 로그인 실패 시 alert 제어 변수
     @Published var isLoginFail: Bool = false
+    /// 이미 로그인 한 상태인지 확인하는 변수
     @Published var isLoggedIn: Bool = false
     
+    /// 앱 실행 시 로그인 여부를 가장 먼저 확인
     init() {
         guard let token = UserDefaults.standard.string(forKey: "loginToken") else { return }
         
@@ -33,6 +40,21 @@ class LoginViewModel: ObservableObject {
        
     }
     
+    /**
+     로그인을 시도하는 메서드
+      
+      - 로그인 성공 시
+        - **isLoginSuccess** -> true
+        - **isLoggedIn** -> true
+        - UserDefault에 해당 유저의 **UUID** 값 저장
+     
+     - 로그인 실패 시
+        - **isLoginFail** -> true
+     
+     [참고 API URL](https://xxx.xxx.xxx.xx)
+     
+     - Parameter data: Login API에 맞는 Request Data
+    */
     func doLogin(data: LoginRequest) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         
@@ -72,6 +94,12 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /**
+     로그아웃을 위한 메서드
+      
+     - UserDefault의 loginToken key에 해당하는 값 제거
+     - **isLoggedIn** -> false
+    */
     func doLogOut() {
         UserDefaults.standard.removeObject(forKey: "loginToken")
         isLoggedIn = false

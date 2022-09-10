@@ -7,17 +7,19 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct FindIDView: View {
     
     // NavigationView Dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    /// 아이디 찾기 뷰 모델
     @StateObject var VM = FindIdViewModel()
-    
+    /// 이름 정보를 입력 받는 TextField
     @State var nameTextField: String = ""
+    /// 휴대전화 번호 정보를 입력 받는 TextField
     @State var phoneNumberTextField: String = ""
 
-    
     var body: some View {
         VStack {
             HeaderView
@@ -27,25 +29,25 @@ struct FindIDView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        // Navigation View 관련 속성
         .navigationTitle("ID 찾기")
         .navigationBarTitleDisplayMode(.inline)
+        // 아이디 찾기 성공 시 사용되는 alert
         .alert("아이디 찾기", isPresented: $VM.isFoundId) {
             Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         } message: {
             Text("회원님의 아이디는 \(VM.userEmail)입니다.")
         }
+        // 아이디 찾기 실패 시 사용되는 alert
         .alert("아이디 찾기 실패", isPresented: $VM.isCanNotFindId) {
             Button("확인", action: {  })
         } message: {
             Text("아이디 찾기에 실패하였습니다. 다시 한 번 확인해주세요.")
         }
     }
-    
-    private func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
 }
 
+// MARK: - Previews
 struct FindIDView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -54,7 +56,9 @@ struct FindIDView_Previews: PreviewProvider {
     }
 }
 
+// MARK: - Components
 extension FindIDView {
+    /// 로고 및 페이지 설명
     private var HeaderView: some View {
         VStack {
             Image("Logo")
@@ -65,6 +69,7 @@ extension FindIDView {
         }
     }
     
+    /// 아이디 찾기에 필요한 정보를 입력하는 Input Field
     private var InputView: some View {
         VStack {
             ZStack {
@@ -119,10 +124,18 @@ extension FindIDView {
 
         }
     }
-    
+}
+
+// MARK: - Functions
+extension FindIDView {
+    /// 아이디 찾기 메서드 실행
     private func findID() {
         print("아이디 찾기 시도")
         VM.doFindId(data: FindIdModel(userName: nameTextField, userPhoneNumber: phoneNumberTextField))
     }
     
+    /// 백그라운드 터치 시 키보드 숨김
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

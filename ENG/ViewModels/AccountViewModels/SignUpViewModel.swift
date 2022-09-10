@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// 회원가입 뷰에서 사용되는 뷰 모델
+/// - Note: Related with `SignUpView`
 class SignUpViewModel: ObservableObject {
     let NM = NetworkManager.shared
     
@@ -17,16 +19,16 @@ class SignUpViewModel: ObservableObject {
         return SignUpViewModel()
     }()
     
-    // 이메일 중복 점검 관련 인스턴스
+    // 이메일 중복 점검 관련 프로퍼티
     @Published var isSuccess: Bool = false
     @Published var isDuplicate: Bool = false
     @Published var isFail: Bool = false
     
-    // 이메일 인증 코드 점검 인스턴스
+    // 이메일 인증 코드 점검 프로퍼티
     @Published var isAvailableAuthCode: Bool = false
     @Published var isDisableAuthCode: Bool = false
     
-    // 닉네임 중복 검사 관련 인스턴스
+    // 닉네임 중복 검사 관련 프로퍼티
     @Published var isAvailableNickName: Bool = false
     @Published var isDisableNickName: Bool = false
     
@@ -34,7 +36,6 @@ class SignUpViewModel: ObservableObject {
     @Published var isSuccessSignUp: Bool = false
     
     // MARK: 회원가입 관련 메서드
-    
     /// 이메일 인증 시작
     func emailAuthenticateStart(email: String) {
         guard let url = URL(string: NM.userIp + "/api/user-service/register/check/email/" + email) else { return }

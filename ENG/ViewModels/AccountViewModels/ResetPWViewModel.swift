@@ -8,13 +8,30 @@
 import Foundation
 import Combine
 
+/// 비밀번호 초기화 뷰에서 사용되는 뷰 모델
+/// - Note: Related with `FindPasswordView`
 class ResetPassWordViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     var NM = NetworkManager.shared
     
+    /// 비밀번호 초기화 성공을 알리는 변수
     @Published var isAvaliable: Bool = false
+    /// 비밀번호 초기화 실패를 알리는 변수
     @Published var isError: Bool = false
     
+    /**
+     비밀번호 초기화 메서드
+      
+      - 비밀번호 초기화 성공 시
+        - **isAvaliable** -> true
+     
+     - 비밀번호 초기화 실패 시
+        - **isError** -> true
+     
+     [참고 API URL](https://xxx.xxx.xxx.xx)
+     
+     - Parameter data: ResetPassword API에 맞는 Request Data
+     */
     func doResetPW(data: ResetPWRequestModel) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         

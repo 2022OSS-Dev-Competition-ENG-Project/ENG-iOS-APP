@@ -7,14 +7,17 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct FindPasswordView: View {
     
     // NavigationView Dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    /// 비밀번호 찾기 뷰 모델
     @StateObject var VM = ResetPassWordViewModel()
-    
+    /// 이메일 정보를 입력 받는 텍스트 필드
     @State var emailTextField: String = ""
+    /// 이름 정보를 입력 받는 텍스트 필드
     @State var nameTextField: String = ""
     
     var body: some View {
@@ -23,13 +26,16 @@ struct FindPasswordView: View {
             
             InputView
         }
+        // Navigation View 관련 설정
         .navigationTitle("비밀번호 찾기")
         .navigationBarTitleDisplayMode(.inline)
+        // 비밀번호 초기화 성공 시 alert
         .alert("비밀번호 초기화 성공", isPresented: $VM.isAvaliable) {
             Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         } message: {
             Text("입력하신 \(emailTextField)로 초기화된 비밀번호를 전송하였습니다.")
         }
+        // 비밀번호 초기화 실패 시 alert
         .alert("입력 오류", isPresented: $VM.isError) {
             Button("확인", action: { })
         } message: {
@@ -38,15 +44,9 @@ struct FindPasswordView: View {
     }
 }
 
-struct FindPasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            FindPasswordView()
-        }
-    }
-}
-
+// MARK: - Components
 extension FindPasswordView {
+    /// 비밀번호 찾기 뷰 헤더
     private var HeaderView: some View {
         VStack {
             Image("Logo")
@@ -57,6 +57,7 @@ extension FindPasswordView {
         }
     }
     
+    /// 비밀번호 입력에 필요한 정보를 입력하는 Input View
     private var InputView: some View {
         VStack {
             ZStack {
@@ -76,7 +77,6 @@ extension FindPasswordView {
 
                 }
                 .frame(width: 288)
-
             }
             
             ZStack {
@@ -110,10 +110,23 @@ extension FindPasswordView {
 
         }
     }
+
     
+}
+
+// MARK: - Functions
+extension FindPasswordView {
     private func findPW() {
         VM.doResetPW(data: ResetPWRequestModel(userEmail: emailTextField, userName: nameTextField))
         print("비밀번호 찾기 완료")
     }
-    
+}
+
+// MARK: - Preview
+struct FindPasswordView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            FindPasswordView()
+        }
+    }
 }

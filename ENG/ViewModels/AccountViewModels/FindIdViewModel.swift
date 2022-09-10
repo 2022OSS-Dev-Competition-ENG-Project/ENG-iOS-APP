@@ -9,15 +9,34 @@ import Foundation
 import Combine
 import SwiftUI
 
+/// 아이디 찾기 뷰에서 사용되는 뷰 모델
 class FindIdViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     var NM = NetworkManager.shared
     
+    /// 리턴된 User Email 값을 저장하는 변수
     @Published var userEmail: String = ""
+    /// 아이디 찾기 성공 시 alert을 제어하기 위한 변수
     @Published var isFoundId: Bool = false
+    /// 아이디를 찾기 실패 시 alert을 제어하기 위한 변수
     @Published var isCanNotFindId: Bool = false
     
+    
+    /**
+     아이디 찾기를 위한 통신을 시작하는 메서드
+      
+      - 아이디 찾기 성공 시
+        - UserEmail을 리턴
+        - isFoundedId를 True로 리턴
+     
+     - 아이디 찾기 실패 시
+        - isCanNotFindId를 True로 리턴
+     
+     [참고 API URL](https://xxx.xxx.xxx.xx)
+     
+     - Parameter data: 아이디를 찾을 유저의 정보
+    */
     func doFindId(data: FindIdModel) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         

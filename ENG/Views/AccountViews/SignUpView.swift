@@ -7,12 +7,13 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct SignUpView: View {
     
     // NavigationView Dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    // NetworkManager
+    // 회원가입 뷰 모델
     @StateObject var VM = SignUpViewModel.shared
     
     // 계정 정보 TextField
@@ -40,6 +41,7 @@ struct SignUpView: View {
                 
                 AccountInfoInputView
                 
+                // 이메일 인증 성공 시 뷰
                 if isAuthenticated {
                     UserInfoInputView
                     
@@ -54,6 +56,7 @@ struct SignUpView: View {
                             .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                     }
                 }
+                // 이메일 인증 미실행 시 뷰
                 else {
                     Button {
                         if isEMailSend {
@@ -77,63 +80,44 @@ struct SignUpView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        // 이메일 보내기 성공 시 alert
         .alert("이메일 보내기 성공!", isPresented: $VM.isSuccess) {
             Button("확인", action: { isEMailSend = true})
         }
+        // 이메일 보내기 실패 시 (이메일 중복) alert
         .alert("이메일 보내기 실패", isPresented: $VM.isDuplicate) {
             Button("확인", action: { })
         } message: {
             Text("이미 존재하는 이메일입니다.")
         }
+        // 이메일 보내기 실패 시 (Server Error) alert
         .alert("이메일 보내기 실패", isPresented: $VM.isFail) {
             Button("확인", action: { })
         } message: {
             Text("네트워크 상의 문제로 이메일 전송에 실패하였습니다.")
         }
+        // 이메일 인증 성공 시 alert
         .alert("이메일 인증 성공!", isPresented: $VM.isAvailableAuthCode) {
             Button("확인", action: { isAuthenticated = true })
         }
+        // 이메일 인증 실패 시 alert
         .alert("이메일 인증 실패", isPresented: $VM.isDisableAuthCode) {
             Button("확인", action: { })
         }
+        // 회원가입 성공 시 alert
         .alert("회원가입 성공!", isPresented: $VM.isSuccessSignUp) {
             Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         }
+        // Navigation View 관련 설정
         .navigationTitle("회원가입")
         .navigationBarTitleDisplayMode(.inline)
         
     }
-    
-    private func signUp() {
-        print("사인업")
-        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNum: phonenumberTextField)
-        VM.signUp(data: signUpModel)
-    }
-    
-    private func emailSend() {
-        print("인증 코드 전송")
-        VM.emailAuthenticateStart(email: eMailTextField)
-    }
-    private func emailAuthenticate() {
-        print("인증 코드 확인")
-        VM.emailAuthenticate(email: eMailTextField, code: eMailCodeTextField)
-    }
-    
-    private func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
 }
 
-struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            SignUpView()
-        }
-        
-    }
-}
-
+// MARK: - Components
 extension SignUpView {
+    /// 헤더 뷰
     private var HeaderView: some View {
         VStack {
             Image("Logo")
@@ -144,6 +128,7 @@ extension SignUpView {
         }
     }
     
+    /// 계정 정보 입력 뷰
     private var AccountInfoInputView: some View {
         VStack {
             Text("계정 정보 입력")
@@ -190,17 +175,8 @@ extension SignUpView {
                 .foregroundColor(isAuthenticated ? Color.theme.secondary : Color.black)
         }
     }
-    
-    private func checkPW() {
-        print("passwordField == \(passWordTextField), PWAgain == \(PWAgainTextField)")
-        if passWordTextField == PWAgainTextField {
-            isDisablePassword = false
-        }
-        else {
-            isDisablePassword = true
-        }
-    }
-    
+
+    /// 회원 정보 입력 뷰
     private var UserInfoInputView: some View {
         VStack {
             Text("회원 정보 입력")
@@ -232,9 +208,57 @@ extension SignUpView {
                 .keyboardType(.numberPad)
         }
     }
+}
+
+// MARK: - Functions
+extension SignUpView {
+    /// 회원가입 시도 메서드
+    private func signUp() {
+        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNum: phonenumberTextField)
+        VM.signUp(data: signUpModel)
+    }
     
+    /// 인증 코드 전송 메서드
+    private func emailSend() {
+        print("인증 코드 전송")
+        VM.emailAuthenticateStart(email: eMailTextField)
+    }
+    
+    /// 인증 코드 확인 메서드
+    private func emailAuthenticate() {
+        print("인증 코드 확인")
+        VM.emailAuthenticate(email: eMailTextField, code: eMailCodeTextField)
+    }
+    
+    /// 백그라운드 터치 시 키보드 숨김
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    /// 패스워드, 패스워드 확인 텍스트가 같은지 확인
+    private func checkPW() {
+        print("passwordField == \(passWordTextField), PWAgain == \(PWAgainTextField)")
+        if passWordTextField == PWAgainTextField {
+            isDisablePassword = false
+        }
+        else {
+            isDisablePassword = true
+        }
+    }
+    
+    /// 닉네임 체크 메서드
     private func nicknameCheck() {
         print("닉네임 체크 ㄱ")
         VM.checkNickName(email: eMailTextField, nickName: nicknameTextField)
+    }
+}
+
+// MARK: - Preview
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SignUpView()
+        }
+        
     }
 }
