@@ -8,13 +8,17 @@
 import Foundation
 import Combine
 
+/// 시설의 게시물 리스트 뷰에서 사용되는 뷰 모델
+/// - Note: Related with `FacilityPosterListView`
 class FacilityPosterListViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
+    /// 수신된 게시물 리스트를 저장하는 프로퍼티
     @Published var posters: [FacilityPosterModel] = []
     
+    /// 게시물 리스트 불러오기 메서드
     func getPosters(faciliityId: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + faciliityId + "/0/0/list") else { return }
         

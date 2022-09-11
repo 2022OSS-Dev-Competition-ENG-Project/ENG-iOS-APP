@@ -8,18 +8,25 @@
 import Foundation
 import Combine
 
+/// 게시물 상세보기 뷰에서 사용되는 뷰
+/// - Note: Related with `PosterDetailView`
 class PosterDetailViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
+    /// 수신된 정보 저장 프로퍼티
     @Published var content: PosterDetailModel = PosterDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0)
+    /// 댓글 목록 리스트 저장 프로퍼티
     @Published var comments: [CommentModel] = []
+    /// 좋아요 수 저장 프로퍼티
     @Published var likeCount: String = ""
     
+    /// 게시물 삭제 여부 프로퍼티
     @Published var isDelete: Bool = false
     
-    // get content
+    // MARK: - 포스터 관련 메서드
+    /// 게시물 상세 정보 불러오기 메서드
     func getContent(userUUID: String, contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + userUUID + "/" + String(contentId)) else { return }
         
@@ -38,7 +45,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // delete content
+    /// 게시물 삭제 메서드
     func deleteContent(userUUID: String, contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/delete/" + userUUID + "/" + String(contentId)) else { return }
         
@@ -63,7 +70,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // get like
+    /// 게시물 좋아요 개수 불러오기 메서드
     func getLike(contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/liked/" + String(contentId)) else { return }
         
@@ -85,7 +92,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // like content
+    /// 게시물 좋아요 동작 메서드
     func likeContent(data: PosterLikeModel, contentNum: Int) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         
@@ -121,6 +128,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// 게시물 좋아요 상태 변경
     private func changeLikeStatus() {
         if content.userLikeBool == 1 {
             content.userLikeBool = 0
@@ -129,7 +137,8 @@ class PosterDetailViewModel: ObservableObject {
         }
     }
     
-    // get Comment
+    // MARK: - 댓글 관련 메서드
+    /// 댓글 불러오기 메서드
     func getComment(contentId: Int) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/comment/" + String(contentId)) else { return }
         
@@ -148,7 +157,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // create Comment
+    /// 댓글 작성 메서드
     func createComment(contentId: Int, data: CommentRegisterModel) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         
@@ -183,7 +192,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // delete comment
+    /// 댓글 삭제 메서드
     func deleteComment(commentNum: Int, userUUID: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/content/comment/delete/" + String(commentNum) + "/" + userUUID) else { return }
         
@@ -205,7 +214,7 @@ class PosterDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    
+    /// 통신 핸들러
     func getFacilitiesHandleOutput(output: Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>.Output) throws -> Data {
         guard
             let response = output.response as? HTTPURLResponse,

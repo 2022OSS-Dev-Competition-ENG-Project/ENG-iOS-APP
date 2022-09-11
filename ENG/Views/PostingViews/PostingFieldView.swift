@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct PostingFieldView: View {
     
     let facilityId: String
@@ -62,12 +63,19 @@ struct PostingFieldView: View {
         .navigationBarItems(trailing: Button("등록", action: post))
     }
     
+
+}
+
+// MARK: - Functions
+extension PostingFieldView {
+    /// 게시물 등록 메서드
     private func post() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         // 등록 기능 구현
         VM.registerContent(inputData: PostingFieldModel(contentTitle: postTitleTextField, contentText: postContentTextField, contentLook: 0, contentType: 0, facilityNo: self.facilityId, userUuid: userUUID))
     }
-    // 백그라운드 터치 시 키보드 내림
+    
+    /// 백그라운드 터치 시 키보드 내림
     private func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

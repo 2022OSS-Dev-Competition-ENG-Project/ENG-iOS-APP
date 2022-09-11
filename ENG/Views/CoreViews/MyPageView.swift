@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct MyPageView: View {
     
     @StateObject var LoginVM = LoginViewModel.shared
@@ -22,6 +23,7 @@ struct MyPageView: View {
     }
 }
 
+// MARK: - Preview
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

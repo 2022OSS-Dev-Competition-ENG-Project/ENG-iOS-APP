@@ -20,7 +20,7 @@
 		3D22B1D628B7367500EE9D00 /* FindIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D528B7367500EE9D00 /* FindIdModel.swift */; };
 		3D22B1D828B7378E00EE9D00 /* FindIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */; };
 		3D22B1DA28B747D600EE9D00 /* FacilityPosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */; };
-		3D22B1DC28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */; };
+		3D22B1DC28B74A2000EE9D00 /* FacilityMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DB28B74A2000EE9D00 /* FacilityMainViewModel.swift */; };
 		3D22B1DE28B89DBC00EE9D00 /* ResetPWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */; };
 		3D22B1E028B89E2600EE9D00 /* ResetPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */; };
 		3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */; };
@@ -29,7 +29,7 @@
 		3D22B1EA28BE4C9C00EE9D00 /* PosterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1E928BE4C9C00EE9D00 /* PosterDetailViewModel.swift */; };
 		3D22B1EC28BF3D4800EE9D00 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1EB28BF3D4800EE9D00 /* StringExtension.swift */; };
 		3D22B1F028BF4D4200EE9D00 /* MyProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1EF28BF4D4200EE9D00 /* MyProfileModel.swift */; };
-		3D22B1F228BF4E2200EE9D00 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */; };
+		3D22B1F228BF4E2200EE9D00 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B1F128BF4E2200EE9D00 /* MyProfileViewModel.swift */; };
 		3D4DC1FA28ACCFF000E69E23 /* CommentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */; };
 		3D4DC1FC28ADCC1F00E69E23 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */; };
 		3D4DC20028ADF06000E69E23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */; };
@@ -84,7 +84,7 @@
 		3D22B1D528B7367500EE9D00 /* FindIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdModel.swift; sourceTree = "<group>"; };
 		3D22B1D728B7378E00EE9D00 /* FindIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIdViewModel.swift; sourceTree = "<group>"; };
 		3D22B1D928B747D600EE9D00 /* FacilityPosterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityPosterModel.swift; sourceTree = "<group>"; };
-		3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityDetailMainViewModel.swift; sourceTree = "<group>"; };
+		3D22B1DB28B74A2000EE9D00 /* FacilityMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityMainViewModel.swift; sourceTree = "<group>"; };
 		3D22B1DD28B89DBC00EE9D00 /* ResetPWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWModel.swift; sourceTree = "<group>"; };
 		3D22B1DF28B89E2600EE9D00 /* ResetPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPWViewModel.swift; sourceTree = "<group>"; };
 		3D22B1E128BE075D00EE9D00 /* CommentTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextfieldView.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		3D22B1E928BE4C9C00EE9D00 /* PosterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterDetailViewModel.swift; sourceTree = "<group>"; };
 		3D22B1EB28BF3D4800EE9D00 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3D22B1EF28BF4D4200EE9D00 /* MyProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileModel.swift; sourceTree = "<group>"; };
-		3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		3D22B1F128BF4E2200EE9D00 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRowView.swift; sourceTree = "<group>"; };
 		3D4DC1FB28ADCC1F00E69E23 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		3D4DC1FF28ADF06000E69E23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 		EE9FEFF228CB291A001B50B6 /* FacilityViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B1DB28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift */,
+				3D22B1DB28B74A2000EE9D00 /* FacilityMainViewModel.swift */,
 				3D22B1C728B5B2ED00EE9D00 /* MyFacilityViewModel.swift */,
 			);
 			path = FacilityViewModels;
@@ -404,7 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				3D991C5628C4C19E00F7426D /* MyContentListViewModel.swift */,
-				3D22B1F128BF4E2200EE9D00 /* MyPageViewModel.swift */,
+				3D22B1F128BF4E2200EE9D00 /* MyProfileViewModel.swift */,
 			);
 			path = MyProfileViewModels;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 				3DE4845128A4C6FA00B6EE4A /* MyPageView.swift in Sources */,
 				3DE4846128AB515500B6EE4A /* Font.swift in Sources */,
 				3D22B1CF28B5E1ED00EE9D00 /* NetworkResources.swift in Sources */,
-				3D22B1DC28B74A2000EE9D00 /* FacilityDetailMainViewModel.swift in Sources */,
+				3D22B1DC28B74A2000EE9D00 /* FacilityMainViewModel.swift in Sources */,
 				3D22B1EA28BE4C9C00EE9D00 /* PosterDetailViewModel.swift in Sources */,
 				3D22B19528B34CA500EE9D00 /* FindIDView.swift in Sources */,
 				3DE4846528AB675100B6EE4A /* ReportListView.swift in Sources */,
@@ -570,7 +570,7 @@
 				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
-				3D22B1F228BF4E2200EE9D00 /* MyPageViewModel.swift in Sources */,
+				3D22B1F228BF4E2200EE9D00 /* MyProfileViewModel.swift in Sources */,
 				3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,
 				3DE4846328AB56B300B6EE4A /* PosterListRowView.swift in Sources */,

@@ -7,16 +7,18 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct MyProfileView: View {
     
     @StateObject var loginVM = LoginViewModel.shared
-    @StateObject var VM = MyPageViewModel()
+    @StateObject var VM = MyProfileViewModel()
     
+    /// ImagePicker를 제어할 프로퍼티
     @State var showImagePicker: Bool = false
+    /// 업로드 할 이미지
     @State var uploadImage: UIImage = UIImage()
     
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 BasicInformation
@@ -37,35 +39,26 @@ struct MyProfileView: View {
                         .foregroundColor(Color.theme.red)
             )
         }
+        // 갤러리에 접근할 수 있도록 하는 sheet
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(sourceType: .photoLibrary) { image in
                 self.uploadImage = image
                 VM.registerUserProfileImage(paramName: "images", fileName: "image.png", image: self.uploadImage)
             }
         }
+        // 전송 성공 시 alert
         .alert("전송 성공!", isPresented: $VM.isUploadSucess) {
             Button("확인") {
                 
             }
         }
     }
-    
-    private func logOut() {
-        loginVM.doLogOut()
-    }
 }
 
-struct MyProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            MyProfileView()
-        }
-    }
-}
-
+// MARK: - Components
 extension MyProfileView {
+    /// 기본 유저 정보를 담는 뷰
     private var BasicInformation: some View {
-        
         HStack(spacing: 30) {
             AsyncImage(url: URL(string: VM.userInfo.userImg)) { image in
                 image
@@ -111,6 +104,7 @@ extension MyProfileView {
 
     }
     
+    /// 신고내역을 미리 볼 수 있도록 하는 뷰
     private var ReportList: some View {
         VStack {
             HStack {
@@ -143,6 +137,7 @@ extension MyProfileView {
         }
     }
     
+    /// 내가 쓴 게시물 리스트를 미리 볼 수 있는 뷰
     private var MyPostingList: some View {
         VStack {
             HStack {
@@ -176,6 +171,23 @@ extension MyProfileView {
                     }
                 }
             }
+        }
+    }
+}
+
+// MARK: - Functions
+extension MyProfileView {
+    /// 로그아웃 함수
+    private func logOut() {
+        loginVM.doLogOut()
+    }
+}
+
+// MARK: - Preview
+struct MyProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            MyProfileView()
         }
     }
 }

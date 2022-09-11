@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct FacilityView: View {
     
     @Binding var tabSelection: Int
@@ -28,22 +29,14 @@ struct FacilityView: View {
             }
         }
         .refreshable {
-            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
-            VM.getFacilities(userUUID: UUID)
-                    
+            loadFacilityList()
         }
     }
 }
 
-struct FacilityView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            FacilityView(tabSelection: .constant(1))
-        }
-    }
-}
-
+// MARK: - Component
 extension FacilityView {
+    /// 로그인 상태가 아닐 때 표시할 뷰
     private var notLoginView: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -77,14 +70,13 @@ extension FacilityView {
         
     }
     
+    /// 로그인 상태일 때 표시할 뷰
     private var LoggedInView: some View {
         ZStack {
             VStack {
                 // 필터 뷰
                     FilterView
-                //
                 List {
-                    // 모델을 가져와서 수정 필요
                     ForEach(listModel) { item in
                         NavigationLink {
                             FacilityMainView(facilityName: item.facilityName, facilityId: item.id)
@@ -111,17 +103,7 @@ extension FacilityView {
         )
     }
     
-    // 좋아요 필터링 기능
-    var listModel: [MyFacilityModel] {
-        if presentationOnlyLiked {
-            return VM.MyFacilities.filter { facility in
-                return facility.isLikedBool
-            }
-        } else {
-            return VM.MyFacilities
-        }
-    }
-    
+    /// 필터 기능 버튼 뷰
     private var FilterView: some View {
         HStack {
             Spacer()
@@ -139,4 +121,33 @@ extension FacilityView {
         }
     }
     
+}
+
+// MARK: - Functions
+extension FacilityView {
+    /// 시설 리스트 불러오기
+    func loadFacilityList() {
+        guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        VM.getFacilities(userUUID: UUID)
+    }
+    
+    /// 필터 상태에 따른 뷰 모델 로드
+    var listModel: [MyFacilityModel] {
+        if presentationOnlyLiked {
+            return VM.MyFacilities.filter { facility in
+                return facility.isLikedBool
+            }
+        } else {
+            return VM.MyFacilities
+        }
+    }
+}
+
+// MARK: - Preview
+struct FacilityView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            FacilityView(tabSelection: .constant(1))
+        }
+    }
 }

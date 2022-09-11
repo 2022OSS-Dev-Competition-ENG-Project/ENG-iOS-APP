@@ -8,15 +8,19 @@
 import Foundation
 import Combine
 
-class FacilityDetailMainViewModel: ObservableObject {
+/// 시설 메인 뷰에서 사용하는 뷰 모델
+/// - Note: Related with `FacilityMainView`
+class FacilityMainViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
+    /// 게시물 리스트를 저장하는 프로퍼티
     @Published var posters: [FacilityPosterModel] = []
+    /// 공지사항 리스트를 저장하는 프로퍼티
     @Published var notices: [FacilityNoticeModel] = []
     
-    // get 5 Posters
+    /// 게시물 불러오기 메서드
     func get5Posters(faciliityId: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/" + faciliityId + "/content/0/main") else { return }
         
@@ -34,7 +38,7 @@ class FacilityDetailMainViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    // get 5 Notices
+    /// 공지사항 불러오기
     func get5Notices(facilityId: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/" + facilityId + "/content/1/main") else { return }
                 
@@ -53,6 +57,7 @@ class FacilityDetailMainViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// 통신 데이터 핸들러
     func getFacilitiesHandleOutput(output: Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>.Output) throws -> Data {
         guard
             let response = output.response as? HTTPURLResponse,

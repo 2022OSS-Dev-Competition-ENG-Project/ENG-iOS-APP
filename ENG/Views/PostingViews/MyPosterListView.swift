@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct MyPosterListView: View {
     
     @StateObject var VM = MyContentListViewModel()
@@ -24,6 +25,7 @@ struct MyPosterListView: View {
     }
 }
 
+// MARK: - Preview
 struct MyPosterListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct PosterListRowView: View {
     
     var posterNumber = 1
@@ -26,6 +27,7 @@ struct PosterListRowView: View {
     }
 }
 
+// MARK: - Preview
 struct PostingListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

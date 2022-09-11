@@ -8,18 +8,23 @@
 import Foundation
 import Combine
 
+/// 내가 등록한 게시물 리스트 뷰에서 사용하는 뷰 모델
+/// - Note: Related with `MyposterListView`
 class MyContentListViewModel: ObservableObject {
     
     let NM = NetworkManager.shared
     var cancellables = Set<AnyCancellable>()
     
+    /// 게시물 리스트 저장 프로퍼티
     @Published var contents: [MyPosterListModel] = []
     
+    /// 뷰 모델 생성 시 게시물 리스트 불러옴
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         getContents(userUUID: userUUID)
     }
     
+    /// 게시물 리스트를 불러오는 프로퍼티
     func getContents(userUUID: String) {
         guard let url = URL(string: NM.facilityIp + "/api/facility/my/content/" + userUUID) else { return }
         

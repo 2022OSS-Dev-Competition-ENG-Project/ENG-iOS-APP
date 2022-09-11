@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct CommentTextfieldView: View {
     @Binding var commentTextField: String
     @Binding var isSend: Bool
@@ -39,6 +40,7 @@ struct CommentTextfieldView: View {
     }
 }
 
+// MARK: - Preview
 struct CommentTextfieldView_Previews: PreviewProvider {
     static var previews: some View {
         CommentTextfieldView(commentTextField: .constant(""), isSend: .constant(false))

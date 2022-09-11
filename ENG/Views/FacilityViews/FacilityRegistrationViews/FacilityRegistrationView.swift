@@ -8,15 +8,16 @@
 import SwiftUI
 import Combine
 
+// MARK: - MainStructView
 struct FacilityRegistrationViews: View {
     
     var NM = NetworkManager.shared
-
-    @State private var cardNumber: String = "//"
-    @State private var isCardNumberChange: Bool = false
+    
+    @State private var scannedInfo: String = "//"
+    @State private var isQRScanned: Bool = false
     
     private var qrComponents: [String] {
-        return cardNumber.components(separatedBy: "/")
+        return scannedInfo.components(separatedBy: "/")
     }
     var body: some View {
         VStack {
@@ -25,16 +26,17 @@ struct FacilityRegistrationViews: View {
                     .font(.headline)
                     .padding(.bottom, 30)
                 // QR Scanner
-                QRCameraCell(cardNumber: $cardNumber, isCardNumberChange: $isCardNumberChange)
+                QRCameraCell(scannedInfo: $scannedInfo, isQRScanned: $isQRScanned)
             }
-            .alert("스캔 완료", isPresented: $isCardNumberChange) {
+            .alert("스캔 완료", isPresented: $isQRScanned) {
                 Button("OK") { RegisterFacility(data: FacilityResgistrationModel(uuid: UserDefaults.standard.string(forKey: "loginToken") ?? "", facilityNo: qrComponents[0]))}
-                Button("취소") { cardNumber = "/" }
+                Button("취소") { scannedInfo = "/" }
             } message: {
                 Text("\(qrComponents[1]) (\(qrComponents[2]))가 맞나요?")
             }
     }
     
+    /// 시설물 등록 메서드
     private func RegisterFacility(data: FacilityResgistrationModel) {
         var cancellables = Set<AnyCancellable>()
         

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct FacilityPosterListView: View {
     
     let facilityId: String
@@ -32,6 +33,7 @@ struct FacilityPosterListView: View {
     }
 }
 
+// MARK: - Preview
 struct FacilityPosterListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

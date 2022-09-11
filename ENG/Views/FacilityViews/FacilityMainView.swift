@@ -7,11 +7,11 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct FacilityMainView: View {
-    
     var facilityName: String
     var facilityId: String
-    @StateObject var VM = FacilityDetailMainViewModel()
+    @StateObject var VM = FacilityMainViewModel()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -33,24 +33,11 @@ struct FacilityMainView: View {
             loadNotices(facilityId: facilityId)
         }
     }
-    
-    private func loadPosters(facilityId: String) {
-        VM.get5Posters(faciliityId: facilityId)
-    }
-    private func loadNotices(facilityId: String) {
-        VM.get5Notices(facilityId: facilityId)
-    }
 }
 
-struct FacilityMainView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            FacilityMainView(facilityName: "그래용 시티", facilityId: "82d6e478-ef46-481e-abf4-a2425028030e")
-        }
-    }
-}
-
+// MARK: - Components
 extension FacilityMainView {
+    /// 공지 베너를 띄울 뷰
     private var Notice: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
@@ -80,6 +67,7 @@ extension FacilityMainView {
         }
     }
     
+    /// 위험 분석 버튼, 신고하기 버튼을 포함하는 뷰
     private var MainButtons: some View {
         HStack(alignment: .center ,spacing: 28) {
             NavigationLink {
@@ -124,8 +112,8 @@ extension FacilityMainView {
         }
     }
     
+    /// 시설물의 게시물 리스트를 보여주는 뷰
     private var SafetyCommunicationList: some View {
-        
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.theme.secondary, lineWidth: 1)
@@ -165,5 +153,25 @@ extension FacilityMainView {
         .frame(width: 360, alignment: .center)
         .frame(minHeight: 0, maxHeight: .infinity)
         .padding(.bottom, 15)
+    }
+}
+
+extension FacilityMainView {
+    /// 시설물의 메인에 띄울 게시물 5개 불러오는 메서드
+    private func loadPosters(facilityId: String) {
+        VM.get5Posters(faciliityId: facilityId)
+    }
+    /// 시설물의 메인에 띄울 공지를 불러오는 메서드
+    private func loadNotices(facilityId: String) {
+        VM.get5Notices(facilityId: facilityId)
+    }
+}
+
+// MARK: - Preview
+struct FacilityMainView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            FacilityMainView(facilityName: "그래용 시티", facilityId: "82d6e478-ef46-481e-abf4-a2425028030e")
+        }
     }
 }

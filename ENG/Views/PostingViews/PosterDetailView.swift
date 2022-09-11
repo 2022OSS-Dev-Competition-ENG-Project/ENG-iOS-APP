@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct PosterDetailView: View {
     
     let contentNum: Int
     
     @StateObject var VM = PosterDetailViewModel()
+    /// 댓글 작성 텍스트 필드
     @State var commentTextField: String = ""
+    /// 댓글 작성 버튼 동작 프로퍼티
     @State var isSend: Bool = false
     
     // NavigationView Dismiss
@@ -59,6 +62,7 @@ struct PosterDetailView: View {
         }
         .navigationTitle(VM.content.contentTitle)
         .navigationBarTitleDisplayMode(.inline)
+        // 게시물 삭제 버튼
         .navigationBarItems(trailing: Button("삭제", action: {
             guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
             VM.deleteContent(userUUID: UUID, contentId: self.contentNum)
@@ -66,33 +70,23 @@ struct PosterDetailView: View {
             .hideToBool(VM.content.writerUuid != UserDefaults.standard.string(forKey: "loginToken")!)
             .foregroundColor(.theme.red)
         )
+        // 삭제 성공 시 alert
         .alert("삭제 성공", isPresented: $VM.isDelete, actions: {
             Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         })
+        // 댓글 작성
         .onChange(of: self.isSend, perform: { newValue in
-            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
-            VM.createComment(contentId: self.contentNum, data: CommentRegisterModel(commentText: self.commentTextField, contentNum: String(self.contentNum), userUuid: UUID))
-            self.commentTextField = ""
+            writeComment()
         })
         .onAppear {
-            guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
-            VM.getContent(userUUID: UUID, contentId: self.contentNum)
-            VM.getComment(contentId: self.contentNum)
-            VM.getLike(contentId: self.contentNum)
+            getPosterInfo()
         }
     }
 }
 
-
-struct PosterDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            PosterDetailView(contentNum: 57)
-        }
-    }
-}
-
+// MARK: - Components
 extension PosterDetailView {
+    /// 게시물 정보 뷰
     private var ContentView: some View {
         VStack(alignment: .leading) {
             Text(VM.content.contentTitle)
@@ -104,6 +98,7 @@ extension PosterDetailView {
         
     }
     
+    /// 작성자 정보 뷰
     private var authorInfoView: some View {
         HStack(alignment: .center, spacing: 15) {
             AsyncImage(url: URL(string: VM.content.writerViewImage)) { image in
@@ -146,25 +141,43 @@ extension PosterDetailView {
                 Text(VM.likeCount)
                     .font(.custom(Font.theme.mainFontBold, size: 20))
             }
-            
-//            VStack(spacing: 0) {
-//                Image(systemName: "hand.thumbsdown.fill")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 25, height: 25, alignment: .center)
-//                    .foregroundColor(Color(hex: "3282B8"))
-//                Text("3")
-//                    .font(.custom(Font.theme.mainFontBold, size: 20))
-//            }
         }
     }
     
+    /// 댓글 리스트 뷰
     private var CommentListView: some View {
         VStack {
             ForEach(VM.comments) { comment in
                 CommentRowView(commentNum: comment.id, nickName: comment.userNickName, commentText: comment.commentText, commentDate: comment.commentViewDate, userUUID: comment.userUuid)
                     .environmentObject(VM)
             }
+        }
+    }
+}
+
+// MARK: - Functions
+extension PosterDetailView {
+    /// 게시물 내용 불러오기
+    func getPosterInfo() {
+        guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        VM.getContent(userUUID: UUID, contentId: self.contentNum)
+        VM.getComment(contentId: self.contentNum)
+        VM.getLike(contentId: self.contentNum)
+    }
+    
+    /// 댓글 작성 메서드
+    func writeComment() {
+        guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        VM.createComment(contentId: self.contentNum, data: CommentRegisterModel(commentText: self.commentTextField, contentNum: String(self.contentNum), userUuid: UUID))
+        self.commentTextField = ""
+    }
+}
+
+// MARK: - Preview
+struct PosterDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            PosterDetailView(contentNum: 57)
         }
     }
 }

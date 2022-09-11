@@ -11,7 +11,7 @@ import AVFoundation
 
 struct CustomCameraRepresentable: UIViewControllerRepresentable {
     @Binding var image: UIImage?
-    @Binding var cardNumber: String
+    @Binding var scannedInfo: String
     
     // ViewController를 만들고 delegate도 설정해줍니다. ViewController가 처음 생성될때만 이 Method가 호출되고 그 후에는 아래에 있는 updateUIViewController Method가 호출됩니다.
     func makeUIViewController(context: Context) -> CustomCameraController {
