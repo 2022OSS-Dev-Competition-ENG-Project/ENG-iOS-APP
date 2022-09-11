@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 extension String {
-    
+    /// 작업 에러
+    /// - OutOfBounds : String Index 불러오기 실패시 발생하는 오류
     enum StringError: Error {
         case OutOfBounds
     }
