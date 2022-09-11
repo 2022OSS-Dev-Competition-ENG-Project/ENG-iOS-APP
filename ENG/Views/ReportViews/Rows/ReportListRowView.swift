@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
+/// - Note: Related with `MyProfileView`
 struct ReportListRowView: View {
     
     @State var reportNumber: Int = 1
@@ -27,6 +29,7 @@ struct ReportListRowView: View {
     }
 }
 
+// MARK: - Preview
 struct ReportListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {

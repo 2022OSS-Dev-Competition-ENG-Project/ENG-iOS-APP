@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// - Note: Related with `FacilityView`
 struct FacilityListRow: View {
     
     let item: MyFacilityModel

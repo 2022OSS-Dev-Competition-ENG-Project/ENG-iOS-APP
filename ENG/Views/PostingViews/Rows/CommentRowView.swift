@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 
 // MARK: - MainViewStruct
+/// 댓글 행 뷰
+/// - Note: Related with `PosterDetailView`
 struct CommentRowView: View {
     @EnvironmentObject var VM: PosterDetailViewModel
     

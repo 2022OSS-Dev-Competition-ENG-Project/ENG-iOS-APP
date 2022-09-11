@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+/// 위험 분석에 사용되는 뷰 모델
+/// - Note: Related with `RiskAnalysisView`
 class RiskAnalysisViewModel: ObservableObject {
     let NM = NetworkManager.shared
     
@@ -15,6 +17,7 @@ class RiskAnalysisViewModel: ObservableObject {
     @Published var isConnecting: Bool = false
     @Published var riskLevel: riskLevel = .noRisk
     
+    /// 이미지 분석 시작
     func doRiskAnalysis(images: [UIImage]) {
         self.isConnecting = true
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
@@ -71,6 +74,11 @@ class RiskAnalysisViewModel: ObservableObject {
         }).resume()
     }
     
+    /// 위험 분석 결과에 따른 수치
+    /// - high : return 값이 3인 경우
+    /// - mid : return 값이 2인 경우
+    /// - low : return 값이 1인 경우
+    /// - noRisk : return 값이 0인 경우
     enum riskLevel: String {
         case high = "상"
         case mid = "중"

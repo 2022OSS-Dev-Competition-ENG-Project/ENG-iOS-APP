@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct RiskAnalysisView: View {
     
     @StateObject var VM = RiskAnalysisViewModel()
@@ -90,6 +91,7 @@ struct RiskAnalysisView: View {
     }
 }
 
+// MARK: - Preview
 struct RiskAnalysisView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

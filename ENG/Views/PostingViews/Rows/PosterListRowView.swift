@@ -8,6 +8,7 @@
 import SwiftUI
 
 // MARK: - MainViewStruct
+/// - Note: Related With `FacilityMainView`, `MyProfileView`
 struct PosterListRowView: View {
     
     var posterNumber = 1

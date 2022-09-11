@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - MainViewStruct
 struct ReportListView: View {
     var body: some View {
         List(0..<100) { row in
@@ -18,6 +19,7 @@ struct ReportListView: View {
     }
 }
 
+// MARK: - Preview
 struct ReportListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

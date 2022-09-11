@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 
+/// 신고 등록 뷰에서 사용되는 뷰 모델
+/// - Note: Related with `ReportView`
 class ReportRegisterViewModel: ObservableObject {
     let NM = NetworkManager.shared
     
     @Published var isReportSuccess: Bool = false
     
+    /// 신고 등록 메서드
     func reportRegister(inputData: ReportRegisterModel, images: [UIImage]) {
         let boundary = UUID().uuidString
         
