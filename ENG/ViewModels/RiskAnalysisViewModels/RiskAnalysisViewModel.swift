@@ -54,6 +54,8 @@ class RiskAnalysisViewModel: ObservableObject {
                     print("리스크 스트링 -------->\"\(riskString)\"")
                     
                     switch riskString {
+                    case "4" :
+                        self.riskLevel = .inappropriate
                     case "3" :
                         self.riskLevel = .high
                     case "2" :
@@ -79,10 +81,12 @@ class RiskAnalysisViewModel: ObservableObject {
     /// - mid : return 값이 2인 경우
     /// - low : return 값이 1인 경우
     /// - noRisk : return 값이 0인 경우
+    /// - inappropriate : return 값이 4인 경우, 누수와 관련 없는 사진
     enum riskLevel: String {
         case high = "상"
         case mid = "중"
         case low = "하"
         case noRisk = "위험요소 없음"
+        case inappropriate = "부적합"
     }
 }

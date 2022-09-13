@@ -1,6 +1,6 @@
-# 🍏 ENG-iOS-APP
+# <img width=25px src=https://user-images.githubusercontent.com/77708819/189899360-aa5aec87-49a4-4878-8ea1-16596834a453.png> ENG-iOS-APP
 
-> **2022년 공개 SW 개발자대회**
+> **2022년 공개 SW 개발자대회** <br>
 > **프로젝트 기간 : 2022.07 ~**
 >
 > **안전불감증 솔루션**
@@ -14,16 +14,49 @@
 4. 안전소통게시판을 통해 시설 이용자간 소통할 수 있습니다.
 5. 이미지를 통한 위험 요소에 대한 분석 서비스를 제공받을 수 있습니다.
 
+## 🗂 프로젝트 폴더 구조
+```
+📦 ENG
+│
++ 🗂 Network
+│
++ 🗂 Font
+│
++ 🗂 Extension
+│
++ 🗂 ViewModels
+│         └── 🗂 AccountViewModels
+│         └── 🗂 FacilityViewModels
+│         └── 🗂 MyProfileViewModels
+│         └── 🗂 PostingViewModels
+│         └── 🗂 ReportViewModels
+│         └── 🗂 RiskAnalysisViewModels
+│
++ 🗂 Models
+│         └── 🗂 AccountModels
+│         └── 🗂 FacilityModels
+│         └── 🗂 MyProfileModels
+│         └── 🗂 PostingModels
+│         └── 🗂 ReportModels
+│ 
++ 🗂 Views
+│         └── 🗂 AccountViews
+│         └── 🗂 CoreViews
+│         └── 🗂 FacilityViews
+│         └── 🗂 MyProfileViews
+│         └── 🗂 PostingViews
+│         └── 🗂 ReportViews
+│         └── 🗂 RiskAnalysisViews
+│         └── 🗂 ViewComponents
+```
+
 ## 👓 설치
-https://github.com/2022OSS-Dev-Competition-ENG-Project/ENG-iOS-APP에 권한이 있는 경우: 
-- git fetch or clone or pull 
+### clone repository
 ```
 $ git clone https://github.com/2022OSS-Dev-Competition-ENG-Project/ENG-iOS-APP.git
 $ cd ENG-iOS-APP
 $ open ENG.xcodeproj
 ```
-https://github.com/2022OSS-Dev-Competition-ENG-Project/ENG-iOS-APP에 권한이 없는 경우:
-1. fork to your repository
 
 ## 🪖 프로젝트 초기 설정
 1. XCode로 ENG 프로젝트 오픈
@@ -40,17 +73,34 @@ let AIIp: String = "http://127.0.0.1:2222"
 ```
 
 ## 📱 UI Image
-### 회원 서비스
-![Fig 1 로그인 필요](https://user-images.githubusercontent.com/77708819/189688299-e9b09681-0111-4f19-a6eb-86f989e47555.png)
-![Fig 2 회원가입](https://user-images.githubusercontent.com/77708819/189688463-434763a1-6a46-44b5-9fb5-15ccd55a0faf.png)
-![Fig 3 계정정보찾기](https://user-images.githubusercontent.com/77708819/189688476-dfd7fe4b-06c8-475d-85ee-050408ff601c.png)
-### 시설 서비스
-![Fig 5 시설리스트관리](https://user-images.githubusercontent.com/77708819/189688496-9d25f101-b775-4bda-a34b-b7625fb04e6a.png)
-![Fig 7 게시물 관리](https://user-images.githubusercontent.com/77708819/189688502-b664ddcd-e043-44d0-826b-a059c7c08124.png)
-![Fig 8 신고하기](https://user-images.githubusercontent.com/77708819/189688518-680ccd48-6a2c-4e89-b975-552ab1df1c03.png)
-![Fig 8 위험 분석](https://user-images.githubusercontent.com/77708819/189688532-3779eb43-5c62-4cba-99b0-8eee2e9ca157.png)
-### 마이페이지
-![Fig 9 마이페이지](https://user-images.githubusercontent.com/77708819/189688543-4b79401f-3756-4961-8065-a3fb7d572227.png)
+<details>
+<summary>회원서비스</summary>
+<img src=https://user-images.githubusercontent.com/77708819/189688299-e9b09681-0111-4f19-a6eb-86f989e47555.png>
+<img src=https://user-images.githubusercontent.com/77708819/189688463-434763a1-6a46-44b5-9fb5-15ccd55a0faf.png>
+<img src=https://user-images.githubusercontent.com/77708819/189688476-dfd7fe4b-06c8-475d-85ee-050408ff601c.png>
+</details>
+
+<details>
+<summary>시설 서비스</summary>
+<img src=https://user-images.githubusercontent.com/77708819/189688496-9d25f101-b775-4bda-a34b-b7625fb04e6a.png>
+<img src=https://user-images.githubusercontent.com/77708819/189688502-b664ddcd-e043-44d0-826b-a059c7c08124.png>
+</details>
+
+<details>
+<summary>신고하기</summary>
+<img src=https://user-images.githubusercontent.com/77708819/189688518-680ccd48-6a2c-4e89-b975-552ab1df1c03.png>
+</details>
+
+<details>
+<summary>위험 분석</summary>
+<img src=https://user-images.githubusercontent.com/77708819/189688532-3779eb43-5c62-4cba-99b0-8eee2e9ca157.png>
+</details>
+
+<details>
+<summary>마이 페이지</summary>
+<img src=https://user-images.githubusercontent.com/77708819/189688543-4b79401f-3756-4961-8065-a3fb7d572227.png>
+</details>
+
 ## 💻 개발/배포 환경
 XCode Version 13.4.1
 iOS 15이상
