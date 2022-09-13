@@ -51,13 +51,16 @@ extension FacilityMainView {
                         }
                         .frame(width: UIScreen.main.bounds.width)
                     } placeholder: {
-                        Image(systemName: "mic.fill.badge.plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 360, height: 120, alignment: .center)
-                            .background(Color.theme.green)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        ZStack {
+                            Image(systemName: "mic.fill.badge.plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 360, height: 120, alignment: .center)
+                                .background(Color.theme.green)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                             .shadow(color: .black.opacity(0.25), radius: 4, x: 4, y: 4)
+                        }
+                        .frame(width: UIScreen.main.bounds.width)
                     }
                 }
             }
