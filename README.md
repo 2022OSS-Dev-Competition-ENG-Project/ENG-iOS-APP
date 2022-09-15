@@ -14,6 +14,29 @@
 4. 안전소통게시판을 통해 시설 이용자간 소통할 수 있습니다.
 5. 이미지를 통한 위험 요소에 대한 분석 서비스를 제공받을 수 있습니다.
 
+<br>
+
+## 📝 코드 컨벤션
+1. **Class / Struct** 정의
+    - Class / Struct의 정의는 UpperCamelCase를 사용합니다.
+    ```swift
+    class FindIdViewModel: ObservableObject { ... }
+    struct FindIdModel: Codable { ... }
+    ```
+2. **변수 및 함수**정의
+    - 변수와 함수의 정의는 lowerCamelCase를 사용합니다.
+    ```swift
+    func getFacilities(userUUID: String) { ... }
+    var facilityName: String = ""
+    ```
+3. **주석**활용
+    - View는 **// - MARK :** 주석을 통해 영역을 구분합니다.
+4. **MVVM 패턴** 준수
+    - 내부 컴포넌트 View를 제외한 View는 ViewModel을 가집니다.
+    - ViewModel은 Model을 가집니다.
+
+<br>
+
 ## 🗂 프로젝트 폴더 구조
 ```
 📦 ENG
@@ -50,6 +73,8 @@
 │         └── 🗂 ViewComponents
 ```
 
+<br>
+
 ## 👓 설치
 ### clone repository
 ```
@@ -57,6 +82,8 @@ $ git clone https://github.com/2022OSS-Dev-Competition-ENG-Project/ENG-iOS-APP.g
 $ cd ENG-iOS-APP
 $ open ENG.xcodeproj
 ```
+
+<br>
 
 ## 🪖 프로젝트 초기 설정
 1. XCode로 ENG 프로젝트 오픈
@@ -71,6 +98,8 @@ let userIp: String = "http://127.0.0.1:2201"
 /// AI 관련 API 서버 IP
 let AIIp: String = "http://127.0.0.1:2222"
 ```
+
+<br>
 
 ## 📱 UI Image
 <details>
@@ -101,6 +130,8 @@ let AIIp: String = "http://127.0.0.1:2222"
 <img src=https://user-images.githubusercontent.com/77708819/189688543-4b79401f-3756-4961-8065-a3fb7d572227.png>
 </details>
 
+<br>
+
 ## 💻 개발/배포 환경
 XCode Version 13.4.1
 iOS 15이상
@@ -112,6 +143,12 @@ iOS 15이상
 클라이언트 개발 프레임워크 : SwiftUI
 사용한 Swift 디자인패턴 : MVVM
 ```
+
+<br>
+
+## 사용되는 서버 API [보러가기](https://github.com/2022OSS-Dev-Competition-ENG-Project/ENG-SERVER/tree/main/API-Document)
+
+<br>
 
 ## 😎 개발자
 - 정승균 [seunggyun-jeong](https://github.com/seunggyun-jeong) : ENG Project iOS 앱 클라이언트 개발
