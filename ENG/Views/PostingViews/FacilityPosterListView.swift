@@ -20,6 +20,7 @@ struct FacilityPosterListView: View {
                 ReportListDetailRowView(contentTitle: row.contentTitle, contentText: row.contentText)
             }
         }
+        .listStyle(PlainListStyle())
         .navigationTitle("안전소통게시판")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: NavigationLink("글쓰기", destination: PostingFieldView(facilityId: self.facilityId))

@@ -44,7 +44,7 @@ struct ColorTheme {
     let red = Color("Red")
     let secondary = Color("SecondaryColor")
     let sub = Color("SubColor")
-    let orange = Color("Orange")
+    let orange = Color("orange")
     let green = Color("Green")
     let lightBlue = Color("LightBlue")
 }

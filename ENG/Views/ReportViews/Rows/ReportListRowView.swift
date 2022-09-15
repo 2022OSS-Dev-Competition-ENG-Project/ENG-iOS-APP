@@ -33,7 +33,7 @@ struct ReportListRowView: View {
 struct ReportListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ReportListRowView(reportTitle: "신고함", reportStatus: "해결")
+            ReportListRowView(reportTitle: "신고함", reportStatus: "처리")
                 .previewLayout(.sizeThatFits)
             
             ReportListRowView(reportTitle: "신고 또 함", reportStatus: "미해결")

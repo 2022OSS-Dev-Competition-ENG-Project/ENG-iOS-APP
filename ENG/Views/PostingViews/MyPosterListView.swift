@@ -20,6 +20,7 @@ struct MyPosterListView: View {
                 ReportListDetailRowView(contentTitle: content.contentTitle, contentText: content.contentText)
             }
         }
+        .listStyle(PlainListStyle())
         .navigationTitle("내가 쓴 글")
         .navigationBarTitleDisplayMode(.inline)
     }
