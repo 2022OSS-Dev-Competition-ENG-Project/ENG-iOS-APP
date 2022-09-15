@@ -22,11 +22,11 @@ class NetworkManager {
     }
     
     /// 시설 관련 API 서버 IP
-    let facilityIp: String = "http://203.250.32.29:2200"
+    let facilityIp: String = "http://127.0.0.1:2200"
     /// 유저 관련 API 서버 IP
-    let userIp: String = "http://203.250.32.29:2201"
+    let userIp: String = "http://127.0.0.1:2201"
     /// AI 관련 API 서버 IP
-    let AIIp: String = "http://203.250.32.29:2222"
+    let AIIp: String = "http://127.0.0.1:2222"
     
     /// application/json용 URL Request 생성 메서드
     func makePostRequest(api: String, data: Data = Data(), ip: String) throws -> URLRequest {
