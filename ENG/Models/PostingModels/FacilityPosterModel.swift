@@ -10,16 +10,17 @@ import Foundation
 // RESPONSE DATA
 /*
  JSON :
-     {
-         "facilityContentNum": 9,
-         "facilityContentTitle": "홍수났어요",
-         "facilityContentText": "계속 물이 나와요",
-         "facilityContentImg": "/dir/dir/water",
-         "facilityContentDate": null,
-         "facilityContentLook": 100,
-         "facilityContentType": 0,
-         "facilityNo": "5e541bc2-a7ef-4513-8f5e-447b0e07411e",
-         "userUuid": "a9babfe7-c58c-4705-9c87-80d1733b4008"
+    {
+         "contentNum": 4,
+         "contentTitle": "이미 테스트 입니다. ",
+         "contentText": "시간 + ",
+         "contentDate": "2022-10-14T00:56:26",
+         "contentLook": 1,
+         "writerNickName": "abc",
+         "writerName": "abc",
+         "writerProfileImg": null,
+         "writerUuid": "762d0240-93e9-4bf1-8faf-f630fc980a73",
+         "userLikeBool": null
      }
 */
 

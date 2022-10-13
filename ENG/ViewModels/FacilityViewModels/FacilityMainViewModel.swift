@@ -22,7 +22,7 @@ class FacilityMainViewModel: ObservableObject {
     
     /// 게시물 불러오기 메서드
     func get5Posters(faciliityId: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/" + faciliityId + "/content/0/main") else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/content/" + faciliityId + "/main") else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
