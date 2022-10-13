@@ -164,7 +164,7 @@ class PosterDetailViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/facility/content/comment", data: upLoadData, ip: NM.facilityIp)
+            request = try NM.makePostRequest(api: "/facility-service/comment/register", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return
