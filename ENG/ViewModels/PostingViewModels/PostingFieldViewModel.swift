@@ -16,8 +16,8 @@ class PostingFieldViewModel: ObservableObject {
     func registerContent(inputData: PostingFieldModel) {
         let boundary = UUID().uuidString
         
-        let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.facilityIp, api: "/api/facility/content/register", boundary: boundary)
-        var data = NM.makeJSONDataForFormData(boundary: boundary, paramName: "facilityContentDto", inputData: inputData)
+        let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.serverAddress, api: "/facility-service/content/create", boundary: boundary)
+        var data = NM.makeJSONDataForFormData(boundary: boundary, paramName: "facilityContent", inputData: inputData)
         
         // Form-Data의 끝을 알리는 바운더리 append
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
@@ -28,7 +28,7 @@ class PostingFieldViewModel: ObservableObject {
         session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
             print("게시물 등록 StatusCode = \(statusCode)")
-            if statusCode == 200 {
+            if statusCode == 201 {
                 print("게시물 등록 성공 !!!!")
                 DispatchQueue.main.async {
                     self.isRegisterSuccess = true

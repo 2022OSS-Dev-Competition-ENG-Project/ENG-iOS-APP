@@ -23,8 +23,6 @@ import Foundation
 struct PostingFieldModel: Codable {
     let contentTitle: String
     let contentText: String
-    let contentLook: Int
-    let contentType: Int
-    let facilityNo: String
+    let facilityNum: String
     let userUuid: String
 }

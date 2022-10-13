@@ -72,7 +72,7 @@ extension PostingFieldView {
     private func post() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         // 등록 기능 구현
-        VM.registerContent(inputData: PostingFieldModel(contentTitle: postTitleTextField, contentText: postContentTextField, contentLook: 0, contentType: 0, facilityNo: self.facilityId, userUuid: userUUID))
+        VM.registerContent(inputData: PostingFieldModel(contentTitle: postTitleTextField, contentText: postContentTextField, facilityNum: self.facilityId, userUuid: userUUID))
     }
     
     /// 백그라운드 터치 시 키보드 내림
