@@ -72,7 +72,7 @@ class PosterDetailViewModel: ObservableObject {
     
     /// 게시물 좋아요 개수 불러오기 메서드
     func getLike(contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/liked/" + String(contentId)) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/content/liked/" + String(contentId)) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -99,12 +99,11 @@ class PosterDetailViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/facility/content/liked", data: upLoadData, ip: NM.facilityIp)
+            request = try NM.makePostRequest(api: "/facility-service/content/liked", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return
         }
-        
         
         URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -116,7 +115,7 @@ class PosterDetailViewModel: ObservableObject {
                 print(completion)
             } receiveValue: {(data, response) in
                 guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
-                print("댓글 등록 statusCode == \(statusCode)")
+                print("게시물 좋아요 statusCode == \(statusCode)")
                 if statusCode == 200 {
                     print("게시물 좋아요 성공")
                     self.getLike(contentId: contentNum)
