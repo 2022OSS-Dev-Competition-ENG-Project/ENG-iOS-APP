@@ -29,7 +29,7 @@ struct FacilityRegistrationViews: View {
                 QRCameraCell(scannedInfo: $scannedInfo, isQRScanned: $isQRScanned)
             }
             .alert("스캔 완료", isPresented: $isQRScanned) {
-                Button("OK") { RegisterFacility(data: FacilityResgistrationModel(uuid: UserDefaults.standard.string(forKey: "loginToken") ?? "", facilityNo: qrComponents[0]))}
+                Button("OK") { RegisterFacility(data: FacilityResgistrationModel(uuid: UserDefaults.standard.string(forKey: "loginToken") ?? "", facilityNum: qrComponents[0]))}
                 Button("취소") { scannedInfo = "/" }
             } message: {
                 Text("\(qrComponents[1]) (\(qrComponents[2]))가 맞나요?")
@@ -45,7 +45,7 @@ struct FacilityRegistrationViews: View {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/facility/join/us", data: upLoadData, ip: NM.facilityIp)
+            request = try NM.makePostRequest(api: "/facility-service/join/user", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return

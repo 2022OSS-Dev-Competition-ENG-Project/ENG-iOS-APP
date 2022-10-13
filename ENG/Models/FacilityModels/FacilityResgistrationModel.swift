@@ -18,5 +18,5 @@ import Foundation
 
 struct FacilityResgistrationModel: Codable {
     let uuid: String
-    let facilityNo: String
+    let facilityNum: String
 }

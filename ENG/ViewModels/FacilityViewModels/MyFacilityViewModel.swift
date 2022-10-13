@@ -87,7 +87,7 @@ class MyFaciltyViewModel: ObservableObject {
         let facilityIdToRemove = MyFacilities[indexToRemove].id
         MyFacilities.remove(atOffsets: indexSet)
         
-        guard let url = URL(string: NM.facilityIp + "/api/facility/my/delete/us/" + userUUID + "/" + facilityIdToRemove) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service//resignation/user/" + facilityIdToRemove + "/" + userUUID) else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
