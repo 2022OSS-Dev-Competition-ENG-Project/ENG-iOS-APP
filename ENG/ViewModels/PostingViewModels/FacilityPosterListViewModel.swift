@@ -20,8 +20,9 @@ class FacilityPosterListViewModel: ObservableObject {
     
     /// 게시물 리스트 불러오기 메서드
     func getPosters(faciliityId: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + faciliityId + "/0/0/list") else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/content/" + faciliityId) else { return }
         
+        print(url)
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
