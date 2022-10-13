@@ -47,7 +47,7 @@ class PosterDetailViewModel: ObservableObject {
     
     /// 게시물 삭제 메서드
     func deleteContent(userUUID: String, contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/delete/" + userUUID + "/" + String(contentId)) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/content/delete/" + String(contentId) + "/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
