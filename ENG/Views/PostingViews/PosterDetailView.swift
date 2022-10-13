@@ -119,7 +119,7 @@ extension PosterDetailView {
             }
             
             VStack(alignment: .leading) {
-                Text(VM.content.writerNickname)
+                Text(VM.content.writerNickName)
                     .font(.custom(Font.theme.mainFontBold, size: 24))
                 Text(VM.content.contentViewDate)
                     .font(.custom(Font.theme.mainFont, size: 16))

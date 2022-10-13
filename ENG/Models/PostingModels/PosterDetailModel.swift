@@ -25,10 +25,10 @@ struct PosterDetailModel: Codable {
     let contentTitle: String
     let contentText: String
     let contentDate: String
-    let contentLook: String
+    let contentLook: Int
+    let writerNickName: String
+    let writerProfileImg: String?
     let writerUuid: String
-    let writerNickname: String
-    let writerImage: String?
     var userLikeBool: Int
     
     var userLike: Bool {
@@ -45,7 +45,7 @@ struct PosterDetailModel: Codable {
         do {
             date.remove(at: try date.getIndex(at: 10))
             date.insert(" ", at: try date.getIndex(at: 10))
-
+            
             date = date.replacingOccurrences(of: "-", with: "/")
             date.removeSubrange(try date.getIndex(at: 16)..<date.endIndex)
         } catch {
@@ -55,7 +55,7 @@ struct PosterDetailModel: Codable {
     }
     
     var writerViewImage: String {
-        guard let imageString = self.writerImage else { return "" }
+        guard let imageString = self.writerProfileImg else { return "" }
         
         return imageString
     }

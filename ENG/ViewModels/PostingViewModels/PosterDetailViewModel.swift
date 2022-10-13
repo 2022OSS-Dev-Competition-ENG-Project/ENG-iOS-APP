@@ -16,7 +16,7 @@ class PosterDetailViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     
     /// 수신된 정보 저장 프로퍼티
-    @Published var content: PosterDetailModel = PosterDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0)
+    @Published var content: PosterDetailModel = PosterDetailModel(contentNum: 0, contentTitle: "", contentText: "", contentDate: "", contentLook: 0, writerNickName: "", writerProfileImg: "", writerUuid: "", userLikeBool: 0)
     /// 댓글 목록 리스트 저장 프로퍼티
     @Published var comments: [CommentModel] = []
     /// 좋아요 수 저장 프로퍼티
@@ -28,14 +28,14 @@ class PosterDetailViewModel: ObservableObject {
     // MARK: - 포스터 관련 메서드
     /// 게시물 상세 정보 불러오기 메서드
     func getContent(userUUID: String, contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/" + userUUID + "/" + String(contentId)) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/content/" + userUUID + "/" + String(contentId)) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .tryMap(getFacilitiesHandleOutput)
             .decode(type: PosterDetailModel.self, decoder: JSONDecoder())
-            .replaceError(with: PosterDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: "", writerUuid: "", writerNickname: "", writerImage: "", userLikeBool: 0))
+            .replaceError(with: PosterDetailModel(contentNum: 1, contentTitle: "", contentText: "", contentDate: "", contentLook: 0, writerNickName: "", writerProfileImg: "", writerUuid: "", userLikeBool: 0))
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
