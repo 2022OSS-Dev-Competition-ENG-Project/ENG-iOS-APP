@@ -41,7 +41,7 @@ struct FacilityListRow: View {
 
 struct FacilityRow_Previews: PreviewProvider {
     static var previews: some View {
-        FacilityListRow(item: MyFacilityModel(uuid: "asdf", facilityAddress: "어디어디 하양", id: "facility num", facilityName: "이정훈 시설물", isLiked: 0), isLiked: true)
+        FacilityListRow(item: MyFacilityModel(id: "", facilityName: "테스트", likeBool: 1), isLiked: true)
             .previewLayout(.sizeThatFits)
             .environmentObject(MyFaciltyViewModel())
     }

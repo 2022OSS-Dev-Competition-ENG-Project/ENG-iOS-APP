@@ -20,6 +20,8 @@ class NetworkManager {
     private init() {
         
     }
+    /// 모든 ServerAPI 통합
+    let serverAddress: String = "http://jlchj.iptime.org:8000"
     
     /// 시설 관련 API 서버 IP
     let facilityIp: String = "http://127.0.0.1:2200"

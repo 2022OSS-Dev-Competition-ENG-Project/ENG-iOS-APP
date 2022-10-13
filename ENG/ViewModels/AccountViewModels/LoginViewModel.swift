@@ -61,12 +61,11 @@ class LoginViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/user-service/login", data: upLoadData, ip: NM.userIp)
+            request = try NM.makePostRequest(api: "/user-service/login", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return
         }
-        
         
         URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -82,7 +81,12 @@ class LoginViewModel: ObservableObject {
                 if statusCode == 200 {
                     print("로그인 성공")
                     self?.isLoginSuccess = true
-                    let token = String(decoding: data, as: UTF8.self)
+                    
+                    // 데이터 파싱
+                    let decodeData = try? JSONDecoder().decode(LoginResponse.self, from: data)
+                    guard let token = decodeData?.body else { return }
+                    
+                    // UserDefaults에 UserUUID 저장
                     UserDefaults.standard.set(token, forKey: "loginToken")
                     print("유저 디폴트에 저장된 값 = \(String(describing: UserDefaults.standard.string(forKey: "loginToken")))")
                     self?.isLoggedIn = true

@@ -120,7 +120,7 @@ class SignUpViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/user-service/signup", data: upLoadData, ip: NM.userIp)
+            request = try NM.makePostRequest(api: "/user-service/signup", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return

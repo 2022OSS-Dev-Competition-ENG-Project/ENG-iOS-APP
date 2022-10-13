@@ -37,7 +37,7 @@ class MyFaciltyViewModel: ObservableObject {
      - Parameter userUUID: 사용자 UUID
     */
     func getFacilities(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/join/" + userUUID + "/us/list") else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/join/" + userUUID + "/user/list") else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -126,7 +126,7 @@ class MyFaciltyViewModel: ObservableObject {
         - faclityUUID: 좋아요할 시설물의 UUID
     */
     func likeFaiclity(userUUID: String, faclityUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/like/" + userUUID + "/" + faclityUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/join/like/" + userUUID + "/" + faclityUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -144,9 +144,9 @@ class MyFaciltyViewModel: ObservableObject {
                         return item.id == faclityUUID
                     }!
                     if self.MyFacilities[seletedFacility].isLikedBool {
-                        self.MyFacilities[seletedFacility].isLiked = 0
+                        self.MyFacilities[seletedFacility].likeBool = 0
                     } else {
-                        self.MyFacilities[seletedFacility].isLiked = 1
+                        self.MyFacilities[seletedFacility].likeBool = 1
                     }
                 }
                 
