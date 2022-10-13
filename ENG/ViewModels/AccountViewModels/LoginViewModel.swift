@@ -82,9 +82,7 @@ class LoginViewModel: ObservableObject {
                     print("로그인 성공")
                     self?.isLoginSuccess = true
                     
-                    // 데이터 파싱
-                    let decodeData = try? JSONDecoder().decode(LoginResponse.self, from: data)
-                    guard let token = decodeData?.body else { return }
+                    let token = String(decoding: data, as: UTF8.self)
                     
                     // UserDefaults에 UserUUID 저장
                     UserDefaults.standard.set(token, forKey: "loginToken")
