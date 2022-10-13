@@ -194,7 +194,7 @@ class PosterDetailViewModel: ObservableObject {
     
     /// 댓글 삭제 메서드
     func deleteComment(commentNum: Int, userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/comment/delete/" + String(commentNum) + "/" + userUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/comment/delete/" + String(commentNum) + "/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
