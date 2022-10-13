@@ -42,7 +42,7 @@ extension FacilityMainView {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
                 ForEach(VM.notices) { notice in
-                    AsyncImage(url: URL(string: notice.contentImg)) { image in
+                    AsyncImage(url: URL(string: notice.noticeImages)) { image in
                         ZStack {
                             image
                                 .resizable()

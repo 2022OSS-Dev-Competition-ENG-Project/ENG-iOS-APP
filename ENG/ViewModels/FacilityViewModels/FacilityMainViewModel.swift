@@ -40,7 +40,7 @@ class FacilityMainViewModel: ObservableObject {
     
     /// 공지사항 불러오기
     func get5Notices(facilityId: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/" + facilityId + "/content/1/main") else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/notice/" + facilityId + "/main") else { return }
                 
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
