@@ -27,14 +27,12 @@ import Foundation
 */
 
 struct MyFacilityModel: Codable, Identifiable {
-    let uuid: String
-    let facilityAddress: String
     let id: String
     let facilityName: String
-    var isLiked: Int
+    var likeBool: Int
     
     var isLikedBool: Bool {
-        if self.isLiked == 0 {
+        if self.likeBool == 0 {
             return false
         }
         else {
@@ -43,7 +41,7 @@ struct MyFacilityModel: Codable, Identifiable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id = "useFacility"
-        case facilityAddress, uuid, facilityName, isLiked
+        case id = "facilityNum"
+        case facilityName, likeBool
     }
 }

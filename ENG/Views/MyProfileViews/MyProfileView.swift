@@ -60,7 +60,7 @@ extension MyProfileView {
     /// 기본 유저 정보를 담는 뷰
     private var BasicInformation: some View {
         HStack(spacing: 30) {
-            AsyncImage(url: URL(string: VM.userInfo.userImg)) { image in
+            AsyncImage(url: URL(string: VM.userInfo.userImg ?? "")) { image in
                 image
                     .resizable()
                     .scaledToFill()

@@ -11,7 +11,7 @@ struct MyPageUserInfoModel: Codable {
     let userEmail: String
     let userNickname: String
     let userJoinDate: String
-    let userImg: String
+    let userImg: String?
     
     var userJoinViewDate: String {
         var date: String = self.userJoinDate

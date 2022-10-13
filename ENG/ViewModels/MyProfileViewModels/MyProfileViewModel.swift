@@ -28,8 +28,8 @@ class MyProfileViewModel: ObservableObject {
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         getUserInfo(userUUID: userUUID)
-        get5MyContents(userUUID: userUUID)
-        get5MyReports(userUUID: userUUID)
+//        get5MyContents(userUUID: userUUID)
+//        get5MyReports(userUUID: userUUID)
     }
     
     /**
@@ -43,7 +43,7 @@ class MyProfileViewModel: ObservableObject {
      - Parameter userUUID: 사용자 UUID 값
     */
     func getUserInfo(userUUID: String) {
-        guard let url = URL(string: NM.userIp + "/api/user-service/myPage/" + userUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/user-service/myPage/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -121,7 +121,10 @@ class MyProfileViewModel: ObservableObject {
         guard
             let response = output.response as? HTTPURLResponse,
             response.statusCode == 200
-        else { throw URLError(.badServerResponse) }
+        else {
+            print("통신에러 \(output.response)")
+            throw URLError(.badServerResponse)
+        }
 
         print("response.StatusCode == \(response.statusCode), data == \(String(decoding: output.data, as: UTF8.self))")
         
