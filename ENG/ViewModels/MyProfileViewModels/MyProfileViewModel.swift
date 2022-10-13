@@ -28,7 +28,7 @@ class MyProfileViewModel: ObservableObject {
     init() {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         getUserInfo(userUUID: userUUID)
-//        get5MyContents(userUUID: userUUID)
+        get5MyContents(userUUID: userUUID)
 //        get5MyReports(userUUID: userUUID)
     }
     
@@ -71,7 +71,7 @@ class MyProfileViewModel: ObservableObject {
      - Parameter userUUID: 사용자 UUID 값
     */
     func get5MyContents(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/main/user/" + userUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/my/content/main/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
