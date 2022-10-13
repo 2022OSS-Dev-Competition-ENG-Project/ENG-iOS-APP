@@ -140,7 +140,7 @@ class PosterDetailViewModel: ObservableObject {
     // MARK: - 댓글 관련 메서드
     /// 댓글 불러오기 메서드
     func getComment(contentId: Int) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/content/comment/" + String(contentId)) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/comment/" + String(contentId)) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))

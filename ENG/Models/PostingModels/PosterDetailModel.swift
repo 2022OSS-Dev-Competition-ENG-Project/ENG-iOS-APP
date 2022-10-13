@@ -108,7 +108,7 @@ struct CommentModel: Codable, Identifiable {
     let id: Int
     let commentText: String
     let commentDate: String
-    let userNickName: String
+    let userName: String
     let userUuid: String
     
     var commentViewDate: String {
@@ -126,7 +126,7 @@ struct CommentModel: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id = "commentNum"
-        case commentText, commentDate, userNickName, userUuid
+        case commentText, commentDate, userName, userUuid
     }
 }
 
