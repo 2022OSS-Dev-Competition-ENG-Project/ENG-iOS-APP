@@ -126,7 +126,7 @@ class MyFaciltyViewModel: ObservableObject {
         - faclityUUID: 좋아요할 시설물의 UUID
     */
     func likeFaiclity(userUUID: String, faclityUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/facility/like/" + userUUID + "/" + faclityUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/join/like/" + userUUID + "/" + faclityUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
