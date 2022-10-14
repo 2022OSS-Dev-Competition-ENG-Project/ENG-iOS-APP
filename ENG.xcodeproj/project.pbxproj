@@ -42,6 +42,8 @@
 		3D991C5D28C631E800F7426D /* ReportRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */; };
 		3D991C6228C7300200F7426D /* RiskAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C6128C7300200F7426D /* RiskAnalysisView.swift */; };
 		3D991C6428C7379600F7426D /* RiskAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D991C6328C7379600F7426D /* RiskAnalysisViewModel.swift */; };
+		3DA27BB828F948B000EDB25C /* PosterListDetailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA27BB728F948B000EDB25C /* PosterListDetailRowView.swift */; };
+		3DA27BBC28F950F600EDB25C /* ReportListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA27BBB28F950F600EDB25C /* ReportListViewModel.swift */; };
 		3DAC2CD028ADF4DD00B06C67 /* FacilityRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CCF28ADF4DD00B06C67 /* FacilityRegistrationView.swift */; };
 		3DAC2CD228ADF51300B06C67 /* QRCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */; };
 		3DAC2CD528ADF5CA00B06C67 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC2CD428ADF5CA00B06C67 /* VC.swift */; };
@@ -106,6 +108,8 @@
 		3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRegisterViewModel.swift; sourceTree = "<group>"; };
 		3D991C6128C7300200F7426D /* RiskAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskAnalysisView.swift; sourceTree = "<group>"; };
 		3D991C6328C7379600F7426D /* RiskAnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskAnalysisViewModel.swift; sourceTree = "<group>"; };
+		3DA27BB728F948B000EDB25C /* PosterListDetailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterListDetailRowView.swift; sourceTree = "<group>"; };
+		3DA27BBB28F950F600EDB25C /* ReportListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListViewModel.swift; sourceTree = "<group>"; };
 		3DAC2CCF28ADF4DD00B06C67 /* FacilityRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityRegistrationView.swift; sourceTree = "<group>"; };
 		3DAC2CD128ADF51300B06C67 /* QRCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraCell.swift; sourceTree = "<group>"; };
 		3DAC2CD428ADF5CA00B06C67 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 			children = (
 				3D4DC1F928ACCFF000E69E23 /* CommentRowView.swift */,
 				3DE4846228AB56B300B6EE4A /* PosterListRowView.swift */,
+				3DA27BB728F948B000EDB25C /* PosterListDetailRowView.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				3D991C5C28C631E800F7426D /* ReportRegisterViewModel.swift */,
+				3DA27BBB28F950F600EDB25C /* ReportListViewModel.swift */,
 			);
 			path = ReportViewModels;
 			sourceTree = "<group>";
@@ -570,6 +576,8 @@
 				3D22B1C628B5B28200EE9D00 /* MyFacilityModel.swift in Sources */,
 				3D22B1C828B5B2ED00EE9D00 /* MyFacilityViewModel.swift in Sources */,
 				3DE4842C28A248AD00B6EE4A /* ENGApp.swift in Sources */,
+				3DA27BB828F948B000EDB25C /* PosterListDetailRowView.swift in Sources */,
+				3DA27BBC28F950F600EDB25C /* ReportListViewModel.swift in Sources */,
 				3D22B1F228BF4E2200EE9D00 /* MyProfileViewModel.swift in Sources */,
 				3D22B1E228BE075D00EE9D00 /* CommentTextfieldView.swift in Sources */,
 				3D22B1BB28B4722600EE9D00 /* SignUpModel.swift in Sources */,

@@ -214,7 +214,7 @@ extension SignUpView {
 extension SignUpView {
     /// 회원가입 시도 메서드
     private func signUp() {
-        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNum: phonenumberTextField)
+        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNumber: phonenumberTextField)
         VM.signUp(data: signUpModel)
     }
     

@@ -17,7 +17,7 @@ struct FacilityPosterListView: View {
     var body: some View {
         List(VM.posters) { row in
             NavigationLink(destination: PosterDetailView(contentNum: row.id)) {
-                ReportListDetailRowView(contentTitle: row.contentTitle, contentText: row.contentText)
+                PosterListDetailRowView(contentTitle: row.contentTitle, contentText: row.contentText)
             }
         }
         .listStyle(PlainListStyle())

@@ -12,5 +12,5 @@ struct SignUpModel: Codable {
     let userPassword: String
     let userName: String
     let userNickname: String
-    let userPhoneNum: String
+    let userPhoneNumber: String
 }

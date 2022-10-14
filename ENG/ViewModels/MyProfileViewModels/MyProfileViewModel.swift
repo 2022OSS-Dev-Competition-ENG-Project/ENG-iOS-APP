@@ -29,7 +29,7 @@ class MyProfileViewModel: ObservableObject {
         guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
         getUserInfo(userUUID: userUUID)
         get5MyContents(userUUID: userUUID)
-//        get5MyReports(userUUID: userUUID)
+        get5MyReports(userUUID: userUUID)
     }
     
     /**
@@ -99,7 +99,7 @@ class MyProfileViewModel: ObservableObject {
      - Parameter userUUID: 사용자 UUID 값
     */
     func get5MyReports(userUUID: String) {
-        guard let url = URL(string: NM.facilityIp + "/api/report/list/main/" + userUUID) else { return }
+        guard let url = URL(string: NM.serverAddress + "/facility-service/report/my/main/" + userUUID) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -110,7 +110,7 @@ class MyProfileViewModel: ObservableObject {
             .sink { completion in
                 print(completion)
             } receiveValue: { [weak self] returnedValue in
-                print("-----> 내가 등록한 게시물 : \(returnedValue)")
+                print("-----> 내가 등록한 신고 리스트 : \(returnedValue)")
                 self?.mainMyReports = returnedValue
             }
             .store(in: &cancellables)
