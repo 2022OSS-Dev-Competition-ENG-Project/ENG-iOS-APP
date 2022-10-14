@@ -151,7 +151,7 @@ class MyProfileViewModel: ObservableObject {
         let boundary = UUID().uuidString
         
         // urlRequest 생성
-        let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.userIp, api: "/api/user-service/SaveProfileImage/" + userUUID, boundary: boundary)
+        let urlRequest = NM.makeFormDataURLRequest(ipAddress: NM.serverAddress, api: "/user-service/SaveProfileImage/" + userUUID, boundary: boundary)
         
         // 세션 불러오기
         let session = URLSession.shared
