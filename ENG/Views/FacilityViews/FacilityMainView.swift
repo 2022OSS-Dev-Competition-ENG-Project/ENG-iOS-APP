@@ -30,7 +30,7 @@ struct FacilityMainView: View {
         }
         .onAppear {
             loadPosters(facilityId: facilityId)
-//            loadNotices(facilityId: facilityId)
+            loadNotices(facilityId: facilityId)
         }
     }
 }
