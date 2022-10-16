@@ -58,7 +58,7 @@ struct MainMyPoster: Codable, Identifiable {
 struct MainMyReport: Codable, Identifiable {
     let id: Int
     let reportTitle: String
-    let reportStatus: String
+    let reportStatus: Int
     
     enum CodingKeys: String, CodingKey {
         case id = "reportNum"

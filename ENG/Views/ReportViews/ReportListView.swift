@@ -9,9 +9,12 @@ import SwiftUI
 
 // MARK: - MainViewStruct
 struct ReportListView: View {
+    
+    @StateObject var VM = ReportListViewModel()
+    
     var body: some View {
-        List(0..<100) { row in
-            ReportListDetailRowView(contentTitle: "dd", contentText: "ff")
+        List(VM.reports) { row in
+            ReportListDetailRowView(contentTitle: row.reportTitle, reportStatus: row.reportStatus)
         }
         .navigationTitle("신고 내역")
         .navigationBarTitleDisplayMode(.inline)

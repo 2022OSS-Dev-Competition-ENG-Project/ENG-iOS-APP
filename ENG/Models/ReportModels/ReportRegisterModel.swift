@@ -15,7 +15,7 @@ import Foundation
      "reportText" :"기능 테스트",
      "reportType" : "범죄",
      "userUuid" : "0f797583-f9dd-4ec3-bb59-39d4cf862ed1",
-     "facilityNo" :"247f9839-53a4-426c-994d-878f1c05d47b"
+     "facilityNum" :"247f9839-53a4-426c-994d-878f1c05d47b"
  }
 */
 struct ReportRegisterModel: Codable {
@@ -23,5 +23,5 @@ struct ReportRegisterModel: Codable {
     let reportText: String
     let reportType: String
     let userUuid: String
-    let facilityNo: String
+    let facilityNum: String
 }

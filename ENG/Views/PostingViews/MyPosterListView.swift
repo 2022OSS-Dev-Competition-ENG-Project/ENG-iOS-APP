@@ -17,7 +17,7 @@ struct MyPosterListView: View {
             NavigationLink {
                 PosterDetailView(contentNum: content.id)
             } label: {
-                ReportListDetailRowView(contentTitle: content.contentTitle, contentText: content.contentText)
+                PosterListDetailRowView(contentTitle: content.contentTitle, contentText: content.contentText)
             }
         }
         .listStyle(PlainListStyle())

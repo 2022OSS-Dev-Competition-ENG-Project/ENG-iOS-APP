@@ -214,7 +214,7 @@ extension SignUpView {
 extension SignUpView {
     /// 회원가입 시도 메서드
     private func signUp() {
-        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNum: phonenumberTextField)
+        let signUpModel: SignUpModel = SignUpModel(userEmail: eMailTextField, userPassword: passWordTextField, userName: nameTextField, userNickname: nicknameTextField, userPhoneNumber: phonenumberTextField)
         VM.signUp(data: signUpModel)
     }
     
@@ -238,7 +238,7 @@ extension SignUpView {
     /// 패스워드, 패스워드 확인 텍스트가 같은지 확인
     private func checkPW() {
         print("passwordField == \(passWordTextField), PWAgain == \(PWAgainTextField)")
-        if passWordTextField == PWAgainTextField {
+        if (passWordTextField == PWAgainTextField) && (passWordTextField != "") {
             isDisablePassword = false
         }
         else {

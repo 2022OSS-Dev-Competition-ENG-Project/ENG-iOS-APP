@@ -60,7 +60,7 @@ struct ReportView: View {
         // 신고 등록 버튼
         .navigationBarItems(trailing: Button(action: {
             guard let userUUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
-            VM.reportRegister(inputData: ReportRegisterModel(reportTitle: self.reportTitleTextField, reportText: self.reportContentTextField, reportType: self.reportType, userUuid: userUUID, facilityNo: self.facilityId), images: self.uploadImages)
+            VM.reportRegister(inputData: ReportRegisterModel(reportTitle: self.reportTitleTextField, reportText: self.reportContentTextField, reportType: self.reportType, userUuid: userUUID, facilityNum: self.facilityId), images: self.uploadImages)
         }, label: {
             Text("등록")
                 .font(.custom(Font.theme.mainFontBold, size: 16))
