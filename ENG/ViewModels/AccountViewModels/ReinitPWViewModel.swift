@@ -10,7 +10,7 @@ import Combine
 
 /// 비밀번호 초기화 뷰에서 사용되는 뷰 모델
 /// - Note: Related with `FindPasswordView`
-class ResetPassWordViewModel: ObservableObject {
+class ReinitPassWordViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     var NM = NetworkManager.shared
     
@@ -30,15 +30,15 @@ class ResetPassWordViewModel: ObservableObject {
      
      [참고 API URL](https://xxx.xxx.xxx.xx)
      
-     - Parameter data: ResetPassword API에 맞는 Request Data
+     - Parameter data: ReinitPassword API에 맞는 Request Data
      */
-    func doResetPW(data: ResetPWRequestModel) {
+    func doReinitPW(data: ReinitPWRequestModel) {
         guard let upLoadData = try? JSONEncoder().encode(data) else { return }
         
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/user-service/UserPasswordReset", data: upLoadData, ip: NM.userIp)
+            request = try NM.makePostRequest(api: "/user-service/UserPasswordReset", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return
@@ -58,13 +58,10 @@ class ResetPassWordViewModel: ObservableObject {
                 print("아이디 찾기 statusCode == \(statusCode)")
                 
                 if statusCode == 200 {
-                    print("아이디 찾기 성공")
-                    print("userEmail => \(String(decoding: data, as: UTF8.self))")
-                    let returnString = String(decoding: data, as: UTF8.self)
-                    print(returnString)
+                    print("비밀번호 초기화 성공")
                     self?.isAvaliable = true
                 } else {
-                    print("아이디 찾기 실패")
+                    print("비밀번호 초기화 실패")
                     self?.isError = true
                 }
             }

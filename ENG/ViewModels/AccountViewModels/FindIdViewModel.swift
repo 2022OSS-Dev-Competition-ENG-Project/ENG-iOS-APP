@@ -43,7 +43,7 @@ class FindIdViewModel: ObservableObject {
         let request: URLRequest
         
         do {
-            request = try NM.makePostRequest(api: "/api/user-service/FindUserid", data: upLoadData, ip: NM.userIp)
+            request = try NM.makePostRequest(api: "/user-service/FindUserid", data: upLoadData, ip: NM.serverAddress)
         } catch(let error) {
             print("error: \(error)")
             return

@@ -28,7 +28,7 @@ class NetworkManager {
     /// 유저 관련 API 서버 IP
     let userIp: String = "http://127.0.0.1:2201"
     /// AI 관련 API 서버 IP
-    let AIIp: String = "http://127.0.0.1:2222"
+    let AIIp: String = "http://jlchj.iptime.org:2222"
     
     /// application/json용 URL Request 생성 메서드
     func makePostRequest(api: String, data: Data = Data(), ip: String) throws -> URLRequest {

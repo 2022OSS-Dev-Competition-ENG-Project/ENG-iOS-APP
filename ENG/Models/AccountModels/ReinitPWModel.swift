@@ -1,5 +1,5 @@
 //
-//  ResetPWModel.swift
+//  ReinitPWModel.swift
 //  ENG
 //
 //  Created by 정승균 on 2022/08/26.
@@ -14,7 +14,7 @@ import Foundation
     }
  */
 
-struct ResetPWRequestModel: Codable {
+struct ReinitPWRequestModel: Codable {
     let userEmail: String
     let userName: String
 }

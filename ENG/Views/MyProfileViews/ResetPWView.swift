@@ -1,24 +1,26 @@
 //
-//  FindPasswordView.swift
+//  ResetPWView.swift
 //  ENG
 //
-//  Created by 정승균 on 2022/08/22.
+//  Created by 정승균 on 2022/10/15.
 //
 
 import SwiftUI
 
-// MARK: - MainViewStruct
-struct FindPasswordView: View {
+// MARK: MainViewStruct
+struct ResetPWView: View {
     
     // NavigationView Dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    /// 비밀번호 찾기 뷰 모델
-    @StateObject var VM = ReinitPassWordViewModel()
-    /// 이메일 정보를 입력 받는 텍스트 필드
-    @State var emailTextField: String = ""
-    /// 이름 정보를 입력 받는 텍스트 필드
-    @State var nameTextField: String = ""
+    /// 비밀번호 재설정 뷰 모델
+    @StateObject var VM = ResetPWViewModel()
+    /// 비밀번호 입력 텍스트 필드
+    @State var pwTextField: String = ""
+    /// 비밀번호 검사 텍스트 필드
+    @State var pwAgainTextField: String = ""
+    
+    @State var isDisablePassword: Bool = true
     
     var body: some View {
         VStack {
@@ -27,30 +29,30 @@ struct FindPasswordView: View {
             InputView
         }
         // Navigation View 관련 설정
-        .navigationTitle("비밀번호 찾기")
+        .navigationTitle("비밀번호 재설정")
         .navigationBarTitleDisplayMode(.inline)
         // 비밀번호 초기화 성공 시 alert
-        .alert("비밀번호 초기화 성공", isPresented: $VM.isAvaliable) {
+        .alert("비밀번호 변경 성공", isPresented: $VM.isAvaliable) {
             Button("확인", action: { self.presentationMode.wrappedValue.dismiss() })
         } message: {
-            Text("입력하신 \(emailTextField)로 초기화된 비밀번호를 전송하였습니다.")
+            Text("비밀번호가 변경되었습니다.")
         }
         // 비밀번호 초기화 실패 시 alert
         .alert("입력 오류", isPresented: $VM.isError) {
             Button("확인", action: { })
         } message: {
-            Text("입력하신 정보가 없거나, 일치하지 않습니다.\n 다시 한 번 확인해주세요.")
+            Text("비밀번호 변경에 실패하였습니다.\n 다시 한 번 확인해주세요.")
         }
     }
 }
 
-// MARK: - Components
-extension FindPasswordView {
+// MARK: Components
+extension ResetPWView {
     /// 비밀번호 찾기 뷰 헤더
     private var HeaderView: some View {
         VStack {
             Image("Logo")
-            Text("비밀번호를 잊으셨나요?")
+            Text("비밀번호를 재설정합니다.")
                 .font(.custom(Font.theme.mainFontBold, size: 15))
                 .foregroundColor(.theme.accent)
                 .padding(.bottom, 33)
@@ -61,14 +63,17 @@ extension FindPasswordView {
     private var InputView: some View {
         VStack {
             ZStack {
-                TextField("이메일(아이디)을 입력하세요.", text: $emailTextField)
+                SecureField("변경할 비밀번호를 입력하세요.", text: $pwTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
                     .font(.custom(Font.theme.mainFont, size: 15))
+                    .onChange(of: pwTextField) { newValue in
+                        checkPW()
+                    }
                 HStack {
                     Spacer()
 
-                    Image(systemName: "mail")
+                    Image(systemName: "person.badge.key")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20, alignment: .center)
@@ -80,14 +85,18 @@ extension FindPasswordView {
             }
             
             ZStack {
-                TextField("이름을 입력하세요.", text: $nameTextField)
+                SecureField("비밀번호를 다시 입력하세요.", text: $pwAgainTextField)
                     .customTextField(padding: 13)
                     .frame(width: 288, alignment: .center)
                     .font(.custom(Font.theme.mainFont, size: 15))
+                    .onChange(of: pwAgainTextField) { newValue in
+                        checkPW()
+                    }
+                
                 HStack {
                     Spacer()
 
-                    Image(systemName: "greetingcard")
+                    Image(systemName: "person.badge.key.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20, alignment: .center)
@@ -97,15 +106,17 @@ extension FindPasswordView {
             }
             
             Button {
-                findPW()
+                resetPW()
             } label: {
-                Text("비밀번호 찾기")
+                Text("비밀번호 변경")
                     .frame(width: 288, height: 40, alignment: .center)
-                    .background(Color.theme.accent)
+                    .background(isDisablePassword ? Color.theme.secondary: Color.theme.accent)
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+
             }
+            .disabled(isDisablePassword)
             .padding(.top, 30)
 
         }
@@ -115,18 +126,28 @@ extension FindPasswordView {
 }
 
 // MARK: - Functions
-extension FindPasswordView {
-    private func findPW() {
-        VM.doReinitPW(data: ReinitPWRequestModel(userEmail: emailTextField, userName: nameTextField))
-        print("비밀번호 초기화 완료")
+extension ResetPWView {
+    private func resetPW() {
+        guard let UUID = UserDefaults.standard.string(forKey: "loginToken") else { return }
+        VM.doResetPW(data: ResetPWModel(userPassword: pwAgainTextField, userUuid: UUID))
+        print("비밀번호 재설정 완료")
+    }
+    
+    /// 패스워드, 패스워드 확인 텍스트가 같은지 확인
+    private func checkPW() {
+        print("passwordField == \(pwTextField), PWAgain == \(pwAgainTextField)")
+        if (pwTextField == pwAgainTextField) && (pwTextField != "") {
+            isDisablePassword = false
+        }
+        else {
+            isDisablePassword = true
+        }
     }
 }
 
-// MARK: - Preview
-struct FindPasswordView_Previews: PreviewProvider {
+
+struct ResetPWView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            FindPasswordView()
-        }
+        ResetPWView()
     }
 }

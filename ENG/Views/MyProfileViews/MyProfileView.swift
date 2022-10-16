@@ -98,6 +98,9 @@ extension MyProfileView {
                 }
                 .font(.custom(Font.theme.mainFont, size: 16))
                 .foregroundColor(.theme.secondary)
+                NavigationLink("비밀번호 재설정", destination: ResetPWView())
+                    .font(.custom(Font.theme.mainFont, size: 12))
+                    .padding(.top, 1)
 
             }
         }

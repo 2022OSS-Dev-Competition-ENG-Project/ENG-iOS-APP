@@ -238,7 +238,7 @@ extension SignUpView {
     /// 패스워드, 패스워드 확인 텍스트가 같은지 확인
     private func checkPW() {
         print("passwordField == \(passWordTextField), PWAgain == \(PWAgainTextField)")
-        if passWordTextField == PWAgainTextField {
+        if (passWordTextField == PWAgainTextField) && (passWordTextField != "") {
             isDisablePassword = false
         }
         else {
